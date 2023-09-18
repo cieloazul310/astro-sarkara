@@ -1,0 +1,4 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".eslintrc.cjs", "src", "astro.config.mjs", "panda.config.ts"]
+}

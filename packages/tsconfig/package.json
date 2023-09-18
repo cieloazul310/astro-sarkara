@@ -1,6 +1,6 @@
 {
   "name": "@cieloazul310/tsconfig",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "files": ["base.json", "astro.json"],
   "peerDependencies": {

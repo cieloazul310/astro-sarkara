@@ -4,22 +4,22 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb-base',
-    'airbnb-typescript/base',
-    'plugin:astro/recommended',
-    'prettier',
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:astro/recommended",
+    "prettier",
   ],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   overrides: [
     {
-      files: ['*.astro'],
-      parser: 'astro-eslint-parser',
+      files: ["*.astro"],
+      parser: "astro-eslint-parser",
       parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
       },
       rules: {
-        'import/prefer-default-export': 'off',
+        "import/prefer-default-export": "off",
       },
     },
   ],

@@ -1,0 +1,24 @@
+{
+  "name": "astro-app",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "panda": "panda",
+    "eslint": "eslint src --ext .js,.ts,.astro --fix"
+  },
+  "dependencies": {
+    "@cieloazul310/panda-preset-sarkara": "^0.0.1",
+    "astro": "^3.1.0"
+  },
+  "devDependencies": {
+    "@pandacss/astro": "^0.15.0",
+    "@pandacss/dev": "^0.15.0",
+    "eslint": "^8.49.0"
+  }
+}

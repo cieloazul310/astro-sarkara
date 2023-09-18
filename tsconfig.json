@@ -1,0 +1,12 @@
+{
+  "extends": "@cieloazul310/tsconfig/astro",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@cieloazul310/panda-preset-sarkara": ["packages/panda/sarkara-preset/src"],
+      "@cieloazul310/sarkara-astro-components": ["packages/astro/components/src"]
+    },
+    "composite": true
+  },
+  "include": [".eslintrc.cjs"]
+}
