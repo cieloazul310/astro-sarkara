@@ -1,0 +1,39 @@
+{
+  "name": "@cieloazul310/panda-preset-sarkara",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "module": "./module/index.js",
+  "types": "./module/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./module/index.d.ts",
+        "default": "./module/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "module/"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc --project ./tsconfig.json && tsc --project ./tsconfig.cjs.json",
+    "clean": "git clean -fx lib/ module/ && tsc -b --clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.15.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@pandacss/dev": "^0.13.0"
+  }
+}

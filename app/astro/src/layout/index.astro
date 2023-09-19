@@ -1,6 +1,8 @@
 ---
+import { Link } from "@cieloazul310/astro-sarkara";
 import { css } from "../../styled-system/css";
 ---
+
 <!doctype html>
 <html lang="ja">
   <head>
@@ -15,6 +17,9 @@ import { css } from "../../styled-system/css";
       <main class={css({ maxWidth: "600px", bg: "primary.50" })}>
         <slot />
       </main>
+      <footer>
+        <Link href="https://cieloazul310.github.io">水戸地図</Link>
+      </footer>
     </div>
   </body>
 </html>

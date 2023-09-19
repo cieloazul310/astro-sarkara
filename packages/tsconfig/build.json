@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "declaration": true,
+    "strict": true,
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

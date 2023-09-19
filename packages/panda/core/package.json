@@ -1,17 +1,23 @@
 {
-  "name": "@cieloazul310/panda-preset-sarkara",
+  "name": "@cieloazul310/panda-sarkara",
   "version": "0.0.1",
+  "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
+  "author": "",
   "license": "ISC",
   "scripts": {
     "build": "tsup src --format=esm,cjs --dts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@cieloazul310/panda-preset-sarkara": "^0.0.1"
+  },
   "devDependencies": {
-    "@pandacss/dev": "^0.15.0",
     "tsup": "^7.2.0"
   },
   "peerDependencies": {

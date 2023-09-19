@@ -1,0 +1,4 @@
+{
+  "extends": "../../../tsconfig.astro.json",
+  "include": ["index.ts", ".eslintrc.cjs"]
+}

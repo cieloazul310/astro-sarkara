@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
+
+export interface Props extends HTMLAttributes<"a"> {
+  className?: string;
+  disablePrefix?: boolean;
+}
+
+const { href, className, disablePrefix, ...props } = Astro.props;
+const link = useLink(href, { disablePrefix });
+---
+
+<a class={className} {...link} {...props}>
+  <slot />
+</a>

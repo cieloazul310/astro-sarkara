@@ -13,6 +13,7 @@
     "eslint": "eslint src --ext .js,.ts,.astro --fix"
   },
   "dependencies": {
+    "@cieloazul310/astro-sarkara": "^0.0.1",
     "@cieloazul310/panda-preset-sarkara": "^0.0.1",
     "astro": "^3.1.0"
   },

@@ -1,14 +1,21 @@
 {
-  "name": "@cieloazul310/sarkara-astro-utils",
+  "name": "@cieloazul310/astro-sarkara-utils",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "author": "",
   "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsup src --format=esm,cjs --dts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "eslint": "^8.49.0"
+    "eslint": "^8.49.0",
+    "tsup": "^7.2.0"
   }
 }

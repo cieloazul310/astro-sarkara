@@ -1,4 +1,12 @@
 {
-  "extends": "../../../tsconfig.json",
-  "include": ["src", "index.ts", ".eslintrc.cjs"]
+  "extends": "../../../tsconfig.astro.json",
+  "compilerOptions": {
+    "jsx": "preserve"
+  },
+  "references": [
+    {
+      "path": "../utils"
+    }
+  ],
+  "include": ["src", ".eslintrc.cjs"]
 }
