@@ -1,6 +1,7 @@
 ---
 import { Link } from "@cieloazul310/astro-sarkara";
-import { css } from "../../styled-system/css";
+import { cx, css } from "../../styled-system/css";
+import { paper } from "../../styled-system/patterns";
 ---
 
 <!doctype html>
@@ -14,7 +15,12 @@ import { css } from "../../styled-system/css";
   </head>
   <body>
     <div>
-      <main class={css({ maxWidth: "600px", bg: "primary.50" })}>
+      <main
+        class={cx(
+          css({ colorPalette: "primary" }),
+          paper({ maxWidth: "600px" }),
+        )}
+      >
         <slot />
       </main>
       <footer>

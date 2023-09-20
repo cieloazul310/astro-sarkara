@@ -1,8 +1,10 @@
 {
-  "extends": "../../../tsconfig.build.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
     "rootDir": "src",
-    "outDir": "./module/"
+    "outDir": "./lib/"
   },
   "references": [
     {

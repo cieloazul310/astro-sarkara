@@ -4,13 +4,5 @@
     "rootDir": "src",
     "outDir": "./module/"
   },
-  "references": [
-    {
-      "path": "../preset"
-    },
-    {
-      "path": "../styles"
-    }
-  ],
   "include": ["src"]
 }

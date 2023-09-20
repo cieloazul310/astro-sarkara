@@ -6,10 +6,5 @@
     "moduleResolution": "node",
     "outDir": "./lib/"
   },
-  "references": [
-    {
-      "path": "../styles"
-    }
-  ],
   "include": ["src"]
 }

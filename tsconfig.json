@@ -7,9 +7,8 @@
       ],
       "@cieloazul310/astro-sarkara-utils": ["packages/astro/utils/src"],
       "@cieloazul310/panda-sarkara": ["packages/panda/core/src"],
-      "@cieloazul310/panda-preset-sarkara": [
-        "packages/panda/preset/src"
-      ]
+      "@cieloazul310/panda-preset-sarkara": ["packages/panda/preset/src"],
+      "@cieloazul310/panda-style-sarkara": ["packages/panda/styles/src"]
     },
     "composite": true
   }

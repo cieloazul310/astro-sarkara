@@ -25,12 +25,14 @@
   "license": "ISC",
   "scripts": {
     "build": "tsc --project ./tsconfig.json && tsc --project ./tsconfig.cjs.json",
-    "clean": "git clean -fx lib/ module/ && tsc -b --clean",
+    "clean": "git clean -fx lib/ module/ && rm *.tsbuildinfo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@cieloazul310/panda-style-sarkara": "^0.0.1"
+  },
   "devDependencies": {
-    "@pandacss/dev": "^0.15.0",
-    "tsup": "^7.2.0",
+    "@pandacss/dev": "^0.15.1",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {

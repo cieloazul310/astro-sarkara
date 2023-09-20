@@ -1,5 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
-import { defineSarkaraPreset } from "@cieloazul310/panda-preset-sarkara";
+import { defineSarkaraPreset } from "@cieloazul310/panda-sarkara";
 
 export default defineConfig({
   // Whether to use css reset
@@ -14,8 +14,5 @@ export default defineConfig({
   // The output directory for your css system
   outdir: "styled-system",
 
-  presets: [
-    "@pandacss/dev/presets",
-    defineSarkaraPreset({ primary: "teal", secondary: "yellow" }),
-  ],
+  presets: [defineSarkaraPreset({ primary: "teal", secondary: "yellow" })],
 });

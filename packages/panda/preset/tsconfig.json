@@ -4,5 +4,10 @@
     "rootDir": "src",
     "outDir": "./module/"
   },
+  "references": [
+    {
+      "path": "../styles"
+    }
+  ],
   "include": ["src"]
 }

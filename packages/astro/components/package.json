@@ -20,6 +20,7 @@
   },
   "peerDependencies": {
     "@cieloazul310/astro-sarkara-utils": "^0.0.1",
+    "@cieloazul310/panda-sarkara": "^0.0.1",
     "astro": "^3.0.0"
   }
 }

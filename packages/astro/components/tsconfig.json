@@ -6,6 +6,9 @@
   "references": [
     {
       "path": "../utils"
+    },
+    {
+      "path": "../../panda/core"
     }
   ],
   "include": ["src", ".eslintrc.cjs"]

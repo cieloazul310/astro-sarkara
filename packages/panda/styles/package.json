@@ -1,7 +1,9 @@
 {
-  "name": "@cieloazul310/panda-sarkara",
+  "name": "@cieloazul310/panda-style-sarkara",
   "version": "0.0.1",
   "description": "",
+  "author": "",
+  "license": "ISC",
   "main": "./lib/index.js",
   "module": "./module/index.js",
   "types": "./module/index.d.ts",
@@ -23,18 +25,13 @@
     "lib/",
     "module/"
   ],
-  "author": "",
-  "license": "ISC",
   "scripts": {
     "build": "tsc --project ./tsconfig.json && tsc --project ./tsconfig.cjs.json",
     "clean": "git clean -fx lib/ module/ && rm *.tsbuildinfo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@cieloazul310/panda-preset-sarkara": "^0.0.1",
-    "@cieloazul310/panda-style-sarkara": "^0.0.1"
-  },
   "devDependencies": {
+    "@pandacss/dev": "^0.15.1",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
