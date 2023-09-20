@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.astro.json",
+  "compilerOptions": {
+    "jsx": "preserve"
+  },
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../../panda/core"
+    }
+  ],
+  "include": ["src", ".eslintrc.cjs"]
+}
