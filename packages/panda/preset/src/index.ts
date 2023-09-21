@@ -1,19 +1,21 @@
 import { definePreset } from "@pandacss/dev";
 import defaultPreset from "@pandacss/dev/presets";
+/*
 import {
   layerStyles,
   backgroundColorTransparentize,
   gradientBox,
   paper,
 } from "@cieloazul310/panda-style-sarkara";
+*/
 import { definePalette, type PandaPalette } from "./definePalette";
 
-export function defineSarkaraPreset(props: Record<string, PandaPalette>) {
+export function defineSarkaraPreset(props: Record<string, PandaPalette> = {}) {
   return definePreset({
     presets: [defaultPreset],
     theme: {
       extend: {
-        layerStyles,
+        // layerStyles,
         semanticTokens: {
           colors: {
             ...definePalette(props),
@@ -21,6 +23,7 @@ export function defineSarkaraPreset(props: Record<string, PandaPalette>) {
         },
       },
     },
+    /*
     patterns: {
       extend: {
         gradientBox,
@@ -32,6 +35,7 @@ export function defineSarkaraPreset(props: Record<string, PandaPalette>) {
         backgroundColorTransparentize,
       },
     },
+    */
   });
 }
 
