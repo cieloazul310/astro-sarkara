@@ -1,5 +1,4 @@
 import { definePreset } from "@pandacss/dev";
-import defaultPreset from "@pandacss/dev/presets";
 /*
 import {
   layerStyles,
@@ -12,7 +11,6 @@ import { definePalette, type PandaPalette } from "./definePalette";
 
 export function defineSarkaraPreset(props: Record<string, PandaPalette> = {}) {
   return definePreset({
-    presets: [defaultPreset],
     theme: {
       extend: {
         // layerStyles,

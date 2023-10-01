@@ -1,5 +1,5 @@
 ---
-import { Link } from "@cieloazul310/astro-sarkara";
+import { Link, Paper } from "@cieloazul310/astro-sarkara";
 import { cx, css } from "../../styled-system/css";
 import { paper } from "../../styled-system/patterns";
 ---
@@ -14,7 +14,7 @@ import { paper } from "../../styled-system/patterns";
     <title>Astro</title>
   </head>
   <body>
-    <div>
+    <Paper>
       <main
         class={cx(
           css({ colorPalette: "primary" }),
@@ -26,6 +26,6 @@ import { paper } from "../../styled-system/patterns";
       <footer>
         <Link href="https://cieloazul310.github.io">水戸地図</Link>
       </footer>
-    </div>
+    </Paper>
   </body>
 </html>

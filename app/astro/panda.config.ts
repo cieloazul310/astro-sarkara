@@ -14,5 +14,8 @@ export default defineConfig({
   // The output directory for your css system
   outdir: "styled-system",
 
-  presets: [defineSarkaraPreset({ primary: "teal", secondary: "yellow" })],
+  presets: [
+    "@pandacss/dev/presets",
+    defineSarkaraPreset({ primary: "teal", secondary: "yellow" }),
+  ],
 });

@@ -1,7 +1,8 @@
 {
   "extends": "../../../tsconfig.astro.json",
   "compilerOptions": {
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "rootDir": "src"
   },
   "references": [
     {
@@ -11,5 +12,5 @@
       "path": "../../panda/core"
     }
   ],
-  "include": ["src", ".eslintrc.cjs"]
+  "include": ["src", ".eslintrc.cjs", "panda.config.ts"]
 }

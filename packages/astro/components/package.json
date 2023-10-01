@@ -12,9 +12,13 @@
   "keywords": [
     "astro-component"
   ],
-  "scripts": {},
+  "scripts": {
+    "panda": "panda",
+    "ship": "panda ship src/**/*.tsx --outfile dist/panda.json"
+  },
   "devDependencies": {
     "@cieloazul310/astro-sarkara-utils": "^0.0.1",
+    "@pandacss/dev": "^0.15.1",
     "astro": "^3.1.0",
     "eslint": "^8.49.0"
   },

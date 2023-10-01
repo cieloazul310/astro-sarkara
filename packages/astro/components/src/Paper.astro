@@ -1,5 +1,17 @@
 ---
-// import { paper } from "@cieloazul310/panda-sarkara";
+import { cx, css } from "@cieloazul310/panda-components/css";
+import { paper } from "@cieloazul310/panda-components/patterns";
+// import type { PropertyTypes } from "@cieloazul310/panda-components/types/prop-type";
 
-interface Props {}
+export interface Props {
+  className?: string;
+  colorPalette?: string;
+  // colorPalette?: PropertyTypes["colorPalette"];
+}
+
+const { className, colorPalette = "primary" } = Astro.props;
 ---
+
+<div class={cx(css({ colorPalette }), paper(), className)}>
+  <slot />
+</div>

@@ -1,4 +1,18 @@
 {
   "extends": "../../../tsconfig.astro.json",
-  "include": ["index.ts", ".eslintrc.cjs"]
+  "include": ["index.ts", ".eslintrc.cjs"],
+  "compilerOptions": {
+    "rootDir": "."
+  },
+  "references": [
+    {
+      "path": "../components"
+    },
+    {
+      "path": "../layout"
+    },
+    {
+      "path": "../utils"
+    }
+  ]
 }
