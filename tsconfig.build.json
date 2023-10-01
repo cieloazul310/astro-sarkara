@@ -1,3 +1,0 @@
-{
-  "extends": ["./tsconfig.json", "@cieloazul310/tsconfig/build"]
-}

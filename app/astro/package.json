@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "@cieloazul310/astro-sarkara": "^0.0.1",
-    "@cieloazul310/panda-sarkara": "^0.0.1",
-    "astro": "^3.1.0"
+    "astro": "^3.2.0"
   },
   "devDependencies": {
-    "@pandacss/astro": "^0.15.1",
-    "@pandacss/dev": "^0.15.1",
-    "eslint": "^8.49.0"
+    "@pandacss/astro": "^0.15.4",
+    "@pandacss/dev": "^0.15.4",
+    "eslint": "^8.50.0",
+    "eslint-config-custom": "^0.0.1"
   }
 }
