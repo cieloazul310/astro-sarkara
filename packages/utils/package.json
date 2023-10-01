@@ -1,0 +1,22 @@
+{
+  "name": "@cieloazul310/astro-sarkara-utils",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "tsup": "tsup src --format=esm,cjs --dts",
+    "build": "npm run tsup -- --clean"
+  },
+  "devDependencies": {
+    "@cieloazul310/tsconfig": "^0.0.1",
+    "eslint": "^8.50.0",
+    "eslint-config-custom": "^0.0.1"
+  }
+}

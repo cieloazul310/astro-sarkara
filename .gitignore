@@ -139,3 +139,5 @@ styled-system-static
 # outdir
 module
 lib
+
+dist

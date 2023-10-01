@@ -1,0 +1,4 @@
+{
+  "extends": "@cieloazul310/tsconfig/build",
+  "include": ["src", ".eslintrc.cjs"]
+}
