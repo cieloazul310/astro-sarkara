@@ -1,0 +1,38 @@
+{
+  "name": "@cieloazul310/panda-preset-sarkara-base",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "import": "./dist/index.mjs"
+      },
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "clean": "rimraf dist",
+    "tsup": "tsup src/index.ts --dts --format=esm,cjs --external @pandacss/dev",
+    "build": "npm run tsup -- --clean",
+    "dev": "npm run tsup -- --watch"
+  },
+  "devDependencies": {
+    "@cieloazul310/tsconfig": "^0.0.1",
+    "@pandacss/dev": "^0.15.4",
+    "eslint": "^8.50.0",
+    "eslint-config-custom": "^0.0.1"
+  },
+  "peerDependencies": {
+    "@pandacss/dev": ">=0.15.0"
+  }
+}

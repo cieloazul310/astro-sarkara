@@ -5,9 +5,10 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: "./tsconfig.json",
   },
+  ignorePatterns: ["dist"],
   overrides: [
     {
-      files: ["astro.config.ts", "panda.config.ts"],
+      files: ["src/*.ts"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },

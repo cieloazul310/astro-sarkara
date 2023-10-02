@@ -1,0 +1,42 @@
+---
+import { css } from "@cieloazul310/sarkara-css/css";
+import { gradientBox } from "@cieloazul310/sarkara-css/patterns";
+import { ColorModeButton, Link } from "@cieloazul310/astro-sarkara-components";
+
+export interface Props {
+  siteTitle: string;
+}
+
+const { siteTitle } = Astro.props;
+---
+
+<header
+  class={gradientBox({
+    position: "sticky",
+    top: 0,
+    height: "headerHeight",
+    px: 4,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: ["center", "start"],
+    zIndex: "header",
+  })}
+>
+<slot>
+    <Link
+      href="/"
+      className={css({
+        color: "white",
+        _hover: {
+          color: "primary.200",
+          textDecoration: "none",
+        },
+      })}
+    >
+      <h1 class={css({ fontSize: "xl", fontWeight: "bold" })}>{siteTitle}</h1>
+    </Link>
+    <div class={css({ flexGrow: 1, hideBelow: "sm" })}></div>
+    <div class={css({ hideBelow: "sm" })}>
+      <ColorModeButton />
+    </div>
+</header>

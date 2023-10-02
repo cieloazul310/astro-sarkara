@@ -1,0 +1,52 @@
+{
+  "name": "@cieloazul310/astro-sarkara-components",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./preset": {
+      "types": "./dist/preset.d.ts",
+      "require": "./dist/preset.cjs",
+      "import": "./dist/preset.js"
+    }
+  },
+  "files": [
+    "src/index.ts",
+    "src/*.astro",
+    "dist"
+  ],
+  "keywords": [
+    "astro-component"
+  ],
+  "scripts": {
+    "tsup": "tsup src/preset.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/sarkara-css",
+    "codegen": "panda --clean",
+    "dev": "npm-run-all --parallel dev:panda dev:preset",
+    "dev:panda": "panda --watch",
+    "dev:preset": "npm run tsup -- --watch",
+    "build": "npm run codegen && npm run build:preset",
+    "build:preset": "npm run tsup -- --clean"
+  },
+  "dependencies": {
+    "astro-icon": "^0.8.1"
+  },
+  "devDependencies": {
+    "@cieloazul310/astro-sarkara-utils": "^0.0.1",
+    "@cieloazul310/tsconfig": "^0.0.1",
+    "@pandacss/dev": "^0.15.4",
+    "astro": "^3.2.0",
+    "eslint": "^8.50.0",
+    "eslint-config-custom": "^0.0.1"
+  },
+  "peerDependencies": {
+    "@cieloazul310/astro-sarkara-utils": "^0.0.1",
+    "@cieloazul310/panda-preset-sarkara-base": "^0.0.1",
+    "astro": "^3.0.0"
+  }
+}

@@ -1,0 +1,31 @@
+---
+import { css } from "@cieloazul310/sarkara-css/css";
+import { Link } from "@cieloazul310/astro-sarkara-components";
+
+export interface Props {
+  siteTitle: string;
+}
+
+const { siteTitle } = Astro.props;
+const year = new Date().getFullYear().toString();
+---
+
+<footer
+  class={css({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 2,
+    py: 16,
+    bgGradient: "to-t",
+    gradientFrom: { base: "primary.300", _dark: "primary.800" },
+    gradientTo: { base: "bg", _dark: "bg.dark" },
+  })}
+>
+  <slot>
+    <Link href="/">
+      <p class={css({ fontSize: "md", fontWeight: "bold" })}>{siteTitle}</p>
+    </Link>
+    <p>© {year} {siteTitle} All rights reserved.</p>
+  </slot>
+</footer>

@@ -1,6 +1,9 @@
 ---
-import { css } from "../../styled-system/css";
+import { Link, Paper, SarkaraLayout } from "@cieloazul310/astro-sarkara";
+import { cx, css } from "@cieloazul310/sarkara-css/css";
+import { paper } from "@cieloazul310/sarkara-css/patterns";
 ---
+
 <!doctype html>
 <html lang="ja">
   <head>
@@ -11,10 +14,20 @@ import { css } from "../../styled-system/css";
     <title>Astro</title>
   </head>
   <body>
-    <div>
-      <main class={css({ maxWidth: "600px", bg: "primary.50" })}>
+    <SarkaraLayout siteTitle="Sarkara" siteDescription="Sarkara">
+    <Paper>
+      <main
+        class={cx(
+          css({ colorPalette: "primary" }),
+          paper(),
+        )}
+      >
         <slot />
       </main>
-    </div>
+    </Paper>
+    <Paper colorPalette="secondary">
+      <Link href="https://cieloazul310.github.io">水戸地図</Link>
+    </Paper>
+    </SarkaraLayout>
   </body>
 </html>

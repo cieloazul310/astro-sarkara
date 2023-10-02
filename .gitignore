@@ -135,3 +135,12 @@ styled-system-static
 
 # astro
 .astro
+
+# outdir
+module
+lib
+
+dist
+
+# turbo
+.turbo

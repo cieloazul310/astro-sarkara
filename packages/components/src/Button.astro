@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLAttributes } from "astro/types";
+import { css, cx } from "@cieloazul310/sarkara-css/css";
+import {
+  buttonBase,
+  button,
+  type ButtonBaseVariantProps,
+  type ButtonVariantProps,
+} from "@cieloazul310/sarkara-css/recipes";
+
+type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
+
+export type Props = ButtonVariants &
+  HTMLAttributes<"button"> & {
+    className?: string;
+    colorPalette?: string;
+    icon?: string;
+  };
+
+const {
+  visual,
+  size,
+  iconPlace,
+  className,
+  icon,
+  colorPalette = "neutral",
+  ...buttonProps
+} = Astro.props;
+
+const classes = button({ iconPlace });
+---
+
+<button
+  class={cx(
+    css({ colorPalette }),
+    buttonBase({ visual, size }),
+    classes.button,
+    className,
+  )}
+  {...buttonProps}
+>
+  {icon && <Icon name={icon} class={classes.icon} />}
+  <slot />
+</button>

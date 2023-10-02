@@ -6,19 +6,20 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "panda codegen && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "panda": "panda",
     "eslint": "eslint src --ext .js,.ts,.astro --fix"
   },
   "dependencies": {
-    "@cieloazul310/panda-preset-sarkara": "^0.0.1",
-    "astro": "^3.1.0"
+    "@cieloazul310/astro-sarkara": "^0.0.1",
+    "astro": "^3.2.0"
   },
   "devDependencies": {
-    "@pandacss/astro": "^0.15.0",
-    "@pandacss/dev": "^0.15.0",
-    "eslint": "^8.49.0"
+    "@pandacss/astro": "^0.15.4",
+    "@pandacss/dev": "^0.15.4",
+    "eslint": "^8.50.0",
+    "eslint-config-custom": "^0.0.1"
   }
 }

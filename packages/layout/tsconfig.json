@@ -1,0 +1,4 @@
+{
+  "extends": "@cieloazul310/tsconfig/astro",
+  "include": ["src", "panda.config.ts", ".eslintrc.cjs"]
+}
