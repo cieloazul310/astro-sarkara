@@ -20,6 +20,13 @@ module.exports = {
       },
       rules: {
         "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": "off",
+      },
+    },
+    {
+      files: ["panda.config.ts"],
+      rules: {
+        "import/no-extraneous-dependencies": "off",
       },
     },
   ],

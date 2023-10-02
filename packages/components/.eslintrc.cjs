@@ -8,13 +8,7 @@ module.exports = {
   ignorePatterns: ["dist"],
   overrides: [
     {
-      files: ["panda.config.ts"],
-      rules: {
-        "import/no-extraneous-dependencies": "off",
-      },
-    },
-    {
-      files: ["src/*.astro", "src/*.ts"],
+      files: ["src/*.ts"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },

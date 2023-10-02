@@ -24,7 +24,9 @@ export function createSarkaraPreset({ palette, ...preset }: CreateSarkaraPresetO
   });
 }
 
-export const astroComponentsPaths = ["@cieloazul310/astro-sarkara-components"].map(
-  (components) =>
-    path.resolve(path.dirname(require.resolve(components)), "*.astro"),
+export const astroComponentsPaths = [
+  "@cieloazul310/astro-sarkara-components",
+  "@cieloazul310/astro-sarkara-layout",
+].map((components) =>
+  path.resolve(path.dirname(require.resolve(components)), "*.astro"),
 );

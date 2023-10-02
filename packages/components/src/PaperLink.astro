@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { css, cx } from "@cieloazul310/sarkara-css/css";
+import { paper } from "@cieloazul310/sarkara-css/patterns";
+import type { PropertyTypes } from "@cieloazul310/sarkara-css/types/prop-type";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
+
+export interface Props extends HTMLAttributes<"a"> {
+  className?: string;
+  disablePrefix?: boolean;
+  colorPalette?: PropertyTypes["colorPalette"];
+  selected?: boolean;
+}
+
+const {
+  className,
+  href,
+  disablePrefix,
+  selected = false,
+  colorPalette = "primary",
+  ...attrs
+} = Astro.props;
+const link = useLink(href, { disablePrefix });
+---
+
+<a
+  class={cx(
+    css({ colorPalette }),
+    paper({
+      hover: true,
+      display: "inline-flex",
+      minHeight: "48px",
+      fontWeight: "bold",
+      justifyContent: "center",
+      alignItems: "center",
+      height: 10,
+    }),
+    className,
+  )}
+  role="button"
+  data-selected={selected}
+  {...link}
+  {...attrs}
+>
+  <slot />
+</a>

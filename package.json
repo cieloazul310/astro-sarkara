@@ -13,7 +13,11 @@
     "packages/*"
   ],
   "scripts": {
-    "format": "prettier \"packages/*.{js,ts,cjs,mjs,astro}\" --write",
+    "turbo": "turbo",
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "build:package": "turbo run build --filter='./packages/*'",
+    "format": "prettier \"packages/**/src/**/*.{js,ts,cjs,mjs,astro}\" --write",
     "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "git config --local core.hooksPath .githooks"
@@ -32,6 +36,7 @@
   },
   "lint-staged": {
     "{app,packages}/*.{js,cjs,mjs,ts,astro}": [
+      "eslint --fix",
       "prettier --write"
     ]
   }

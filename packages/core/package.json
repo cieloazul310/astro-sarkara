@@ -22,15 +22,14 @@
   ],
   "scripts": {
     "tsup": "tsup src/preset.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils",
-    "dev:panda": "panda --watch",
-    "dev:preset": "npm run tsup -- --watch",
-    "build": "npm run build:preset",
-    "build:preset": "npm run tsup -- --clean"
+    "dev": "npm run tsup -- --watch",
+    "build": "npm run tsup -- --clean"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@cieloazul310/astro-sarkara-components": "^0.0.1",
+    "@cieloazul310/astro-sarkara-layout": "^0.0.1",
     "@cieloazul310/astro-sarkara-utils": "^0.0.1",
     "@cieloazul310/panda-preset-sarkara-base": "^0.0.1"
   },

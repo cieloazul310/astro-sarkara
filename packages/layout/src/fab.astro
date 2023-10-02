@@ -1,0 +1,21 @@
+---
+import { css } from "@cieloazul310/sarkara-css/css";
+import { IconButton } from "@cieloazul310/astro-sarkara-components";
+---
+
+<div
+  class={css({
+    hideFrom: "lg",
+    position: "fixed",
+    bottom: 4,
+    right: 4,
+    zIndex: "fab",
+  })}
+>
+  <IconButton
+    className="drawer-handler"
+    colorPalette="primary"
+    icon="mdi:menu"
+    aria-label="Open drawer"
+  />
+</div>

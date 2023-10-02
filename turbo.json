@@ -1,4 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {}
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["node_modules", "dist"]
+    },
+    "dev": {
+      "dependsOn": ["^dev"],
+      "outputs": ["node_modules", "dist"]
+    },
+    "clean": {}
+  }
 }

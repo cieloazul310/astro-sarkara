@@ -1,5 +1,5 @@
 ---
-import { Link, Paper } from "@cieloazul310/astro-sarkara";
+import { Link, Paper, SarkaraLayout } from "@cieloazul310/astro-sarkara";
 import { cx, css } from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
 ---
@@ -14,18 +14,20 @@ import { paper } from "@cieloazul310/sarkara-css/patterns";
     <title>Astro</title>
   </head>
   <body>
+    <SarkaraLayout siteTitle="Sarkara" siteDescription="Sarkara">
     <Paper>
       <main
         class={cx(
           css({ colorPalette: "primary" }),
-          paper({ maxWidth: "600px" }),
+          paper(),
         )}
       >
         <slot />
       </main>
-      <footer>
-        <Link href="https://cieloazul310.github.io">水戸地図</Link>
-      </footer>
     </Paper>
+    <Paper colorPalette="secondary">
+      <Link href="https://cieloazul310.github.io">水戸地図</Link>
+    </Paper>
+    </SarkaraLayout>
   </body>
 </html>

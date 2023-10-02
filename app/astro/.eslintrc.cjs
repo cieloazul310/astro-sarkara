@@ -12,11 +12,5 @@ module.exports = {
         "import/no-extraneous-dependencies": "off",
       },
     },
-    {
-      files: ["src/**/*.astro"],
-      rules: {
-        "import/no-extraneous-dependencies": "off",
-      },
-    },
   ],
 };

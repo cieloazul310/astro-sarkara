@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "tsup": "tsup src --format=esm,cjs --dts",
-    "build": "npm run tsup -- --clean"
+    "build": "npm run tsup -- --clean",
+    "dev": "npm run tsup -- --watch"
   },
   "devDependencies": {
     "@cieloazul310/tsconfig": "^0.0.1",

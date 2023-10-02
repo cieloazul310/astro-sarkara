@@ -1,0 +1,58 @@
+---
+export interface Props {
+  siteTitle: string;
+  siteDescription: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  siteType?: "website" | "book" | "profile" | string;
+  twitterCardType?: "summary" | "summary_large_image" | "app" | "player";
+}
+
+const {
+  siteTitle,
+  siteDescription,
+  title,
+  description,
+  image,
+  siteType = "website",
+  twitterCardType,
+} = Astro.props;
+
+const contentTitle = title ? `${title} - ${siteTitle}` : siteTitle;
+const seoDescription = description || siteDescription;
+---
+
+<>
+  <title>{contentTitle}</title>
+  {
+    title && (
+      <>
+        <meta name="og:title" content={contentTitle} />
+        <meta name="twitter:title" content={contentTitle} />
+      </>
+    )
+  }
+  <meta name="og:type" content={siteType} />
+  {
+    seoDescription && (
+      <>
+        <meta name="description" content={seoDescription} />
+        <meta name="og:description" content={seoDescription} />
+        <meta name="twitter:description" content={seoDescription} />
+      </>
+    )
+  }
+  <meta name="twitter:card" content={twitterCardType} />
+  {siteTitle && <meta name="twitter:site" content={siteTitle} />}
+  {
+    image && (
+      <>
+        <meta name="image" content={image} />
+        <meta name="og:image" content={image} />
+        <meta name="twitter:image" content={image} />
+      </>
+    )
+  }
+  <slot />
+</>

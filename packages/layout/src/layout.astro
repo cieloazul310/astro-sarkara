@@ -1,0 +1,132 @@
+---
+import { container, vstack } from "@cieloazul310/sarkara-css/patterns";
+import { css } from "@cieloazul310/sarkara-css/css";
+import { PaperLink, Divider } from "@cieloazul310/astro-sarkara-components";
+
+import Seo, { type Props as SeoProps } from "./seo.astro";
+import Header from "./header.astro";
+import Drawer from "./drawer.astro";
+import Footer from "./footer.astro";
+import Jumbotron from "./jumbotron.astro";
+import Fab from "./fab.astro";
+import Menu from "./menu.astro";
+
+export interface Props extends SeoProps {}
+
+const {
+  siteTitle,
+  siteDescription,
+  title,
+  description,
+  image,
+  siteType = "website",
+  twitterCardType = "summary",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo
+      siteTitle={siteTitle}
+      siteDescription={siteDescription}
+      title={title}
+      description={description}
+      image={image}
+      siteType={siteType}
+      twitterCardType={twitterCardType}
+    >
+      <slot name="meta" />
+    </Seo>
+  </head>
+  <body>
+    <Header siteTitle={siteTitle} />
+    <main>
+      <article>
+        <Jumbotron title={title || siteTitle}>
+          <slot name="jumbotron-header" slot="jumbotron-header" />
+          <slot name="jumbotron-footer" slot="jumbotron-footer" />
+        </Jumbotron>
+        <div
+          class={container({
+            maxWidth: "contentMaxWidth",
+            display: "flex",
+            px: 2,
+            py: 4,
+          })}
+        >
+          <div
+            class={vstack({
+              flexGrow: 1,
+              gap: 4,
+              px: [0, 2],
+              alignItems: "stretch",
+              maxWidth: "100%",
+              minWidth: 0,
+            })}
+          >
+            <slot />
+            <div class={css({ hideFrom: "md" })}>
+              <Menu />
+            </div>
+            <PaperLink className={css({ hideBelow: "md" })} href="/">
+              Top
+            </PaperLink>
+          </div>
+          <div
+            class={vstack({
+              width: "sidebarWidth",
+              gap: 4,
+              hideBelow: "md",
+              flexShrink: 0,
+              px: 2,
+              pb: 8,
+              alignItems: "stretch",
+            })}
+          >
+            <slot name="sidebar-top" />
+            {Astro.slots.has("sidebar-top") && <Divider />}
+            <Menu />
+            {Astro.slots.has("sidebar-bottom") && <Divider />}
+            <slot name="sidebar-bottom" />
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer siteTitle={siteTitle} />
+    <Fab />
+    <Drawer siteTitle={siteTitle}>
+      <slot name="drawer-top" slot="drawer-top" />
+      <Menu />
+      <slot name="drawer-bottom" slot="drawer-bottom" />
+    </Drawer>
+    <script>
+      import "./scripts/toggleColorMode.ts";
+    </script>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage === "undefined") return "light";
+
+        const localStorageItem = localStorage.getItem("astro-color-mode");
+        if (
+          localStorageItem &&
+          (localStorageItem === "light" || localStorageItem === "dark")
+        ) {
+          return localStorageItem;
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      document.documentElement?.setAttribute("data-color-mode", theme);
+
+      window.localStorage.setItem("astro-color-mode", theme);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon";
+import { css, cx } from "@cieloazul310/sarkara-css/css";
+import { hstack } from "@cieloazul310/sarkara-css/patterns";
+---
+
+<div
+  class={hstack({
+    color: "inherit",
+    gap: 1,
+    bg: { base: "bg", _dark: "bg.dark" },
+    rounded: "xl",
+    borderWidth: "1px",
+    borderColor: { base: "gray.200", _dark: "gray.800" },
+    shadow: "inner",
+  })}
+>
+  <button
+    class={cx(
+      css({
+        borderRadius: "50%",
+        cursor: { base: "unset", _dark: "pointer" },
+        color: { base: "orange.500", _dark: "gray.950" },
+        _hover: {
+          color: { base: "orange.500", _dark: "orange.800" },
+        },
+      }),
+      "toggle-color-mode",
+    )}
+    aria-label="Light mode"
+  >
+    <Icon
+      name="mdi:brightness-5"
+      class={css({
+        width: 6,
+      })}
+    />
+  </button>
+  <button
+    class={cx(
+      css({
+        borderRadius: "50%",
+        cursor: { base: "pointer", _dark: "unset" },
+        color: { base: "orange.100", _dark: "orange.300" },
+        _hover: {
+          color: { base: "orange.500", _dark: "orange.300" },
+        },
+      }),
+      "toggle-color-mode",
+    )}
+    aria-label="Dark mode"
+  >
+    <Icon
+      name="mdi:brightness-3"
+      class={css({
+        width: 6,
+      })}
+    />
+  </button>
+</div>
