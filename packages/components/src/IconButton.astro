@@ -2,16 +2,19 @@
 import { Icon } from "astro-icon";
 import type { HTMLAttributes } from "astro/types";
 import { css, cx } from "@cieloazul310/sarkara-css/css";
-import { iconButton, buttonBase, type IconButtonVariantProps, type ButtonBaseVariantProps } from "@cieloazul310/sarkara-css/recipes";
-import type { PropertyTypes } from "@cieloazul310/sarkara-css/types/prop-type";
+import {
+  iconButton,
+  buttonBase,
+  type IconButtonVariantProps,
+  type ButtonBaseVariantProps,
+} from "@cieloazul310/sarkara-css/recipes";
 
-type ButtonVariants = IconButtonVariantProps &
-  ButtonBaseVariantProps;
+type ButtonVariants = IconButtonVariantProps & ButtonBaseVariantProps;
 
 export type Props = ButtonVariants &
   HTMLAttributes<"button"> & {
     className?: string;
-    colorPalette?: PropertyTypes["colorPalette"];
+    colorPalette?: string;
     icon: string;
   };
 const {

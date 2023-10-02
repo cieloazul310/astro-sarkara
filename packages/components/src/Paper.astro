@@ -1,11 +1,10 @@
 ---
 import { cx, css } from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
-import type { PropertyTypes } from "@cieloazul310/sarkara-css/types/prop-type";
 
 export interface Props {
   className?: string;
-  colorPalette?: PropertyTypes["colorPalette"];
+  colorPalette?: string;
 }
 
 const { className, colorPalette = "primary" } = Astro.props;

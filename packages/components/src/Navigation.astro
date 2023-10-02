@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-icon";
+import { cx, css } from "@cieloazul310/sarkara-css/css";
+import { paper } from "@cieloazul310/sarkara-css/patterns";
+import {
+  navigation,
+  navigationHgroup,
+  type NavigationVariantProps,
+} from "@cieloazul310/sarkara-css/recipes";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
+
+const iconStyle = css({ width: 6, height: 6, flexShrink: 0 });
+
+export type Props = NavigationVariantProps & {
+  left: {
+    href: string;
+    primaryText: string;
+    secondaryText?: string;
+  } | null;
+  right: {
+    href: string;
+    primaryText: string;
+    secondaryText?: string;
+  } | null;
+  disablePrefix?: boolean;
+};
+const { left, right, direction, disablePrefix = false } = Astro.props;
+const classes = navigation({ direction });
+---
+
+<nav class={classes.container}>
+  {
+    left ? (
+      <a
+        href={useLink(left.href, { disablePrefix }).href}
+        class={cx(classes.button, paper({ hover: true }))}
+        role="button"
+      >
+        <Icon class={iconStyle} name="ic:baseline-arrow-back" />
+        <hgroup class={navigationHgroup()}>
+          <h1>{left.primaryText}</h1>
+          {left.secondaryText && <p>{left.secondaryText}</p>}
+        </hgroup>
+      </a>
+    ) : (
+      <div class={classes.button} />
+    )
+  }
+  {
+    right ? (
+      <a
+        href={useLink(right.href, { disablePrefix }).href}
+        class={cx(
+          classes.button,
+          paper({ hover: true, flexDirection: "row-reverse" }),
+        )}
+        role="button"
+      >
+        <Icon class={iconStyle} name="ic:baseline-arrow-forward" />
+        <hgroup class={navigationHgroup({ type: "right" })}>
+          <h1>{right.primaryText}</h1>
+          {right.secondaryText && <p>{right.secondaryText}</p>}
+        </hgroup>
+      </a>
+    ) : (
+      <div class={classes.button} />
+    )
+  }
+</nav>

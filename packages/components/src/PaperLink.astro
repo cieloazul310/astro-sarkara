@@ -2,13 +2,12 @@
 import type { HTMLAttributes } from "astro/types";
 import { css, cx } from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
-import type { PropertyTypes } from "@cieloazul310/sarkara-css/types/prop-type";
 import { useLink } from "@cieloazul310/astro-sarkara-utils";
 
 export interface Props extends HTMLAttributes<"a"> {
   className?: string;
   disablePrefix?: boolean;
-  colorPalette?: PropertyTypes["colorPalette"];
+  colorPalette?: string;
   selected?: boolean;
 }
 

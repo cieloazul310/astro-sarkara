@@ -94,4 +94,44 @@ export const buttonBase = defineRecipe({
   },
 });
 
-export default { heading, buttonBase };
+export const paginationButton = defineRecipe({
+  className: "pagination-button",
+  base: {
+    fontSize: ["sm", "md"],
+  },
+  variants: {
+    display: {
+      base: {},
+      optional: {
+        hideBelow: "sm",
+      },
+    },
+  },
+  defaultVariants: {
+    display: "optional",
+  },
+});
+
+export const navigationHgroup = defineRecipe({
+  className: "navigation-hgroup",
+  base: {
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+  },
+  variants: {
+    type: {
+      left: {
+        alignItems: "start",
+      },
+      right: {
+        alignItems: "end",
+      },
+    },
+  },
+  defaultVariants: {
+    type: "left",
+  },
+});
+
+export default { heading, buttonBase, paginationButton, navigationHgroup };

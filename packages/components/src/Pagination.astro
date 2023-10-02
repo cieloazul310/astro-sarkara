@@ -1,0 +1,51 @@
+---
+import type { Page } from "astro";
+import { getPagination } from "@cieloazul310/astro-sarkara-utils";
+import { flex } from "@cieloazul310/sarkara-css/patterns";
+import { paginationButton } from "@cieloazul310/sarkara-css/recipes";
+import PaperLink from "./PaperLink.astro";
+
+export interface Props {
+  page: Page;
+  basePath: string;
+}
+const { page, basePath } = Astro.props;
+const { currentPage, lastPage } = page;
+
+const paginations = getPagination(currentPage, lastPage, { neighbors: 2 });
+---
+
+{
+  lastPage > 1 && (
+    <nav
+      class={flex({
+        maxWidth: "100%",
+        overflowX: "auto",
+        justifyContent: "center",
+      })}
+    >
+      <div
+        class={flex({
+          px: 1,
+          direction: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "max-content",
+          gap: 1,
+        })}
+      >
+        {paginations.map(({ value, optional }) => (
+          <PaperLink
+            className={paginationButton({
+              display: optional ? "optional" : "base",
+            })}
+            href={value === 1 ? basePath : `${basePath}/${value}`}
+            selected={value === currentPage}
+          >
+            {value}
+          </PaperLink>
+        ))}
+      </div>
+    </nav>
+  )
+}

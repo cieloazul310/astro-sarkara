@@ -67,4 +67,41 @@ export const iconButton = defineSlotRecipe({
   },
 });
 
-export default { button, iconButton };
+export const navigation = defineSlotRecipe({
+  className: "navigation",
+  slots: ["container", "button"],
+  base: {
+    container: {
+      width: "100%",
+      display: "flex",
+      gap: 2,
+      colorPalette: "primary",
+      flexDirection: ["column", "row"],
+    },
+    button: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      gap: 2,
+      width: ["100%", "50%"],
+    },
+  },
+  variants: {
+    direction: {
+      auto: {},
+      row: {
+        container: { flexDirection: "row" },
+        button: { width: "50%" },
+      },
+      column: {
+        container: { flexDirection: "column" },
+        button: { width: "100%" },
+      },
+    },
+  },
+  defaultVariants: {
+    direction: "auto",
+  },
+});
+
+export default { button, iconButton, navigation };
