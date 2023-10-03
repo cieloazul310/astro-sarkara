@@ -21,6 +21,16 @@
       "import": "./dist/article-classes.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      "preset": [
+        "dist/preset"
+      ],
+      "classes": [
+        "dist/article-classes"
+      ]
+    }
+  },
   "files": [
     "src/index.ts",
     "dist"
