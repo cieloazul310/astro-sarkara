@@ -38,7 +38,7 @@ const classes = navigation({ direction });
       >
         <Icon class={iconStyle} name="ic:baseline-arrow-back" />
         <hgroup class={navigationHgroup()}>
-          <h1>{left.primaryText}</h1>
+          <h1 class={classes.title}>{left.primaryText}</h1>
           {left.secondaryText && <p>{left.secondaryText}</p>}
         </hgroup>
       </a>
@@ -58,7 +58,7 @@ const classes = navigation({ direction });
       >
         <Icon class={iconStyle} name="ic:baseline-arrow-forward" />
         <hgroup class={navigationHgroup({ type: "right" })}>
-          <h1>{right.primaryText}</h1>
+          <h1 class={classes.title}>{right.primaryText}</h1>
           {right.secondaryText && <p>{right.secondaryText}</p>}
         </hgroup>
       </a>

@@ -4,6 +4,7 @@ export const heading = defineRecipe({
   description: "Heading component for article.",
   className: "heading",
   base: {
+    textStyle: "headings",
     _first: {
       mt: 0,
     },
@@ -17,19 +18,16 @@ export const heading = defineRecipe({
         fontSize: ["xl", "2xl", "4xl"],
         mt: 8,
         mb: 6,
-        fontWeight: "bold",
       },
       h2: {
         fontSize: ["xl", "2xl", "3xl"],
         mt: 8,
         mb: 4,
-        fontWeight: "bold",
       },
       h3: {
         fontSize: ["lg", "lg", "2xl"],
         mt: 8,
         mb: 4,
-        fontWeight: "bold",
       },
       h4: {
         fontSize: ["md", "lg", "xl"],
@@ -47,6 +45,7 @@ export const heading = defineRecipe({
         fontSize: "md",
         mt: 4,
         mb: 2,
+        fontWeight: "medium",
       },
     },
   },

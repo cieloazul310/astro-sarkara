@@ -1,0 +1,39 @@
+---
+import { vstack } from "@cieloazul310/sarkara-css/patterns";
+import { PaperLink } from "@cieloazul310/astro-sarkara-components";
+import { isMenuItem, type Menu } from "@cieloazul310/astro-sarkara-utils";
+
+export interface Props {
+  menu: Menu;
+}
+const { menu } = Astro.props;
+---
+
+<nav
+  class={vstack({
+    gap: 2,
+    alignItems: "stretch",
+  })}
+>
+  {
+    menu.map((menuContent) => {
+      if (isMenuItem(menuContent)) {
+        return (
+          <PaperLink href={menuContent.href}>{menuContent.title}</PaperLink>
+        );
+      }
+      return (
+        <section
+          class={vstack({
+            gap: 1,
+            alignItems: "stretch",
+          })}
+        >
+          {menuContent.items.map(({ title, href }) => (
+            <PaperLink href={href}>{title}</PaperLink>
+          ))}
+        </section>
+      );
+    })
+  }
+</nav>

@@ -8,7 +8,10 @@ export type CreateSarkaraPresetOptions = Preset & {
   palette: SarkaraPaletteOptions;
 };
 
-export function createSarkaraPreset({ palette, ...preset }: CreateSarkaraPresetOptions) {
+export function createSarkaraPreset({
+  palette,
+  ...preset
+}: CreateSarkaraPresetOptions) {
   return definePreset({
     presets: [sarkaraPresetBase, sarkaraComponentsPreset],
     theme: {
@@ -28,5 +31,8 @@ export const astroComponentsPaths = [
   "@cieloazul310/astro-sarkara-components",
   "@cieloazul310/astro-sarkara-layout",
 ].map((components) =>
-  path.resolve(path.dirname(require.resolve(components)), "*.astro"),
+  path.resolve(
+    path.dirname(require.resolve(components)),
+    "*.{js,ts,jsx,tsx,astro}",
+  ),
 );

@@ -17,3 +17,4 @@ export {
   default as PaperLink,
   type Props as PaperLinkProps,
 } from "./PaperLink.astro";
+export { default as componentsClasses } from "./componentsClasses";

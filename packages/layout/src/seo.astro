@@ -1,7 +1,9 @@
 ---
 export interface Props {
-  siteTitle: string;
-  siteDescription: string;
+  siteMetadata: {
+    title: string;
+    description: string;
+  };
   title?: string;
   description?: string;
   image?: string;
@@ -10,14 +12,16 @@ export interface Props {
 }
 
 const {
-  siteTitle,
-  siteDescription,
+  siteMetadata,
   title,
   description,
   image,
   siteType = "website",
   twitterCardType,
 } = Astro.props;
+
+const siteTitle = siteMetadata.title;
+const siteDescription = siteMetadata.description;
 
 const contentTitle = title ? `${title} - ${siteTitle}` : siteTitle;
 const seoDescription = description || siteDescription;
