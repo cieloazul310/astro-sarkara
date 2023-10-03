@@ -1,0 +1,63 @@
+---
+/* eslint-disable-next-line import/no-unresolved */
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions, Page } from "astro";
+import {
+  SarkaraLayout,
+  ArticleList,
+  ArticleListItem,
+  Pagination,
+} from "@cieloazul310/astro-sarkara";
+import PostYears from "../../components/PostYears.astro";
+// import Pagination from "../../components/Pagination.astro";
+import { siteMetadata, menu, pageSize } from "../../data";
+import { parseDate, slugify } from "../../utils";
+import type { PostData } from "../../types";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  // Load your data with fetch(), Astro.glob(), etc.
+  const allPosts = await getCollection("posts");
+  const posts = allPosts.sort(
+    (a, b) =>
+      new Date(b.data.date ?? 0).getTime() -
+      new Date(a.data.date ?? 0).getTime(),
+  );
+
+  // Return a paginated collection of paths for all posts
+  return paginate(posts, { pageSize });
+}
+
+interface Props {
+  page: Page<{ slug: string; data: PostData }>;
+}
+
+const { page } = Astro.props;
+---
+
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu} title="Markdown Posts">
+  <Fragment slot="jumbotron-footer">
+    {page.currentPage !== 1 && `(${page.currentPage}/${page.lastPage})`}
+  </Fragment>
+  <ArticleList>
+    {
+      page.data.map((post) => (
+        <ArticleListItem
+          href={slugify("posts", post)}
+          primaryText={post.data.title}
+        >
+          <Fragment slot="secondaryText">
+            <span>
+              <time datetime={post.data.date.toISOString()}>
+                {parseDate(post.data.date)}
+              </time>
+            </span>
+            {post.data.author && <span>by {post.data.author}</span>}
+          </Fragment>
+        </ArticleListItem>
+      ))
+    }
+  </ArticleList>
+  <Pagination page={page} basePath="/posts" />
+  <PostYears slot="sidebar-top" />
+  <PostYears slot="drawer-top" />
+</SarkaraLayout>
