@@ -1,24 +1,14 @@
 ---
-import { Paper, SarkaraLayout } from "@cieloazul310/astro-sarkara";
-import { menu, siteMetadata } from "../data";
+import {
+  SarkaraLayout,
+  type SarkaraLayoutProps,
+} from "@cieloazul310/astro-sarkara";
+import { siteMetadata, menu } from "../data";
 
-interface Props {
-  frontmatter?: {
-    title?: string;
-    description?: string;
-  };
-}
-
-const { frontmatter } = Astro.props;
+interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {}
+const { ...props } = Astro.props;
 ---
 
-<SarkaraLayout
-  siteMetadata={siteMetadata}
-  menu={menu}
-  title={frontmatter?.title}
-  description={frontmatter?.description}
->
-  <Paper>
-    <slot />
-  </Paper>
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
+  <slot />
 </SarkaraLayout>

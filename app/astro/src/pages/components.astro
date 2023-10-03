@@ -1,14 +1,13 @@
 ---
 import {
-  SarkaraLayout,
   Paper,
   PaperLink,
   Button,
   IconButton,
 } from "@cieloazul310/astro-sarkara";
 import { vstack } from "@cieloazul310/sarkara-css/patterns";
+import Layout from "../layout/default.astro";
 import { heading2, heading3 } from "../utils";
-import { siteMetadata, menu } from "../data";
 
 const viewerStyle = vstack({
   bg: { base: "bg", _dark: "bg.dark" },
@@ -19,7 +18,7 @@ const viewerStyle = vstack({
 });
 ---
 
-<SarkaraLayout siteMetadata={siteMetadata} menu={menu} title="Components">
+<Layout title="Components">
   <Paper>
     <h2 class={heading2}>Paper</h2>
     <div class={viewerStyle}>
@@ -150,4 +149,4 @@ const viewerStyle = vstack({
       </div>
     </div>
   </Paper>
-</SarkaraLayout>
+</Layout>

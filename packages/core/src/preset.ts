@@ -33,6 +33,6 @@ export const astroComponentsPaths = [
 ].map((components) =>
   path.resolve(
     path.dirname(require.resolve(components)),
-    "*.{js,ts,jsx,tsx,astro}",
+    "**/*.{js,ts,jsx,tsx,astro}",
   ),
 );

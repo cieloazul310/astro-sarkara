@@ -2,16 +2,15 @@
 /* eslint-disable-next-line import/no-unresolved */
 import { getCollection, type CollectionEntry } from "astro:content";
 import {
-  SarkaraLayout,
   PaperLink,
   ArticleList,
   ArticleListItem,
   Navigation,
   useNavigation,
 } from "@cieloazul310/astro-sarkara";
+import Layout from "../../layout/default.astro";
 import PostYears from "../../components/PostYears.astro";
 import { parseDate, slugify, usePostYears } from "../../utils";
-import { siteMetadata, menu } from "../../data";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
@@ -51,11 +50,7 @@ const navigation = useNavigation(
 );
 ---
 
-<SarkaraLayout
-  siteMetadata={siteMetadata}
-  menu={menu}
-  title={`${year}年の記事`}
->
+<Layout title={`${year}年の記事`}>
   <ArticleList>
     {
       posts
@@ -85,4 +80,4 @@ const navigation = useNavigation(
   <PaperLink href="/posts/">Markdown Posts Top</PaperLink>
   <PostYears slot="sidebar-top" />
   <PostYears slot="drawer-top" />
-</SarkaraLayout>
+</Layout>

@@ -1,5 +1,5 @@
 ---
-layout: ../layout/default.astro
+layout: ../layout/markdown.astro
 title: Astro Sarkara
 author: cieloazul310
 ---
