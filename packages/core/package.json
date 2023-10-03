@@ -14,6 +14,11 @@
       "types": "./dist/preset.d.ts",
       "require": "./dist/preset.d.cjs",
       "import": "./dist/preset.js"
+    },
+    "./classes": {
+      "types": "./dist/article-classes.d.ts",
+      "require": "./dist/article-classes.d.cjs",
+      "import": "./dist/article-classes.js"
     }
   },
   "files": [
@@ -21,13 +26,14 @@
     "dist"
   ],
   "scripts": {
-    "tsup": "tsup src/preset.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils",
+    "tsup": "tsup src/preset.ts src/article-classes.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils --external @cieloazul310/astro-sarkara-article-classes",
     "dev": "npm run tsup -- --watch",
     "build": "npm run tsup -- --clean"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@cieloazul310/astro-sarkara-article-classes": "^0.0.1",
     "@cieloazul310/astro-sarkara-components": "^0.0.1",
     "@cieloazul310/astro-sarkara-layout": "^0.0.1",
     "@cieloazul310/astro-sarkara-utils": "^0.0.1",
