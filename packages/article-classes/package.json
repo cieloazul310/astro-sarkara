@@ -27,6 +27,7 @@
     "build:components": "npm run tsup -- --clean"
   },
   "devDependencies": {
+    "@cieloazul310/astro-sarkara-components": "^0.0.1",
     "@cieloazul310/astro-sarkara-utils": "^0.0.1",
     "@cieloazul310/tsconfig": "^0.0.1",
     "@pandacss/dev": "^0.15.4",
