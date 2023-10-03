@@ -3,6 +3,7 @@
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 // import { renderMarkdown, createMarkdownProcessor } from "@astrojs/markdown-remark";
 import {
+  SarkaraLayout,
   Paper,
   PaperLink,
   Navigation,
@@ -11,7 +12,7 @@ import {
 import { hstack } from "@cieloazul310/sarkara-css/patterns";
 import { css } from "@cieloazul310/sarkara-css/css";
 import PostYears from "../../components/PostYears.astro";
-import Layout from "../../layout/default.astro";
+import { siteMetadata, menu } from "../../data";
 import { parseDate /* excerpt */ } from "../../utils";
 
 export async function getStaticPaths() {
@@ -58,7 +59,12 @@ const { Content } = await entry.render();
 const description = "";
 ---
 
-<Layout title={post.data.title} description={description}>
+<SarkaraLayout
+  title={post.data.title}
+  description={description}
+  siteMetadata={siteMetadata}
+  menu={menu}
+>
   <Fragment slot="jumbotron-footer">
     <time datetime={post.data.date.toISOString()}
       >{parseDate(post.data.date)}</time
@@ -88,4 +94,4 @@ const description = "";
     <PostYears />
   </Fragment>
   <PostYears slot="drawer-top" />
-</Layout>
+</SarkaraLayout>
