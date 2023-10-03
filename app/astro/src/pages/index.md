@@ -1,6 +1,6 @@
 ---
-layout: ../layout/index.astro
-title: Astro Boy
+layout: ../layout/markdown.astro
+title: Astro Sarkara
 author: cieloazul310
 ---
 

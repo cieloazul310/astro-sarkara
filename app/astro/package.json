@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "@cieloazul310/astro-sarkara": "^0.0.1",
-    "astro": "^3.2.0"
+    "astro": "^3.2.0",
+    "rehype": "^13.0.1",
+    "rehype-class-names": "^1.0.14"
   },
   "devDependencies": {
     "@pandacss/astro": "^0.15.4",

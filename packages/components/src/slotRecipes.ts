@@ -69,7 +69,7 @@ export const iconButton = defineSlotRecipe({
 
 export const navigation = defineSlotRecipe({
   className: "navigation",
-  slots: ["container", "button"],
+  slots: ["container", "button", "title"],
   base: {
     container: {
       width: "100%",
@@ -84,6 +84,9 @@ export const navigation = defineSlotRecipe({
       justifyContent: "flex-start",
       gap: 2,
       width: ["100%", "50%"],
+    },
+    title: {
+      textStyle: "headings",
     },
   },
   variants: {

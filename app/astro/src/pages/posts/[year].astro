@@ -1,0 +1,88 @@
+---
+/* eslint-disable-next-line import/no-unresolved */
+import { getCollection, type CollectionEntry } from "astro:content";
+import {
+  SarkaraLayout,
+  PaperLink,
+  ArticleList,
+  ArticleListItem,
+  Navigation,
+  useNavigation,
+} from "@cieloazul310/astro-sarkara";
+import PostYears from "../../components/PostYears.astro";
+import { siteMetadata, menu } from "../../data";
+import { parseDate, slugify, usePostYears } from "../../utils";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const years = usePostYears(allPosts);
+
+  return years.map((year, index) => {
+    const posts = allPosts.filter(
+      ({ data }) => new Date(data.date).getFullYear() === year,
+    );
+    return {
+      params: { year },
+      props: {
+        year,
+        posts,
+        totalCount: posts.length,
+        newer: index !== 0 ? years[index - 1] : null,
+        older: index !== years.length - 1 ? years[index + 1] : null,
+      },
+    };
+  });
+}
+
+interface Props {
+  year: number;
+  posts: CollectionEntry<"posts">[];
+  totalCount: number;
+  newer: number;
+  older: number;
+}
+const { posts, year, newer, older } = Astro.props;
+const navigation = useNavigation(
+  { left: newer, right: older },
+  {
+    href: (y) => `/posts/${y}/`,
+    primaryText: (y) => `${y}年`,
+  },
+);
+---
+
+<SarkaraLayout
+  title={`${year}年の記事`}
+  siteMetadata={siteMetadata}
+  menu={menu}
+>
+  <ArticleList>
+    {
+      posts
+        .sort(
+          (a, b) =>
+            new Date(b.data.date ?? 0).getTime() -
+            new Date(a.data.date ?? 0).getTime(),
+        )
+        .map((post) => (
+          <ArticleListItem
+            href={slugify("posts", post)}
+            primaryText={post.data.title}
+          >
+            <Fragment slot="secondaryText">
+              <span>
+                <time datetime={post.data.date.toISOString()}>
+                  {parseDate(post.data.date)}
+                </time>
+              </span>
+              {post.data.author && <span>by {post.data.author}</span>}
+            </Fragment>
+          </ArticleListItem>
+        ))
+    }
+  </ArticleList>
+  <Navigation {...navigation} />
+  <PaperLink href="/posts/">Markdown Posts Top</PaperLink>
+  <PostYears slot="sidebar-top" />
+  <PostYears slot="drawer-top" />
+</SarkaraLayout>

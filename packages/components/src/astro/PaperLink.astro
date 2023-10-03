@@ -1,8 +1,9 @@
 ---
+import { Icon } from "astro-icon";
 import type { HTMLAttributes } from "astro/types";
 import { css, cx } from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
-import { useLink } from "@cieloazul310/astro-sarkara-utils";
+import { useLink, isInternal } from "@cieloazul310/astro-sarkara-utils";
 
 export interface Props extends HTMLAttributes<"a"> {
   className?: string;
@@ -20,6 +21,7 @@ const {
   ...attrs
 } = Astro.props;
 const link = useLink(href, { disablePrefix });
+const external = !isInternal(href);
 ---
 
 <a
@@ -33,6 +35,7 @@ const link = useLink(href, { disablePrefix });
       justifyContent: "center",
       alignItems: "center",
       height: 10,
+      gap: 1,
     }),
     className,
   )}
@@ -42,4 +45,12 @@ const link = useLink(href, { disablePrefix });
   {...attrs}
 >
   <slot />
+  {
+    external && (
+      <Icon
+        class={css({ width: "1em", height: "1em" })}
+        name="mdi:open-in-new"
+      />
+    )
+  }
 </a>

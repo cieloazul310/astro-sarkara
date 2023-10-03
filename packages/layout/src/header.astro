@@ -22,7 +22,7 @@ const { siteTitle } = Astro.props;
     zIndex: "header",
   })}
 >
-<slot>
+  <slot>
     <Link
       href="/"
       className={css({
@@ -33,10 +33,13 @@ const { siteTitle } = Astro.props;
         },
       })}
     >
-      <h1 class={css({ fontSize: "xl", fontWeight: "bold" })}>{siteTitle}</h1>
+      <h1 class={css({ fontSize: "xl", textStyle: "headings" })}>
+        {siteTitle}
+      </h1>
     </Link>
     <div class={css({ flexGrow: 1, hideBelow: "sm" })}></div>
     <div class={css({ hideBelow: "sm" })}>
       <ColorModeButton />
     </div>
+  </slot>
 </header>

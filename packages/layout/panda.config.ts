@@ -3,7 +3,11 @@ import sarkaraPresetBase from "@cieloazul310/panda-preset-sarkara-base";
 import sarkaraComponentsPreset from "@cieloazul310/astro-sarkara-components/preset";
 
 export default defineConfig({
-  presets: [sarkaraPresetBase, sarkaraComponentsPreset],
+  presets: [
+    "@pandacss/dev/presets",
+    sarkaraPresetBase,
+    sarkaraComponentsPreset,
+  ],
 
   // Whether to use css reset
   preflight: true,

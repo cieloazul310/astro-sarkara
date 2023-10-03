@@ -1,0 +1,156 @@
+---
+import {
+  SarkaraLayout,
+  Paper,
+  PaperLink,
+  Button,
+  IconButton,
+  heading2,
+  heading3,
+} from "@cieloazul310/astro-sarkara";
+import { vstack } from "@cieloazul310/sarkara-css/patterns";
+import { siteMetadata, menu } from "../data";
+
+const viewerStyle = vstack({
+  bg: { base: "bg", _dark: "bg.dark" },
+  shadow: "inner",
+  gap: 4,
+  p: 4,
+  alignItems: "stretch",
+});
+---
+
+<SarkaraLayout title="Components" siteMetadata={siteMetadata} menu={menu}>
+  <Paper>
+    <h2 class={heading2}>Paper</h2>
+    <div class={viewerStyle}>
+      <Paper>
+        <p>Paper</p>
+      </Paper>
+      <Paper>
+        <Paper>
+          <p>Nested</p>
+        </Paper>
+      </Paper>
+      <Paper colorPalette="secondary">
+        <p>Secondary</p>
+      </Paper>
+      <Paper colorPalette="teal">
+        <p>Teal</p>
+      </Paper>
+    </div>
+  </Paper>
+  <Paper>
+    <h2 class={heading2}>PaperLink</h2>
+    <div class={viewerStyle}>
+      <PaperLink href="/components/">PaperLink</PaperLink>
+      <PaperLink href="/components/" colorPalette="secondary">
+        Secondary
+      </PaperLink>
+      <PaperLink href="/components/" selected>Selected</PaperLink>
+    </div>
+  </Paper>
+  <Paper>
+    <h2 class={heading2}>Button</h2>
+    <div class={viewerStyle}>
+      <div class={vstack({ gap: 2, alignItems: "start" })}>
+        <h3 class={heading3}>Button</h3>
+        <Button size="sm" colorPalette="primary">Button sm</Button>
+        <Button size="md" colorPalette="secondary">Button md</Button>
+        <Button size="lg">Button lg</Button>
+        <Button size="xl" colorPalette="primary">Button xl</Button>
+      </div>
+      <div class={vstack({ gap: 2, alignItems: "start" })}>
+        <h3 class={heading3}>Outline</h3>
+        <Button size="sm" colorPalette="primary" visual="outline">
+          Button sm
+        </Button>
+        <Button size="md" colorPalette="secondary" visual="outline">
+          Button md
+        </Button>
+        <Button size="lg" visual="outline">Button lg</Button>
+        <Button size="xl" colorPalette="primary" visual="outline">
+          Button xl
+        </Button>
+      </div>
+      <div class={vstack({ gap: 2, alignItems: "start" })}>
+        <h3 class={heading3}>With Icon</h3>
+        <Button size="sm" colorPalette="primary" icon="mdi:plus-circle">
+          Button sm
+        </Button>
+        <Button
+          size="md"
+          colorPalette="secondary"
+          visual="outline"
+          icon="mdi:download"
+        >
+          Button md
+        </Button>
+        <Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">
+          Button lg
+        </Button>
+        <Button size="xl" colorPalette="primary" icon="mdi:alert-circle">
+          Button xl
+        </Button>
+      </div>
+    </div>
+  </Paper>
+  <Paper>
+    <h2 class={heading2}>Icon Button</h2>
+    <div class={viewerStyle}>
+      <div class={vstack({ gap: 2, alignItems: "start" })}>
+        <h3 class={heading3}>Button</h3>
+        <IconButton size="sm" colorPalette="primary" icon="mdi:download" />
+        <IconButton size="md" colorPalette="secondary" icon="mdi:download" />
+        <IconButton size="lg" icon="mdi:download" />
+        <IconButton size="xl" colorPalette="primary" icon="mdi:download" />
+      </div>
+      <div class={vstack({ gap: 2, alignItems: "start" })}>
+        <h3 class={heading3}>Outline</h3>
+        <IconButton
+          size="sm"
+          colorPalette="primary"
+          visual="outline"
+          icon="mdi:download"
+        />
+        <IconButton
+          size="md"
+          colorPalette="secondary"
+          visual="outline"
+          icon="mdi:download"
+        />
+        <IconButton size="lg" visual="outline" icon="mdi:download" />
+        <IconButton
+          size="xl"
+          visual="outline"
+          colorPalette="primary"
+          icon="mdi:download"
+        />
+      </div>
+      <div class={vstack({ gap: 2, alignItems: "start" })}>
+        <h3 class={heading3}>Circle</h3>
+        <IconButton
+          size="sm"
+          colorPalette="primary"
+          shape="circle"
+          icon="mdi:download"
+        />
+        <IconButton
+          size="md"
+          colorPalette="secondary"
+          shape="circle"
+          visual="outline"
+          icon="mdi:download"
+        />
+        <IconButton size="lg" shape="circle" icon="mdi:download" />
+        <IconButton
+          size="xl"
+          shape="circle"
+          visual="outline"
+          colorPalette="primary"
+          icon="mdi:download"
+        />
+      </div>
+    </div>
+  </Paper>
+</SarkaraLayout>

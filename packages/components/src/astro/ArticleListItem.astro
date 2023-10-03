@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { css, cx } from "@cieloazul310/sarkara-css/css";
+import {
+  linkBox,
+  linkOverlay,
+  hstack,
+  paper,
+} from "@cieloazul310/sarkara-css/patterns";
+import Link from "./Link.astro";
+
+export interface Props extends HTMLAttributes<"a"> {
+  primaryText?: string;
+  secondaryText?: string;
+  disablePrefix?: boolean;
+}
+
+const { href, primaryText, secondaryText, disablePrefix } = Astro.props;
+---
+
+<li
+  class={cx(
+    linkBox({ colorPalette: "primary", listStyleType: "none" }),
+    paper({ hover: true }),
+  )}
+>
+  <article class={css({ display: "flex", flexDirection: "column" })}>
+    <Link className={linkOverlay()} href={href} disablePrefix={disablePrefix}>
+      <slot name="primaryText">
+        <h1 class={css({ fontSize: ["md", "lg"], textStyle: "headings" })}>
+          {primaryText}
+        </h1>
+      </slot>
+    </Link>
+    <footer class={hstack({ gap: 2, fontSize: ["sm", "md"] })}>
+      <slot name="secondaryText">
+        <span>{secondaryText}</span>
+      </slot>
+    </footer>
+  </article>
+</li>

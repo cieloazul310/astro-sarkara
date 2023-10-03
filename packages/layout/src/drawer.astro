@@ -67,7 +67,9 @@ const { siteTitle } = Astro.props;
       })}
     >
       <Link href="/">
-        <h1 class={css({ fontSize: "lg" })}>{siteTitle ?? "Drawer"}</h1>
+        <h1 class={css({ fontSize: "lg", textStyle: "headings" })}>
+          {siteTitle ?? "Drawer"}
+        </h1>
       </Link>
     </header>
     <div class={css({ flexGrow: 1, overflowY: "auto", px: 4 })}>

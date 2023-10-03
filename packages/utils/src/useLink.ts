@@ -1,4 +1,9 @@
-function useLink(
+export function isInternal(href: string | URL | undefined | null) {
+  if (!href) return false;
+  return /^\/(?!\/)/.test(href.toString());
+}
+
+export function useLink(
   href: string | URL | undefined | null,
   options: { disablePrefix?: boolean } = { disablePrefix: false },
 ): {
@@ -9,7 +14,7 @@ function useLink(
   const baseUrl = import.meta.env.BASE_URL;
 
   if (!href) return { href: null };
-  const internal = /^\/(?!\/)/.test(href.toString());
+  const internal = isInternal(href);
 
   if (!internal) return { href, target: "_blank", rel: "noreferrer noopener" };
 
@@ -18,5 +23,3 @@ function useLink(
 
   return { href: `${baseUrl}${href}` };
 }
-
-export default useLink;

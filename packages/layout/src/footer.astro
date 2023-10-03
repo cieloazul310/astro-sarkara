@@ -24,7 +24,7 @@ const year = new Date().getFullYear().toString();
 >
   <slot>
     <Link href="/">
-      <p class={css({ fontSize: "md", fontWeight: "bold" })}>{siteTitle}</p>
+      <p class={css({ fontSize: "md", textStyle: "headings" })}>{siteTitle}</p>
     </Link>
     <p>© {year} {siteTitle} All rights reserved.</p>
   </slot>

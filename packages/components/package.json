@@ -18,7 +18,8 @@
   },
   "files": [
     "src/index.ts",
-    "src/*.astro",
+    "src/astro/index.ts",
+    "src/astro/*.astro",
     "dist"
   ],
   "keywords": [
