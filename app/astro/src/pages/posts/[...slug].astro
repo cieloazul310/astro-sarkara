@@ -8,9 +8,9 @@ import {
   Navigation,
   useNavigation,
 } from "@cieloazul310/astro-sarkara";
-// import PostYears from "../../components/posts/PostYears.astro";
 import { hstack } from "@cieloazul310/sarkara-css/patterns";
 import { css } from "@cieloazul310/sarkara-css/css";
+import PostYears from "../../components/PostYears.astro";
 import Layout from "../../layout/default.astro";
 import { parseDate /* excerpt */ } from "../../utils";
 
@@ -70,7 +70,9 @@ const description = "";
   </Paper>
   <Paper>
     <footer>
-      <h2 class={css({ fontSize: ["lg", "lg", "xl"] })}>{post.data.title}</h2>
+      <h2 class={css({ textStyle: "headings", fontSize: ["lg", "lg", "xl"] })}>
+        {post.data.title}
+      </h2>
       <p class={hstack({ gap: 2 })}>
         <time datetime={post.data.date.toISOString()}
           >{parseDate(post.data.date)}</time
@@ -83,7 +85,7 @@ const description = "";
   <PaperLink href="/posts/">Markdown Posts Top</PaperLink>
   <Fragment slot="sidebar-top">
     <Navigation {...navigation} direction="column" />
-    <!-- <PostYears /> -->
+    <PostYears />
   </Fragment>
-  <!-- <PostYears slot="drawer-top" /> -->
+  <PostYears slot="drawer-top" />
 </Layout>

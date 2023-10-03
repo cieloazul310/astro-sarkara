@@ -30,6 +30,7 @@ export function createSarkaraPreset({
 export const astroComponentsPaths = [
   "@cieloazul310/astro-sarkara-components",
   "@cieloazul310/astro-sarkara-layout",
+  "@cieloazul310/astro-sarkara-article-classes",
 ].map((components) =>
   path.resolve(
     path.dirname(require.resolve(components)),
