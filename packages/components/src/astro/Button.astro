@@ -1,15 +1,99 @@
 ---
 import { Icon } from "astro-icon";
 import type { HTMLAttributes } from "astro/types";
-import { css, cx } from "@cieloazul310/sarkara-css/css";
+import {
+  css,
+  cx,
+  sva,
+  type RecipeVariantProps,
+} from "@cieloazul310/sarkara-css/css";
+/** @todo recipes for astro problem */
+/*
 import {
   buttonBase,
   button,
   type ButtonBaseVariantProps,
   type ButtonVariantProps,
 } from "@cieloazul310/sarkara-css/recipes";
+*/
 
-type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
+const button = sva({
+  slots: ["button", "icon"],
+  base: {
+    button: {
+      rounded: "md",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      shadow: "sm",
+      cursor: "pointer",
+      width: "fit-content",
+      py: 2,
+      px: "0.8em",
+    },
+    icon: {
+      width: "1.2em",
+      height: "1.2em",
+    },
+  },
+  variants: {
+    visual: {
+      solid: {
+        button: {
+          bg: { base: "colorPalette.600", _hover: "colorPalette.700" },
+          color: "white",
+          _dark: {
+            bg: { base: "colorPalette.700", _hover: "colorPalette.600" },
+          },
+        },
+      },
+      outline: {
+        button: {
+          borderWidth: "1px",
+          borderColor: { base: "colorPalette.700", _dark: "colorPalette.200" },
+          color: { base: "colorPalette.700", _dark: "colorPalette.200" },
+          _hover: {
+            color: { base: "colorPalette.500", _dark: "colorPalette.50" },
+          },
+        },
+      },
+    },
+    size: {
+      sm: { button: { fontSize: "xs", gap: 1 } },
+      md: { button: { fontSize: "md", gap: 1 } },
+      lg: { button: { fontSize: "xl", gap: 1 } },
+      xl: { button: { fontSize: "4xl", gap: 2 } },
+    },
+    iconPlace: {
+      start: {
+        button: {
+          flexDirection: "row",
+        },
+        icon: {
+          ml: "-0.4em",
+        },
+      },
+      end: {
+        button: {
+          flexDirection: "row-reverse",
+        },
+        icon: {
+          mr: "-0.4em",
+        },
+      },
+    },
+  },
+  defaultVariants: {
+    visual: "solid",
+    size: "md",
+    iconPlace: "start",
+  },
+});
+
+type ButtonVariants = RecipeVariantProps<typeof button>;
+
+/** @todo recipes for astro problem */
+// type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
 
 export type Props = ButtonVariants &
   HTMLAttributes<"button"> & {
@@ -28,13 +112,14 @@ const {
   ...buttonProps
 } = Astro.props;
 
-const classes = button({ iconPlace });
+const classes = button({ iconPlace, size, visual });
 ---
 
 <button
   class={cx(
     css({ colorPalette }),
-    buttonBase({ visual, size }),
+    /** @todo recipes for astro problem */
+    // buttonBase({ visual, size }),
     classes.button,
     className,
   )}
