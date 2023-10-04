@@ -1,15 +1,86 @@
 ---
 import { Icon } from "astro-icon";
-import { cx, css } from "@cieloazul310/sarkara-css/css";
+import {
+  cx,
+  css,
+  cva,
+  sva,
+  type RecipeVariantProps,
+} from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
+/** @todo recipes for astro problem */
+/*
 import {
   navigation,
   navigationHgroup,
   type NavigationVariantProps,
 } from "@cieloazul310/sarkara-css/recipes";
+*/
 import { useLink } from "@cieloazul310/astro-sarkara-utils";
 
 const iconStyle = css({ width: 6, height: 6, flexShrink: 0 });
+
+const navigation = sva({
+  slots: ["container", "button", "title"],
+  base: {
+    container: {
+      width: "100%",
+      display: "flex",
+      gap: 2,
+      colorPalette: "primary",
+      flexDirection: ["column", "row"],
+    },
+    button: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      gap: 2,
+      width: ["100%", "50%"],
+    },
+    title: {
+      textStyle: "headings",
+    },
+  },
+  variants: {
+    direction: {
+      auto: {},
+      row: {
+        container: { flexDirection: "row" },
+        button: { width: "50%" },
+      },
+      column: {
+        container: { flexDirection: "column" },
+        button: { width: "100%" },
+      },
+    },
+  },
+  defaultVariants: {
+    direction: "auto",
+  },
+});
+
+const navigationHgroup = cva({
+  base: {
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+  },
+  variants: {
+    type: {
+      left: {
+        alignItems: "start",
+      },
+      right: {
+        alignItems: "end",
+      },
+    },
+  },
+  defaultVariants: {
+    type: "left",
+  },
+});
+
+type NavigationVariantProps = RecipeVariantProps<typeof navigation>;
 
 export type Props = NavigationVariantProps & {
   left: {

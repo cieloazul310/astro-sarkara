@@ -7,6 +7,7 @@ export default defineTokens({
     sidebarWidth: { value: "320px" },
   },
   zIndex: {
+    docked: { value: 7 },
     fab: { value: 100 },
     drawer: { value: 200 },
     drawerBackdrop: { value: 199 },

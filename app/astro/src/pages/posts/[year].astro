@@ -67,9 +67,9 @@ const navigation = useNavigation(
         .map((post) => (
           <ArticleListItem
             href={slugify("posts", post)}
-            primaryText={post.data.title}
+            title={post.data.title}
           >
-            <Fragment slot="secondaryText">
+            <Fragment slot="headerText">
               <span>
                 <time datetime={post.data.date.toISOString()}>
                   {parseDate(post.data.date)}

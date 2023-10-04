@@ -1,41 +1,130 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { css, cx } from "@cieloazul310/sarkara-css/css";
+import { css } from "@cieloazul310/sarkara-css/css";
 import {
   linkBox,
   linkOverlay,
+  aspectRatio,
   hstack,
-  paper,
+  flex,
 } from "@cieloazul310/sarkara-css/patterns";
 import Link from "./Link.astro";
 
 export interface Props extends HTMLAttributes<"a"> {
-  primaryText?: string;
-  secondaryText?: string;
+  title?: string;
+  headerText?: string;
+  footerText?: string;
   disablePrefix?: boolean;
+  image?: string;
+  imageAlt?: string;
+  imagePlaceholder?: string;
 }
 
-const { href, primaryText, secondaryText, disablePrefix } = Astro.props;
+const {
+  href,
+  title,
+  headerText,
+  footerText,
+  disablePrefix,
+  image,
+  imageAlt,
+  imagePlaceholder = "Article",
+} = Astro.props;
 ---
 
 <li
-  class={cx(
-    linkBox({ colorPalette: "primary", listStyleType: "none" }),
-    paper({ hover: true }),
-  )}
+  class={linkBox({
+    listStyleType: "none",
+    rounded: "xl",
+    borderWidth: "1px",
+    borderColor: { base: "neutral.100", _dark: "neutral.900" },
+    bgct: { _hover: "primary.600/92" },
+  })}
 >
-  <article class={css({ display: "flex", flexDirection: "column" })}>
-    <Link className={linkOverlay()} href={href} disablePrefix={disablePrefix}>
-      <slot name="primaryText">
-        <h1 class={css({ fontSize: ["md", "lg"], textStyle: "headings" })}>
-          {primaryText}
-        </h1>
-      </slot>
-    </Link>
-    <footer class={hstack({ gap: 2, fontSize: ["sm", "md"] })}>
-      <slot name="secondaryText">
-        <span>{secondaryText}</span>
-      </slot>
-    </footer>
+  <article class={flex()}>
+    <div class={flex({ flexShrink: 0 })}>
+      <div
+        class={hstack({
+          position: "absolute",
+          top: 1,
+          left: 1,
+          gap: 1,
+          zIndex: `calc(var(--z-index-docked) + 1)`,
+        })}
+      >
+        <slot name="badge" />
+      </div>
+      <div
+        class={aspectRatio({
+          bgct: "primary.600/92",
+          ratio: { base: 1, sm: 16 / 9 },
+          width: ["120px", "180px", "240px"],
+          rounded: "xl",
+        })}
+      >
+        {
+          image ? (
+            <img
+              class={css({
+                objectFit: "fill",
+                rounded: "xl",
+                zIndex: "docked",
+              })}
+              src={image}
+              alt={imageAlt}
+            />
+          ) : (
+            <span
+              class={css({
+                fontWeight: "extrabold",
+                fontSize: ["sm", "md"],
+                color: { base: "primary.600", _dark: "primary.200" },
+                opacity: 0.4,
+              })}
+            >
+              {imagePlaceholder}
+            </span>
+          )
+        }
+      </div>
+    </div>
+    <div
+      class={flex({
+        p: [2, 4],
+        flexGrow: 1,
+        flexDirection: "column",
+        gap: 2,
+      })}
+    >
+      <header
+        class={flex({
+          fontSize: ["sm", "md"],
+          alignItems: "center",
+          gap: 2,
+        })}
+      >
+        <slot name="headerText">
+          {headerText}
+        </slot>
+      </header>
+      <Link
+        className={linkOverlay({ zIndex: `calc(var(--z-index-docked) + 2)` })}
+        href={href}
+        disablePrefix={disablePrefix}
+      >
+        <slot name="title">
+          <h1
+            class={css({ fontSize: ["md", "lg", "xl"], textStyle: "headings" })}
+          >
+            {title}
+          </h1>
+        </slot>
+      </Link>
+      <footer class={css({ fontSize: ["sm", "md"] })}>
+        <slot name="footerText">
+          {footerText}
+        </slot>
+      </footer>
+    </div>
   </article>
 </li>

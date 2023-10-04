@@ -7,7 +7,13 @@ const body = {
     overflowY: "hidden",
   },
 };
+const astroCode = {
+  p: 4,
+  my: 4,
+  rounded: "xl",
+};
 
 export default defineGlobalStyles({
   body,
+  ".astro-code": astroCode,
 });
