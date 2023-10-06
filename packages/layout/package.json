@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara-layout",
   "description": "Astro layout package for astro-sarkara.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
@@ -40,18 +40,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@cieloazul310/astro-sarkara-components": "^0.0.2",
-    "@cieloazul310/astro-sarkara-utils": "^0.0.2",
-    "@cieloazul310/tsconfig": "^0.0.1",
+    "@cieloazul310/astro-sarkara-components": "^0.0.3",
+    "@cieloazul310/astro-sarkara-utils": "^0.0.3",
+    "@cieloazul310/tsconfig": "^0.0.2",
     "@pandacss/dev": "^0.15.4",
     "astro": "^3.2.0",
     "eslint": "^8.50.0",
-    "eslint-config-custom": "^0.0.1"
+    "eslint-config-custom": "^0.0.2"
   },
   "peerDependencies": {
-    "@cieloazul310/astro-sarkara-components": "^0.0.2",
-    "@cieloazul310/astro-sarkara-utils": "^0.0.2",
-    "@cieloazul310/panda-preset-sarkara-base": "^0.0.2",
+    "@cieloazul310/astro-sarkara-components": "^0.0.3",
+    "@cieloazul310/astro-sarkara-utils": "^0.0.3",
+    "@cieloazul310/panda-preset-sarkara-base": "^0.0.3",
     "astro": "^3.0.0"
   }
 }
