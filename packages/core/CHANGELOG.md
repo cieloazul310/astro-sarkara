@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara
 
+## 0.0.4
+
+### Patch Changes
+
+- 9bc4dd7: fix peerDependencies
+
 ## 0.0.3
 
 ### Patch Changes
