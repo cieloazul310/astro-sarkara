@@ -2,7 +2,8 @@ import { defineMenu } from "@cieloazul310/astro-sarkara";
 
 export const siteMetadata = {
   title: "Astro Sarkara",
-  description: "Astro ",
+  description: "Astro components library built with Panda CSS.",
+  image: "/ogimage.jpeg",
 };
 
 export const menu = defineMenu([

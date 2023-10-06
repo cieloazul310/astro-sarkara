@@ -1,24 +1,39 @@
 ---
-import { css, cx } from "@cieloazul310/sarkara-css/css";
+import {
+  css,
+  cx,
+  cva,
+  type RecipeVariantProps,
+} from "@cieloazul310/sarkara-css/css";
 
-export interface Props {
-  colorPalette: string;
-}
-const { colorPalette } = Astro.props;
+const badge = cva({
+  base: {
+    rounded: "md",
+    px: 2,
+    py: 1,
+    fontWeight: "bolder",
+    color: { base: "colorPalette.800", _dark: "colorPalette.100" },
+    bg: { base: "colorPalette.100", _dark: "colorPalette.900" },
+  },
+  variants: {
+    size: {
+      xs: { fontSize: "xs" },
+      sm: { fontSize: "sm" },
+      md: { fontSize: "md" },
+      lg: { fontSize: "lg" },
+    },
+  },
+  defaultVariants: {
+    size: "sm",
+  },
+});
+
+export type Props = RecipeVariantProps<typeof badge> & {
+  colorPalette?: string;
+};
+const { size, colorPalette = "neutral" } = Astro.props;
 ---
 
-<span
-  class={cx(
-    css({ colorPalette }),
-    css({
-      rounded: "md",
-      px: 2,
-      py: 1,
-      fontWeight: "bolder",
-      color: { base: "colorPalette.800", _dark: "colorPalette.100" },
-      bg: { base: "colorPalette.100", _dark: "colorPalette.900" },
-    }),
-  )}
->
+<span class={cx(css({ colorPalette }), badge({ size }))}>
   <slot />
 </span>

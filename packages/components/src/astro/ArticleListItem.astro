@@ -36,8 +36,8 @@ const {
   class={linkBox({
     listStyleType: "none",
     rounded: "xl",
-    borderWidth: "1px",
-    borderColor: { base: "neutral.100", _dark: "neutral.900" },
+    borderWidth: "2px",
+    borderColor: { base: "neutral.100", _dark: "neutral.800" },
     bgct: { _hover: "primary.600/92" },
   })}
 >
@@ -69,6 +69,9 @@ const {
                 objectFit: "fill",
                 rounded: "xl",
                 zIndex: "docked",
+                _dark: {
+                  filter: "brightness(0.8)",
+                },
               })}
               src={image}
               alt={imageAlt}
