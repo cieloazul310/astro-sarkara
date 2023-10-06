@@ -1,8 +1,11 @@
 ---
+import { useAbsoluteUrl } from "@cieloazul310/astro-sarkara-utils";
+
 export interface Props {
   siteMetadata: {
     title: string;
     description: string;
+    image?: string;
   };
   title?: string;
   description?: string;
@@ -25,6 +28,7 @@ const siteDescription = siteMetadata.description;
 
 const contentTitle = title ? `${title} - ${siteTitle}` : siteTitle;
 const seoDescription = description || siteDescription;
+const imageUrl = useAbsoluteUrl(image ?? siteMetadata.image);
 ---
 
 <>
@@ -50,11 +54,11 @@ const seoDescription = description || siteDescription;
   <meta name="twitter:card" content={twitterCardType} />
   {siteTitle && <meta name="twitter:site" content={siteTitle} />}
   {
-    image && (
+    imageUrl && (
       <>
-        <meta name="image" content={image} />
-        <meta name="og:image" content={image} />
-        <meta name="twitter:image" content={image} />
+        <meta name="image" content={imageUrl} />
+        <meta name="og:image" content={imageUrl} />
+        <meta name="twitter:image" content={imageUrl} />
       </>
     )
   }
