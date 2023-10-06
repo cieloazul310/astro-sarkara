@@ -1,6 +1,8 @@
 {
   "name": "@cieloazul310/panda-preset-sarkara-base",
+  "description": "Panda CSS base preset for astro-sarkara packages.",
   "version": "0.0.1",
+  "license": "ISC",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -19,7 +21,23 @@
   "files": [
     "dist"
   ],
-  "license": "ISC",
+  "keywords": [
+    "astro",
+    "pandacss"
+  ],
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/astro-sarkara.git",
+    "directory": "packages/preset-base"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "tsup": "tsup src/index.ts --dts --format=esm,cjs --external @pandacss/dev",
