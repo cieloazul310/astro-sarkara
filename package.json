@@ -1,9 +1,6 @@
 {
   "name": "astro-sarkara",
   "private": true,
-  "version": "0.0.1",
-  "author": "@cieloazul310",
-  "license": "ISC",
   "engines": {
     "node": ">=18",
     "npm": ">=10"
@@ -18,7 +15,7 @@
     "build": "turbo run build",
     "build:package": "turbo run build --filter='./packages/*'",
     "changeset": "changeset",
-    "publish-packages": "turbo run build:package && changeset version && changeset publish",
+    "publish-packages": "npm run build:package && changeset version && changeset publish",
     "format": "prettier \"packages/**/src/**/*.{js,ts,cjs,mjs,astro}\" --write",
     "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
