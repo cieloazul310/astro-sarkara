@@ -1,7 +1,8 @@
 {
   "name": "@cieloazul310/astro-sarkara",
+  "description": "Core package of astro-sarkara, including Astro components and layout built with Panda CSS.",
   "version": "0.0.1",
-  "description": "",
+  "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.d.ts",
@@ -25,13 +26,28 @@
     "src/index.ts",
     "dist"
   ],
+  "keywords": [
+    "astro",
+    "pandacss"
+  ],
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/astro-sarkara.git",
+    "directory": "packages/core"
+  },
   "scripts": {
     "tsup": "tsup src/preset.ts src/article-classes.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils --external @cieloazul310/astro-sarkara-article-classes",
     "dev": "npm run tsup -- --watch",
     "build": "npm run tsup -- --clean"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@cieloazul310/astro-sarkara-article-classes": "^0.0.1",
     "@cieloazul310/astro-sarkara-components": "^0.0.1",

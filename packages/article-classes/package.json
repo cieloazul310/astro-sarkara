@@ -1,6 +1,8 @@
 {
   "name": "@cieloazul310/astro-sarkara-article-classes",
+  "description": "Panda CSS classes package for astro-sarkara.",
   "version": "0.0.1",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -15,8 +17,22 @@
     "dist"
   ],
   "keywords": [
-    "astro-component"
+    "astro",
+    "pandacss"
   ],
+  "author": {
+    "name": "cieloazul310",
+    "email": "cieloazul310@gmail.com",
+    "url": "https://cieloazul310.github.io"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cieloazul310/astro-sarkara.git",
+    "directory": "packages/article-classes"
+  },
   "scripts": {
     "tsup": "tsup src/index.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/sarkara-css",
     "codegen": "panda --clean",
