@@ -17,6 +17,7 @@
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
     "build:package": "turbo run build --filter='./packages/*'",
+    "publish-packages": "turbo run build:package && changeset version && changeset publish",
     "format": "prettier \"packages/**/src/**/*.{js,ts,cjs,mjs,astro}\" --write",
     "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
