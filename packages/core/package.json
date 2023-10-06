@@ -63,6 +63,6 @@
   },
   "peerDependencies": {
     "astro": "^3.0.0",
-    "@pandacss/dev": ">=15.0.0"
+    "@pandacss/dev": ">=0.15.0"
   }
 }
