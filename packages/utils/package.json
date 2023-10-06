@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara-utils",
   "description": "Utility package for astro-sarkara",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "ISC",
   "type": "module",
   "main": "dist/index.js",
@@ -32,8 +32,8 @@
     "dev": "npm run tsup -- --watch"
   },
   "devDependencies": {
-    "@cieloazul310/tsconfig": "^0.0.1",
+    "@cieloazul310/tsconfig": "^0.0.2",
     "eslint": "^8.50.0",
-    "eslint-config-custom": "^0.0.1"
+    "eslint-config-custom": "^0.0.2"
   }
 }

@@ -1,5 +1,13 @@
 # astro-app
 
+## 0.0.3
+
+### Patch Changes
+
+- cebf92f: fix publish workflow
+- Updated dependencies [cebf92f]
+  - @cieloazul310/astro-sarkara@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
