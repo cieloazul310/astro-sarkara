@@ -1,4 +1,17 @@
-# astro-sarkara
+# Astro Sarkara
+
+Astro components and layout package built with Panda CSS.
+
+[![npm version](https://badge.fury.io/js/@cieloazul310%2Fastro-sarkara.svg)](https://badge.fury.io/js/@cieloazul310%2Fastro-sarkara) [![Netlify Status](https://api.netlify.com/api/v1/badges/86a9d564-8ece-455e-a4d7-1f9806f8ebc8/deploy-status)](https://app.netlify.com/sites/astro-sarkara-starter/deploys)
+
+Demo  
+<https://cieloazul310.github.io/astro-sarkara>
+
+Astro  
+<https://astro.build/>
+
+Panda CSS  
+<https://panda-css.com/>
 
 ## Setup
 
