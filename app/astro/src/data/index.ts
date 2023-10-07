@@ -9,6 +9,7 @@ export const siteMetadata = {
 export const menu = defineMenu([
   { title: "Top", href: "/" },
   { title: "Components", href: "/components" },
+  { title: "Custom Layout", href: "/custom-layout" },
   { title: "Posts", href: "/posts" },
   {
     title: "Link",

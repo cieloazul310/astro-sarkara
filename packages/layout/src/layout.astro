@@ -63,13 +63,17 @@ const {
     </Seo>
   </head>
   <body>
-    <Header siteTitle={siteMetadata.title} />
+    <slot name="header">
+      <Header siteTitle={siteMetadata.title} />
+    </slot>
     <main>
       <article>
-        <Jumbotron title={title || siteMetadata.title}>
-          <slot name="jumbotron-header" slot="jumbotron-header" />
-          <slot name="jumbotron-footer" slot="jumbotron-footer" />
-        </Jumbotron>
+        <slot name="jumbotron">
+          <Jumbotron title={title || siteMetadata.title}>
+            <slot name="jumbotron-header" slot="jumbotron-header" />
+            <slot name="jumbotron-footer" slot="jumbotron-footer" />
+          </Jumbotron>
+        </slot>
         <div
           class={container({
             maxWidth: "contentMaxWidth",
@@ -107,22 +111,30 @@ const {
               alignItems: "stretch",
             })}
           >
-            <slot name="sidebar-top" />
-            {Astro.slots.has("sidebar-top") && <Divider />}
-            <MenuList menu={menu} />
-            {Astro.slots.has("sidebar-bottom") && <Divider />}
-            <slot name="sidebar-bottom" />
+            <slot name="sidebar">
+              <slot name="sidebar-top" />
+              {Astro.slots.has("sidebar-top") && <Divider />}
+              <MenuList menu={menu} />
+              {Astro.slots.has("sidebar-bottom") && <Divider />}
+              <slot name="sidebar-bottom" />
+            </slot>
           </div>
         </div>
       </article>
     </main>
-    <Footer siteTitle={siteMetadata.title} />
-    <Fab />
-    <Drawer siteTitle={siteMetadata.title}>
-      <slot name="drawer-top" slot="drawer-top" />
-      <MenuList menu={menu} />
-      <slot name="drawer-bottom" slot="drawer-bottom" />
-    </Drawer>
+    <slot name="footer">
+      <Footer siteTitle={siteMetadata.title} />
+    </slot>
+    <slot name="fab">
+      <Fab />
+    </slot>
+    <slot name="drawer">
+      <Drawer siteTitle={siteMetadata.title}>
+        <slot name="drawer-top" slot="drawer-top" />
+        <MenuList menu={menu} />
+        <slot name="drawer-bottom" slot="drawer-bottom" />
+      </Drawer>
+    </slot>
     <script>
       import "./scripts/toggleColorMode.ts";
     </script>
@@ -147,5 +159,6 @@ const {
 
       window.localStorage.setItem("astro-color-mode", theme);
     </script>
+    <slot name="script" />
   </body>
 </html>

@@ -1,0 +1,84 @@
+---
+import {
+  SarkaraLayout,
+  PaperLink,
+  type SarkaraLayoutProps,
+} from "@cieloazul310/astro-sarkara";
+import { css } from "@cieloazul310/sarkara-css/css";
+import { container, flex } from "@cieloazul310/sarkara-css/patterns";
+import { siteMetadata, menu } from "../data";
+
+interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {
+  frontmatter: {
+    title: string;
+    description?: string;
+  } | null;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<SarkaraLayout
+  title={frontmatter?.title}
+  siteMetadata={siteMetadata}
+  menu={menu}
+>
+  <header
+    slot="header"
+    class={flex({
+      p: 4,
+      shadow: "sm",
+      height: "headerHeight",
+      bgGradient: "to-r",
+      gradientFrom: { base: "primary.100", _dark: "primary.800" },
+      gradientTo: { base: "secondary.100", _dark: "secondary.900" },
+      justifyContent: "center",
+    })}
+  >
+    <h1 class={css({ fontWeight: "bolder" })}>Custom Header</h1>
+  </header>
+  <header
+    slot="jumbotron"
+    class={container({ maxWidth: "contentMaxWidth", px: [4, 4], pt: 4 })}
+  >
+    <div
+      class={flex({
+        direction: "column",
+        justifyContent: "center",
+        rounded: "xl",
+        bgGradient: "to-br",
+        gradientFrom: { base: "primary.100", _dark: "primary.800" },
+        gradientTo: { base: "secondary.100", _dark: "secondary.900" },
+        height: "240px",
+        p: 4,
+      })}
+    >
+      <h1 class={css({ fontWeight: "bold", fontSize: "4xl", lineHeight: 1 })}>
+        {frontmatter?.title}
+      </h1>
+      {frontmatter?.description && <p>{frontmatter.description}</p>}
+    </div>
+  </header>
+  <div class={css({ p: 4 })}>
+    <slot />
+  </div>
+  <Fragment slot="sidebar">
+    <aside class={css({ p: 4 })}>
+      <h2 class={css({ fontSize: "lg", textStyle: "headings" })}>
+        Custom Sidebar
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </aside>
+    <nav>
+      <PaperLink href="/">Top page</PaperLink>
+    </nav>
+  </Fragment>
+</SarkaraLayout>
