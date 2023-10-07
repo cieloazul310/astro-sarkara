@@ -1,6 +1,10 @@
 ---
 import { container, vstack } from "@cieloazul310/sarkara-css/patterns";
-import { css } from "@cieloazul310/sarkara-css/css";
+import {
+  css,
+  sva,
+  type RecipeVariantProps,
+} from "@cieloazul310/sarkara-css/css";
 import { PaperLink, Divider } from "@cieloazul310/astro-sarkara-components";
 import { defineMenu, type Menu } from "@cieloazul310/astro-sarkara-utils";
 
@@ -27,21 +31,58 @@ const defaultMenu = defineMenu([
   },
 ]);
 
-export interface Props extends SeoProps {
-  menu?: Menu;
-  htmlLang?: string;
-}
+const layoutStyle = sva({
+  slots: ["sidebar", "fab"],
+  base: {
+    sidebar: {
+      width: "sidebarWidth",
+      flexShrink: 0,
+      px: 2,
+      pb: 8,
+    },
+    fab: {
+      position: "fixed",
+      bottom: 4,
+      right: 4,
+      zIndex: "fab",
+    },
+  },
+  variants: {
+    variant: {
+      default: {
+        sidebar: { display: { base: "none", md: "block" } },
+        fab: { display: { base: "block", md: "none" } },
+      },
+      fullWidth: {
+        sidebar: { display: "none" },
+        fab: { display: "block" },
+      },
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+export type Props = SeoProps &
+  RecipeVariantProps<typeof layoutStyle> & {
+    menu?: Menu;
+    htmlLang?: string;
+  };
 
 const {
   siteMetadata,
   title,
   description,
   image,
+  variant = "default",
   htmlLang = "ja",
   menu = defaultMenu,
   siteType = "website",
   twitterCardType = "summary",
 } = Astro.props;
+
+const { sidebar, fab } = layoutStyle({ variant });
 ---
 
 <!doctype html>
@@ -100,24 +141,21 @@ const {
               Top
             </PaperLink>
           </div>
-          <div
-            class={vstack({
-              width: "sidebarWidth",
-              gap: 4,
-              hideBelow: "md",
-              flexShrink: 0,
-              px: 2,
-              pb: 8,
-              alignItems: "stretch",
-            })}
-          >
-            <slot name="sidebar">
-              <slot name="sidebar-top" />
-              {Astro.slots.has("sidebar-top") && <Divider />}
-              <MenuList menu={menu} />
-              {Astro.slots.has("sidebar-bottom") && <Divider />}
-              <slot name="sidebar-bottom" />
-            </slot>
+          <div class={sidebar}>
+            <div
+              class={vstack({
+                gap: 4,
+                alignItems: "stretch",
+              })}
+            >
+              <slot name="sidebar">
+                <slot name="sidebar-top" />
+                {Astro.slots.has("sidebar-top") && <Divider />}
+                <MenuList menu={menu} />
+                {Astro.slots.has("sidebar-bottom") && <Divider />}
+                <slot name="sidebar-bottom" />
+              </slot>
+            </div>
           </div>
         </div>
       </article>
@@ -125,15 +163,7 @@ const {
     <slot name="footer">
       <Footer siteTitle={siteMetadata.title} />
     </slot>
-    <div
-      class={css({
-        hideFrom: "lg",
-        position: "fixed",
-        bottom: 4,
-        right: 4,
-        zIndex: "fab",
-      })}
-    >
+    <div class={fab}>
       <slot name="fab">
         <Fab />
       </slot>
