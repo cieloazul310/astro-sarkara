@@ -125,9 +125,19 @@ const {
     <slot name="footer">
       <Footer siteTitle={siteMetadata.title} />
     </slot>
-    <slot name="fab">
-      <Fab />
-    </slot>
+    <div
+      class={css({
+        hideFrom: "lg",
+        position: "fixed",
+        bottom: 4,
+        right: 4,
+        zIndex: "fab",
+      })}
+    >
+      <slot name="fab">
+        <Fab />
+      </slot>
+    </div>
     <slot name="drawer">
       <Drawer siteTitle={siteMetadata.title}>
         <slot name="drawer-top" slot="drawer-top" />
