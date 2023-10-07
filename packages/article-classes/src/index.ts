@@ -1,4 +1,4 @@
-import { css } from "@cieloazul310/sarkara-css/css";
+import { cx, css } from "@cieloazul310/sarkara-css/css";
 import { paper, divider } from "@cieloazul310/sarkara-css/patterns";
 import type { SystemStyleObject } from "@cieloazul310/sarkara-css/types";
 
@@ -64,17 +64,23 @@ export const anchor = css({
   _dark: { color: { base: "primary.300", _hover: "primary.200" } },
 });
 
-export const blockquote = paper({
-  my: 4,
-});
+export const blockquote = cx(
+  css({ colorPalette: "primary" }),
+  paper({
+    my: 4,
+  }),
+);
 
-export const table = paper({
-  width: "100%",
-  borderWidth: "1px",
-  borderColor: { base: "primary.50", _dark: "primary.950" },
-  my: 4,
-  fontSize: ["sm", "md"],
-});
+export const table = cx(
+  css({ colorPalette: "primary" }),
+  paper({
+    width: "100%",
+    borderWidth: "1px",
+    borderColor: { base: "primary.50", _dark: "primary.950" },
+    my: 4,
+    fontSize: ["sm", "md"],
+  }),
+);
 
 export const thead = paper();
 
@@ -117,16 +123,20 @@ export const orderedList = css({
 export const img = css({
   my: 4,
   maxWidth: "100%",
+  rounded: "xl",
 });
 
-export const pre = paper({
-  my: 4,
-  overflowX: "auto",
-  maxWidth: "100%",
-});
+export const pre = cx(
+  css({ colorPalette: "primary" }),
+  paper({
+    my: 4,
+    overflowX: "auto",
+    maxWidth: "100%",
+  }),
+);
 
 export const code = css({
-  "p &": {
+  ":not(pre) > &": {
     color: { base: "secondary.800", _dark: "secondary.400" },
     bgct: "secondary.600/92",
     px: 1,
