@@ -1,0 +1,25 @@
+name: Dispatch test
+
+on:
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Dispatch
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ['cieloazul310/astro-sarkara-starter']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: dispatch update-packages
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ matrix.repo }}
+          event-type: update-astro-sarkara
