@@ -1,6 +1,9 @@
 name: Dispatch test
 
 on:
+  pull_request:
+    types: [opened, synchronize]
+
   workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
