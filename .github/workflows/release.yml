@@ -11,9 +11,13 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ['cieloazul310/astro-sarkara-starter']
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Detect package manager
         id: detect-package-manager
@@ -48,12 +52,15 @@ jobs:
         uses: changesets/action@v1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: npm run publish-packages
+          publish: ${{ steps.detect-package-manager.outputs.manager }} run publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      #- name: Send a Slack notification if a publish happens
-      #  if: steps.changesets.outputs.published == 'true'
-        # You can do something when a publish happens.
-      #  run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
+      - name: dispatch update-packages
+        uses: peter-evans/repository-dispatch@v2
+        if: steps.changesets.outputs.published == 'true'
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ matrix.repo }}
+          event-type: update-astro-sarkara
