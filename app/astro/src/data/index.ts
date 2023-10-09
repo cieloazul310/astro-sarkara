@@ -9,6 +9,13 @@ export const siteMetadata = {
 export const menu = defineMenu([
   { title: "Top", href: "/" },
   { title: "Components", href: "/components" },
+  {
+    title: "Layouts",
+    items: [
+      { title: "Full Width Layout", href: "/full-width" },
+      { title: "Custom Layout", href: "/custom-layout" },
+    ],
+  },
   { title: "Posts", href: "/posts" },
   {
     title: "Link",
