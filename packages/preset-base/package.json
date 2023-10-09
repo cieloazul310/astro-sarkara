@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/panda-preset-sarkara-base",
   "description": "Panda CSS base preset for astro-sarkara packages.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "ISC",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

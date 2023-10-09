@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara-components",
   "description": "Astro components package built with Panda CSS.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
@@ -63,7 +63,7 @@
   },
   "peerDependencies": {
     "@cieloazul310/astro-sarkara-utils": "^0.0.3",
-    "@cieloazul310/panda-preset-sarkara-base": "^0.0.3",
+    "@cieloazul310/panda-preset-sarkara-base": "^0.0.4",
     "astro": "^3.0.0"
   }
 }

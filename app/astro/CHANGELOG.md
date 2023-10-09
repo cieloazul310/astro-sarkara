@@ -1,5 +1,13 @@
 # astro-app
 
+## 0.0.5
+
+### Patch Changes
+
+- d18cc0a: Add some feature
+- Updated dependencies [d18cc0a]
+  - @cieloazul310/astro-sarkara@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
