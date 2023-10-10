@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 import type { HTMLAttributes } from "astro/types";
-import { css, cx } from "@cieloazul310/sarkara-css/css";
+import { css, cx, cva } from "@cieloazul310/sarkara-css/css";
 import {
   paper,
   linkBox,
@@ -10,19 +10,56 @@ import {
 } from "@cieloazul310/sarkara-css/patterns";
 import { useLink, isInternal } from "@cieloazul310/astro-sarkara-utils";
 
-export interface Props extends HTMLAttributes<"a"> {
+const panelLink = cva({
+  base: {
+    display: "flex",
+    justifyContent: "start",
+    alignItems: "center",
+    gap: 4,
+    borderColor: { base: "colorPalette.500", _dark: "colorPalette.800" },
+  },
+  variants: {
+    border: {
+      yes: {
+        borderWidth: "1px",
+      },
+      none: {
+        borderWidth: 0,
+      },
+    },
+    margin: {
+      yes: {
+        my: 4,
+      },
+      none: {
+        my: 0,
+      },
+    },
+  },
+  defaultVariants: {
+    border: "yes",
+    margin: "yes",
+  },
+});
+
+export type Props = HTMLAttributes<"a"> & {
   className?: string;
   disablePrefix?: boolean;
   colorPalette?: string;
-}
+  disableMargin?: boolean;
+  disableBorder?: boolean;
+};
 
 const {
   className,
   href,
   disablePrefix,
   colorPalette = "primary",
+  disableBorder = false,
+  disableMargin = false,
   ...attrs
 } = Astro.props;
+
 const link = useLink(href, { disablePrefix });
 const external = !isInternal(href);
 const hostname = external ? new URL(link.href ?? "").hostname : null;
@@ -33,12 +70,11 @@ const hostname = external ? new URL(link.href ?? "").hostname : null;
     linkBox({ colorPalette }),
     paper({
       hover: true,
-      display: "flex",
       minHeight: "48px",
-      justifyContent: "start",
-      alignItems: "center",
-      gap: 4,
-      my: 4,
+    }),
+    panelLink({
+      border: disableBorder ? "none" : "yes",
+      margin: disableMargin ? "none" : "yes",
     }),
     className,
   )}
