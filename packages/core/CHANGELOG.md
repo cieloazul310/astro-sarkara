@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara
 
+## 0.0.6
+
+### Patch Changes
+
+- 968f12b: fix package.json types field
+
 ## 0.0.5
 
 ### Patch Changes
