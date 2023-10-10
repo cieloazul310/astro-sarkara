@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLAttributes } from "astro/types";
+import { css, cx } from "@cieloazul310/sarkara-css/css";
+import {
+  paper,
+  linkBox,
+  linkOverlay,
+  flex,
+} from "@cieloazul310/sarkara-css/patterns";
+import { useLink, isInternal } from "@cieloazul310/astro-sarkara-utils";
+
+export interface Props extends HTMLAttributes<"a"> {
+  className?: string;
+  disablePrefix?: boolean;
+  colorPalette?: string;
+}
+
+const {
+  className,
+  href,
+  disablePrefix,
+  colorPalette = "primary",
+  ...attrs
+} = Astro.props;
+const link = useLink(href, { disablePrefix });
+const external = !isInternal(href);
+const hostname = external ? new URL(link.href ?? "").hostname : null;
+---
+
+<div
+  class={cx(
+    linkBox({ colorPalette }),
+    paper({
+      hover: true,
+      display: "flex",
+      minHeight: "48px",
+      justifyContent: "start",
+      alignItems: "center",
+      gap: 4,
+      my: 4,
+    }),
+    className,
+  )}
+  role="button"
+>
+  <div class={flex({ flexShrink: 0 })}>
+    <Icon
+      class={css({ width: "24px", height: "24px" })}
+      name={external ? "mdi:open-in-new" : "mdi:arrow-right-circle"}
+    />
+  </div>
+  <div class={flex({ flexGrow: 1, flexDirection: "column" })}>
+    <a
+      class={linkOverlay({ textStyle: "headings", fontSize: ["md", "lg"] })}
+      {...link}
+      {...attrs}
+    >
+      <slot />
+    </a>
+    {hostname && <div class={css({ fontSize: "sm" })}>{hostname}</div>}
+  </div>
+</div>

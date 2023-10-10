@@ -17,6 +17,10 @@ export {
   type Props as NavigationProps,
 } from "./Navigation.astro";
 export { default as Pagination } from "./Pagination.astro";
+export {
+  default as PanelLink,
+  type Props as PanelLinkProps,
+} from "./PanelLink.astro";
 export { default as Paper, type Props as PaperProps } from "./Paper.astro";
 export {
   default as PaperLink,
