@@ -11,4 +11,20 @@ const { ...props } = Astro.props;
 
 <SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
   <slot />
+  <Fragment slot="script">
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VE0MVTCH7K"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-VE0MVTCH7K");
+    </script>
+  </Fragment>
 </SarkaraLayout>

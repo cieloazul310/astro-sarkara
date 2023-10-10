@@ -1,7 +1,6 @@
 ---
 /* eslint-disable-next-line import/no-unresolved */
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
-// import { renderMarkdown, createMarkdownProcessor } from "@astrojs/markdown-remark";
 import {
   SarkaraLayout,
   Paper,
@@ -13,7 +12,7 @@ import { hstack } from "@cieloazul310/sarkara-css/patterns";
 import { css } from "@cieloazul310/sarkara-css/css";
 import PostYears from "../../components/PostYears.astro";
 import { siteMetadata, menu } from "../../data";
-import { parseDate /* excerpt */ } from "../../utils";
+import { parseDate } from "../../utils";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
@@ -54,14 +53,11 @@ const navigation = useNavigation(
 );
 const entry = await getEntry("posts", post.slug);
 const { Content } = await entry.render();
-// const md = await renderMarkdown(entry.body, {});
-// const description = excerpt(String(md.vfile));
-const description = "";
 ---
 
 <SarkaraLayout
   title={post.data.title}
-  description={description}
+  image={entry.data.featuredImg?.src}
   siteMetadata={siteMetadata}
   menu={menu}
 >
@@ -94,4 +90,20 @@ const description = "";
     <PostYears />
   </Fragment>
   <PostYears slot="drawer-top" />
+  <Fragment slot="script">
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VE0MVTCH7K"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-VE0MVTCH7K");
+    </script>
+  </Fragment>
 </SarkaraLayout>

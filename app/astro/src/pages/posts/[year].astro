@@ -85,4 +85,20 @@ const navigation = useNavigation(
   <PaperLink href="/posts/">Markdown Posts Top</PaperLink>
   <PostYears slot="sidebar-top" />
   <PostYears slot="drawer-top" />
+  <Fragment slot="script">
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VE0MVTCH7K"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-VE0MVTCH7K");
+    </script>
+  </Fragment>
 </SarkaraLayout>

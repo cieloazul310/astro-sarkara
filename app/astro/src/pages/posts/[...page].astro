@@ -1,6 +1,6 @@
 ---
 /* eslint-disable-next-line import/no-unresolved */
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import type { GetStaticPathsOptions, Page } from "astro";
 import {
   SarkaraLayout,
@@ -11,7 +11,6 @@ import {
 import PostYears from "../../components/PostYears.astro";
 import { pageSize, menu, siteMetadata } from "../../data";
 import { parseDate, slugify } from "../../utils";
-import type { PostData } from "../../types";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   // Load your data with fetch(), Astro.glob(), etc.
@@ -27,7 +26,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 }
 
 interface Props {
-  page: Page<{ slug: string; data: PostData }>;
+  page: Page<CollectionEntry<"posts">>;
 }
 
 const { page } = Astro.props;
@@ -40,7 +39,12 @@ const { page } = Astro.props;
   <ArticleList>
     {
       page.data.map((post) => (
-        <ArticleListItem href={slugify("posts", post)} title={post.data.title}>
+        <ArticleListItem
+          href={slugify("posts", post)}
+          title={post.data.title}
+          image={post.data.featuredImg?.src}
+          imageAlt={post.data.featuredImgAlt}
+        >
           <Fragment slot="headerText">
             <span>
               <time datetime={post.data.date.toISOString()}>
@@ -56,4 +60,20 @@ const { page } = Astro.props;
   <Pagination page={page} basePath="/posts" />
   <PostYears slot="sidebar-top" />
   <PostYears slot="drawer-top" />
+  <Fragment slot="script">
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VE0MVTCH7K"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-VE0MVTCH7K");
+    </script>
+  </Fragment>
 </SarkaraLayout>

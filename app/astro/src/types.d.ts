@@ -9,6 +9,8 @@ export type PostData = {
   title: string;
   date: Date;
   author?: string;
+  featuredImg?: string;
+  featuredImgAlt?: string;
 };
 
 // 型定義

@@ -1,4 +1,5 @@
-import type { MicrocmsBlogs, PostData } from "../types";
+import { type CollectionEntry } from "astro:content";
+import type { MicrocmsBlogs } from "../types";
 
 export function pubDateToYYMM(publishedAt: string) {
   const pubDate = new Date(publishedAt);
@@ -18,7 +19,7 @@ export function slugify<T extends "microcms" | "posts">(
   type: T,
   obj: T extends "microcms"
     ? Pick<MicrocmsBlogs, "id" | "publishedAt">
-    : { slug: string; data: PostData },
+    : CollectionEntry<"posts">,
   disablePrefix: boolean = false,
 ) {
   if (isMicrocmsBlogs(obj, type)) {
