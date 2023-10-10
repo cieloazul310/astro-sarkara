@@ -3,6 +3,7 @@ import {
   SarkaraLayout,
   type SarkaraLayoutProps,
 } from "@cieloazul310/astro-sarkara";
+import Analytics from "../components/Analytics.astro";
 import { siteMetadata, menu } from "../data";
 
 interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {}
@@ -11,4 +12,5 @@ const { ...props } = Astro.props;
 
 <SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
   <slot />
+  <Analytics slot="top-of-head" />
 </SarkaraLayout>

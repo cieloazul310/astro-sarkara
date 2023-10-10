@@ -1,5 +1,6 @@
 ---
 import { Paper, SarkaraLayout } from "@cieloazul310/astro-sarkara";
+import Analytics from "../components/Analytics.astro";
 import { menu, siteMetadata } from "../data";
 
 interface Props {
@@ -21,4 +22,5 @@ const { frontmatter } = Astro.props;
   <Paper>
     <slot />
   </Paper>
+  <Analytics slot="top-of-head" />
 </SarkaraLayout>

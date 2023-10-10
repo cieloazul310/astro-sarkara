@@ -19,6 +19,8 @@
     "rehype-class-names": "^1.0.14"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^1.1.1",
+    "@astrojs/partytown": "^2.0.1",
     "@pandacss/astro": "^0.15.4",
     "@pandacss/dev": "^0.15.4",
     "eslint": "^8.50.0",

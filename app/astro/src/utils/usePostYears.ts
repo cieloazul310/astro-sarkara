@@ -1,11 +1,11 @@
-import type { PostData } from "../types";
+import { type CollectionEntry } from "astro:content";
 
 function isNumber(value: any): value is number {
   return value && typeof value === "number";
 }
 
 function usePostsYears(
-  allPosts: { data: PostData }[],
+  allPosts: CollectionEntry<"posts">[],
   { sort }: { sort: "asc" | "desc" } = { sort: "desc" },
 ) {
   const years = [

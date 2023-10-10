@@ -26,13 +26,13 @@ const {
 const siteTitle = siteMetadata.title;
 const siteDescription = siteMetadata.description;
 
-const contentTitle = title ? `${title} - ${siteTitle}` : siteTitle;
+const contentTitle =
+  title && title !== siteTitle ? `${title} - ${siteTitle}` : siteTitle;
 const seoDescription = description || siteDescription;
 const imageUrl = useAbsoluteUrl(image ?? siteMetadata.image);
 ---
 
 <>
-  <title>{contentTitle}</title>
   {
     title && (
       <>
