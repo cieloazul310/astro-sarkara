@@ -1,5 +1,13 @@
 # astro-app
 
+## 0.0.7
+
+### Patch Changes
+
+- ff65bf5: add components and layout slots
+- Updated dependencies [ff65bf5]
+  - @cieloazul310/astro-sarkara@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
