@@ -13,4 +13,7 @@ export default defineTokens({
     drawerBackdrop: { value: 199 },
     header: { value: 10 },
   },
+  fonts: {
+    body: { value: "Roboto, Helvetica, Arial, sans-serif" },
+  },
 });

@@ -14,6 +14,9 @@ const astroCode = {
 };
 
 export default defineGlobalStyles({
+  ":root": {
+    "--global-font-body": "token(fonts.body)",
+  },
   body,
   ".astro-code": astroCode,
 });
