@@ -8,6 +8,7 @@ import {
   ArticleListItem,
   Pagination,
 } from "@cieloazul310/astro-sarkara";
+import Analytics from "../../components/Analytics.astro";
 import PostYears from "../../components/PostYears.astro";
 import { pageSize, menu, siteMetadata } from "../../data";
 import { parseDate, slugify } from "../../utils";
@@ -60,20 +61,5 @@ const { page } = Astro.props;
   <Pagination page={page} basePath="/posts" />
   <PostYears slot="sidebar-top" />
   <PostYears slot="drawer-top" />
-  <Fragment slot="script">
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-VE0MVTCH7K"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-VE0MVTCH7K");
-    </script>
-  </Fragment>
+  <Analytics slot="top-of-head" />
 </SarkaraLayout>

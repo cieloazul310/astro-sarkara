@@ -10,7 +10,9 @@ import {
 } from "@cieloazul310/astro-sarkara";
 import { hstack } from "@cieloazul310/sarkara-css/patterns";
 import { css } from "@cieloazul310/sarkara-css/css";
+import Analytics from "../../components/Analytics.astro";
 import PostYears from "../../components/PostYears.astro";
+import YouTube from "../../components/YouTube.astro";
 import { siteMetadata, menu } from "../../data";
 import { parseDate } from "../../utils";
 
@@ -68,7 +70,7 @@ const { Content } = await entry.render();
     {post.data.author && <span>by {post.data.author}</span>}
   </Fragment>
   <Paper>
-    <Content />
+    <Content components={{ YouTube }} />
   </Paper>
   <Paper>
     <footer>
@@ -90,20 +92,5 @@ const { Content } = await entry.render();
     <PostYears />
   </Fragment>
   <PostYears slot="drawer-top" />
-  <Fragment slot="script">
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-VE0MVTCH7K"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-VE0MVTCH7K");
-    </script>
-  </Fragment>
+  <Analytics slot="top-of-head" />
 </SarkaraLayout>

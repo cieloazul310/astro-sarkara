@@ -83,27 +83,37 @@ const {
 } = Astro.props;
 
 const { sidebar, fab } = layoutStyle({ variant });
+const contentTitle =
+  title && title !== siteMetadata.title
+    ? `${title} - ${siteMetadata.title}`
+    : siteMetadata.title;
 ---
 
 <!doctype html>
 <html lang={htmlLang}>
   <head>
+    <slot name="top-of-head" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <Seo
-      siteMetadata={siteMetadata}
-      title={title}
-      description={description}
-      image={image}
-      siteType={siteType}
-      twitterCardType={twitterCardType}
-    >
-      <slot name="meta" />
-    </Seo>
+    <title>{contentTitle}</title>
+    <slot name="seo">
+      <Seo
+        siteMetadata={siteMetadata}
+        title={title}
+        description={description}
+        image={image}
+        siteType={siteType}
+        twitterCardType={twitterCardType}
+      >
+        <slot name="meta" />
+      </Seo>
+    </slot>
+    <slot name="bottom-of-head" />
   </head>
   <body>
+    <slot name="top-of-body" />
     <slot name="header">
       <Header siteTitle={siteMetadata.title} />
     </slot>
@@ -199,6 +209,6 @@ const { sidebar, fab } = layoutStyle({ variant });
 
       window.localStorage.setItem("astro-color-mode", theme);
     </script>
-    <slot name="script" />
+    <slot name="bottom-of-body" />
   </body>
 </html>

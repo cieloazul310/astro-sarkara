@@ -14,13 +14,14 @@
     "prepare": "panda codegen"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.1",
     "@cieloazul310/astro-sarkara": "^0.0.6",
     "astro": "^3.2.0",
     "rehype": "^13.0.1",
     "rehype-class-names": "^1.0.14"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^1.1.1",
+    "@astrojs/partytown": "^2.0.1",
     "@pandacss/astro": "^0.15.4",
     "@pandacss/dev": "^0.15.4",
     "eslint": "^8.50.0",
