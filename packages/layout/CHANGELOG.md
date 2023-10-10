@@ -1,5 +1,15 @@
 # @cieloazul310/astro-sarkara-layout
 
+## 0.0.5
+
+### Patch Changes
+
+- ff65bf5: add components and layout slots
+- Updated dependencies [ff65bf5]
+  - @cieloazul310/astro-sarkara-components@0.0.5
+  - @cieloazul310/panda-preset-sarkara-base@0.0.5
+  - @cieloazul310/astro-sarkara-utils@0.0.4
+
 ## 0.0.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 0.0.5
+
+### Patch Changes
+
+- ff65bf5: add components and layout slots
+
 ## 0.0.4
 
 ### Patch Changes
