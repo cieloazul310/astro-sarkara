@@ -10,16 +10,16 @@ export function pubDateToYYMM(publishedAt: string) {
 
 function isMicrocmsBlogs(
   obj: any,
-  type: "microcms" | "posts",
+  type: "microcms" | "tutorial",
 ): obj is Pick<MicrocmsBlogs, "id" | "publishedAt"> {
   return type === "microcms";
 }
 
-export function slugify<T extends "microcms" | "posts">(
+export function slugify<T extends "microcms" | "tutorial">(
   type: T,
   obj: T extends "microcms"
     ? Pick<MicrocmsBlogs, "id" | "publishedAt">
-    : CollectionEntry<"posts">,
+    : CollectionEntry<"tutorial">,
   disablePrefix: boolean = false,
 ) {
   if (isMicrocmsBlogs(obj, type)) {
@@ -31,5 +31,5 @@ export function slugify<T extends "microcms" | "posts">(
     return `/microcms/${slug}`;
   }
   if (disablePrefix) return obj.slug;
-  return `/posts/${obj.slug}`;
+  return `/tutorial/${obj.slug}`;
 }

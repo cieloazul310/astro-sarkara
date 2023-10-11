@@ -1,6 +1,6 @@
 ---
-title: アストロへようこそ
-index: 6
+title: OGP画像を設定する
+index: 9
 featuredImg: ./IMG_8308.jpeg
 featuredImgAlt: 向学立志
 ---

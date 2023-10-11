@@ -1,0 +1,36 @@
+---
+title: Panda CSSを使う
+index: 4
+---
+
+Panda CSSの基本的な機能を使う。通常Panda CSSのコードはプロジェクトルート内の`styled-system`に生成するが、Astro Sarkaraを使用する場合、`node_modules/@cieloazul310/sarkara-css`にコードを生成する。`node_modules`にPanda CSSのコードを生成することによって、相対パスではなく他のパッケージと同様パッケージ名からインポートする形になる。
+
+```astro
+---
+import { css } from "@cieloazul310/sarkara-css/css";
+import { flex } from "@cieloazul310/sarkara-css/patterns"; 
+---
+```
+
+これは`panda.config.ts`で`defineSarkaraConfig`を使って設定する場合、`emitPackage`が`true`になっていることによる。`defineSarkaraConfig`を使わない場合、`emitPackage: true`、`outDir: "@cieloazul310/sarkara-css"`の指定が必須となる。
+
+```ts
+// panda.config.ts
+import { defineConfig } from "@pandacss/dev";
+import {
+  createSarkaraPreset,
+  astroComponentsPaths,
+} from "@cieloazul310/astro-sarkara/preset";
+
+export default defineConfig({
+  presets: [
+    "@pandacss/dev/presets",
+    createSarkaraPreset({ palette: { primary: "teal", secondary: "yellow" } }),
+  ],
+
+  include: ["./src/**/*.{js,ts,astro}", ...astroComponentsPaths],
+
+  outdir: "@cieloazul310/sarkara-css",
+  emitPackage: true,  
+});
+```

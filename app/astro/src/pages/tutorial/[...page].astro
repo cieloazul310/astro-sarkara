@@ -14,7 +14,7 @@ import { slugify } from "../../utils";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   // Load your data with fetch(), Astro.glob(), etc.
-  const allPosts = await getCollection("posts");
+  const allPosts = await getCollection("tutorial");
   const posts = allPosts.sort((a, b) => a.data.index - b.data.index);
 
   // Return a paginated collection of paths for all posts
@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 }
 
 interface Props {
-  page: Page<CollectionEntry<"posts">>;
+  page: Page<CollectionEntry<"tutorial">>;
 }
 
 const { page } = Astro.props;
@@ -36,16 +36,17 @@ const { page } = Astro.props;
     {
       page.data.map((post) => (
         <ArticleListItem
-          href={slugify("posts", post)}
+          href={slugify("tutorial", post)}
           title={post.data.title}
           image={post.data.featuredImg?.src}
           imageAlt={post.data.featuredImgAlt}
+          imagePlaceholder="Tutorial"
         >
           <span slot="headerText">Section {post.data.index}</span>
         </ArticleListItem>
       ))
     }
   </ArticleList>
-  <Pagination page={page} basePath="/posts" />
+  <Pagination page={page} basePath="/tutorial" />
   <Analytics slot="top-of-head" />
 </SarkaraLayout>

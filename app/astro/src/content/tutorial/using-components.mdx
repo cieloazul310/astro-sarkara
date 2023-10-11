@@ -1,0 +1,173 @@
+---
+title: コンポーネントを利用する
+index: 1
+---
+
+import {
+  Badge,
+  Button,
+  IconButton,
+  Link,
+  PanelLink,
+  Paper,
+  PaperLink,
+} from "@cieloazul310/astro-sarkara";
+import { vstack } from "@cieloazul310/sarkara-css/patterns";
+
+Astro Sarkaraのコンポーネントを利用するにはAstroコンポーネント内のフロントマターでインポートを行う。またMDX内でも使用することができる。
+
+```astro
+---
+import {
+  Badge,
+  Button,
+  IconButton,
+  Link,
+  PanelLink,
+  Paper,
+  PaperLink,
+} from "@cieloazul310/astro-sarkara";
+---
+```
+
+## 基本コンポーネント
+
+### Badge
+
+バッジコンポーネント。
+
+```mdx
+<Badge>Badge</Badge>
+<Badge colorPalette="primary">Primary</Badge>
+<Badge colorPalette="red" size="md">Red</Badge>
+```
+
+<Badge>Badge</Badge> <Badge colorPalette="primary">Primary</Badge> <Badge colorPalette="red" size="md">Red</Badge>
+
+### Button
+
+ボタンコンポーネント。
+
+```mdx
+<Button>Button</Button>
+<Button size="sm" colorPalette="primary">Primary</Button>
+<Button colorPalette="secondary" visual="outline">
+  Outline
+</Button>
+<Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">
+  With Icon
+</Button>
+```
+
+<Button>Button</Button> <Button size="sm" colorPalette="primary">Primary</Button> <Button colorPalette="secondary" visual="outline">Outline</Button> <Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">With Icon</Button>
+
+### IconButton
+
+アイコンボタンコンポーネント。アイコンは[astro-icon]で実装し、[Iconify]でアイコンネームを取得できる。
+
+```mdx
+<IconButton icon="mdi:menu" />
+<IconButton icon="mdi:menu" shape="circle" colorPalette="primary" />
+<IconButton icon="mdi:download" visual="outline" colorPalette="secondary" />
+```
+
+<IconButton icon="mdi:menu" /> 
+<IconButton icon="mdi:menu" shape="circle" colorPalette="primary" />
+<IconButton icon="mdi:download" visual="outline" colorPalette="secondary" />
+
+<PanelLink href="https://iconify.design/">Iconify Design</PanelLink>
+
+### Link
+
+Astroはリンクのベースパスのプレフィックスを行わない。`https://xxx.github.io/base-path/`がサイトのURLだとすると、サイト内リンクのすべてに`<a href="/base-path/{path}/">`のようにベースパスを記載しなければならない。`<Link>`コンポーネントはベースパスを取得し自動的に付与する。また外部リンクの時は`target="_blank"`と`rel="noreferrer noopener"`を付与する。他のリンクコンポーネントも同様に機能する。
+
+また自作のAstroコンポーネントに使う場合は同様の機能を実装するフックを用意している。
+
+```mdx
+<Link href="/">Internal</Link>
+<Link href="https://panda-css.com/">External</Link>
+<Link href="https://panda-css.com/" colorPalette="secondary">Secondary color</Link>
+```
+
+<Link href="/">Internal</Link>  
+<Link href="https://panda-css.com/">External</Link>  
+<Link href="https://panda-css.com/" colorPalette="secondary">Secondary color</Link>
+
+<PanelLink href="https://docs.astro.build/ja/reference/configuration-reference/#base">設定方法</PanelLink>
+
+### PanelLink
+
+パネル型のリンクコンポーネント。
+
+```mdx
+<PanelLink href="/">Internal</PanelLink>
+<PanelLink href="https://iconify.design/">External</PanelLink>
+<PanelLink href="https://iconify.design/" colorPalette="secondary" disableBorder>Disable border</PanelLink>
+```
+
+<PanelLink href="/">Internal</PanelLink>
+
+<PanelLink href="https://iconify.design/">External</PanelLink>
+
+<PanelLink href="https://iconify.design/" colorPalette="secondary" disableBorder>Disable border</PanelLink>
+
+### Paper
+
+Astro Sarkaraデザインの基礎となるプライマリーカラーの半透明の背景を持つ`<div>`要素。
+
+```astro
+---
+import { vstack } from "@cieloazul310/sarkara-css/patterns";
+---
+
+<div class={vstack({ gap: 2, alignItems: "stretch" })}>
+  <Paper>Paper</Paper>
+  <Paper>
+    <Paper>Nested</Paper>
+  </Paper>
+  <Paper colorPalette="secondary">
+    Secondary
+  </Paper>
+</div>
+```
+
+<div class={vstack({ gap: 2, alignItems: "stretch" })}>
+  <Paper>
+    Paper
+  </Paper>
+  <Paper>
+    <Paper>
+      Nested
+    </Paper>
+  </Paper>
+  <Paper colorPalette="secondary">
+    Secondary
+  </Paper>
+</div>
+
+### PaperButton
+
+Paperのスタイルを持ったボタン型のリンク。
+
+```astro
+---
+import { vstack } from "@cieloazul310/sarkara-css/patterns";
+---
+
+<div class={vstack({ gap: 2, alignItems: "stretch" })}>
+  <PaperLink href="/">Internal</PaperLink>
+  <PaperLink href="https://astro.build" colorPalette="secondary">
+    External
+  </PaperLink>
+  <PaperLink href="/" selected>Selected</PaperLink>
+</div>
+```
+
+<div class={vstack({ gap: 2, alignItems: "stretch" })}>
+  <PaperLink href="/">Internal</PaperLink>
+  <PaperLink href="https://astro.build" colorPalette="secondary">External</PaperLink>
+  <PaperLink href="/" selected>Selected</PaperLink>
+</div>
+
+[astro-icon]: https://github.com/natemoo-re/astro-icon "astro-icon"
+[Iconify]: https://iconify.design/ "Iconify"

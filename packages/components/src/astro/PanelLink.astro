@@ -89,8 +89,8 @@ const hostname = external ? new URL(link.href ?? "").hostname : null;
   <div class={flex({ flexGrow: 1, flexDirection: "column" })}>
     <a
       class={linkOverlay({ textStyle: "headings", fontSize: ["md", "lg"] })}
-      {...link}
       {...attrs}
+      {...link}
     >
       <slot />
     </a>

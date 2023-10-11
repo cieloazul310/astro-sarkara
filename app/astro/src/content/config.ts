@@ -1,7 +1,7 @@
 /* eslint import/prefer-default-export: off */
 import { z, defineCollection } from "astro:content";
 
-const postsCollection = defineCollection({
+const tutorialCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -19,5 +19,5 @@ const postsCollection = defineCollection({
 });
 
 export const collections = {
-  posts: postsCollection,
+  tutorial: tutorialCollection,
 };

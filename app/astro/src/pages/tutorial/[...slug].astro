@@ -15,7 +15,7 @@ import YouTube from "../../components/YouTube.astro";
 import { siteMetadata, menu } from "../../data";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("posts");
+  const allPosts = await getCollection("tutorial");
 
   return allPosts
     .sort((a, b) => a.data.index - b.data.index)
@@ -37,21 +37,21 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  post: CollectionEntry<"posts">;
-  left: CollectionEntry<"posts">;
-  right: CollectionEntry<"posts">;
+  post: CollectionEntry<"tutorial">;
+  left: CollectionEntry<"tutorial">;
+  right: CollectionEntry<"tutorial">;
 }
 
 const { post, left, right } = Astro.props;
 const navigation = useNavigation(
   { left, right },
   {
-    href: (obj) => `/posts/${obj.slug}`,
+    href: (obj) => `/tutorial/${obj.slug}`,
     primaryText: (obj) => obj.data.title,
     secondaryText: (obj) => `Section ${obj.data.index}`,
   },
 );
-const entry = await getEntry("posts", post.slug);
+const entry = await getEntry("tutorial", post.slug);
 const { Content } = await entry.render();
 ---
 
@@ -62,7 +62,7 @@ const { Content } = await entry.render();
   menu={menu}
 >
   <p
-    class={css({ textStyle: "heading", fontSize: "lg" })}
+    class={css({ textStyle: "headings", fontSize: "lg" })}
     slot="jumbotron-header"
   >
     Section {entry.data.index}
@@ -83,7 +83,7 @@ const { Content } = await entry.render();
     </footer>
   </Paper>
   <Navigation {...navigation} />
-  <PaperLink href="/posts/">Markdown Posts Top</PaperLink>
+  <PaperLink href="/tutorial/">Tutorial Top</PaperLink>
   <Navigation {...navigation} direction="column" slot="sidebar-top" />
   <Analytics slot="top-of-head" />
 </SarkaraLayout>
