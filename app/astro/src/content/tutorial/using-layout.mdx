@@ -1,0 +1,116 @@
+---
+title: レイアウトを利用する
+index: 2
+---
+
+Astro Sarkaraのレイアウトコンポーネントを利用するにはAstroコンポーネント内のフロントマターでインポートを行う。
+
+```astro
+---
+// src/page/hoge.astro
+import { SarkaraLayout, defineMenu } from "@cieloazul310/astro-sarkara";
+
+const siteMetadata = {
+  title: "Site title",
+  description: "Site description",
+};
+const menu = defineMenu([
+  { title: "Top", href: "/" },
+]);
+---
+
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu}>
+  <!-- contents -->
+</SarkaraLayout>
+```
+
+## 基本的な使い方
+
+### `./src/pages/*.astro`内で直接利用
+
+```astro
+---
+// ./src/pages/hoge.astro
+import { SarkaraLayout } from "@cieloazul310/astro-sarkara";
+import { menu, siteMetadata } from "../data";
+---
+
+<SarkaraLayout 
+  title="Page title" 
+  description="Page description" 
+  image="Page opengraph image"
+  siteMetadata={siteMetadata}
+  menu={menu}
+>
+  <!-- Page contents -->
+</SarkaraLayout>
+```
+
+### Markdown/MDXのテンプレートとして利用
+
+```astro
+---
+// .src/template/markdown.astro
+import { SarkaraLayout, Paper } from "@cieloazul310/astro-sarkara";
+import { menu, siteMetadata } from "../data";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    featuredImage: string; 
+  } | null;
+}
+const { frontmatter } = Astro.props;
+---
+
+<SarkaraLayout 
+  title={frontmatter?.title} 
+  description={frontmatter?.description} 
+  image={frontmatter?.featuredImage} 
+  siteMetadata={siteMetadata} 
+  menu={menu}
+>
+  <Paper>
+    <slot />
+  </Paper>
+</SarkaraLayout>
+```
+
+```md
+---
+# ./src/pages/hoge.md
+title: Markdown contents
+description: Markdown contents example
+layout: ../layout/markdown.astro
+---
+
+Markdown contents.
+```
+
+## サイトメタデータ、メニューの作成
+
+`./src/data/index.ts`に作成することを推奨する。サイトメタデータとメニューの内容は、レイアウトコンポーネントを経由してサイドバーやドロワーに描写される。
+
+```ts
+// src/data/index.ts
+import { defineMenu } from "@cieloazul310/astro-sarkara";
+
+export const siteMetadata = {
+  title: "Astro Sarkara",
+  description: "Astro components library built with Panda CSS.",
+  image: "/ogimage.jpeg", // for opengraph (optional)
+};
+
+export const menu = defineMenu([
+  { title: "Top", href: "/" },
+  { title: "Posts", href: "/posts" },
+  {
+    title: "Link",
+    items: [
+      { title: "Astro", href: "https://astro.build/" },
+      { title: "Panda CSS", href: "https://panda-css.com/" },
+    ],
+  },
+]);
+```

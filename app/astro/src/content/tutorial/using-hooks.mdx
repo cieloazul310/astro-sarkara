@@ -1,0 +1,40 @@
+---
+title: フックを使う
+index: 3
+---
+
+フックを用意している。
+
+## よく使うフック
+
+### `useLink(href)`
+
+リンクの種別を自動に判別し、ベースパスの自動的な付与と属性を取得するフック。
+
+例えばサイト内リンクのとき、`href="/posts/"`、サイトのベースパスが`/base-path`とすると、`useLink(href)`の返り値は`{ href: "/base-path/posts/" }`となる。
+外部リンクの場合、`href="https://panda-css.com/"`とすると、`useLink(href)`の返り値は`{ href: "https://panda-css.com/", target: "_blank", rel: "noreferrer noopener" }`となる。
+
+```astro
+---
+import type { HTMLAttributes } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara";
+
+type Props = HTMLAttributes<"a">;
+const { href, ...props } = Astro.props;
+
+const link = useLink(href);
+/*
+=> {
+  href: string | URL | null;
+  target?: "_blank";
+  rel?: "noreferrer noopener";
+}
+*/
+---
+
+<a {...props} {...link}>
+  <slot />
+</a>
+```
+
+<PanelLink href="https://docs.astro.build/ja/guides/typescript/#%E5%9E%8B%E3%83%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3">TypeScript</PanelLink>

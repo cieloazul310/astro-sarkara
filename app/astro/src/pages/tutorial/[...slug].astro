@@ -1,0 +1,89 @@
+---
+/* eslint-disable-next-line import/no-unresolved */
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import {
+  SarkaraLayout,
+  Paper,
+  PaperLink,
+  PanelLink,
+  Navigation,
+  useNavigation,
+} from "@cieloazul310/astro-sarkara";
+import { css } from "@cieloazul310/sarkara-css/css";
+import Analytics from "../../components/Analytics.astro";
+import YouTube from "../../components/YouTube.astro";
+import { siteMetadata, menu } from "../../data";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("tutorial");
+
+  return allPosts
+    .sort((a, b) => a.data.index - b.data.index)
+    .map((post, index, arr) => {
+      const left = index !== 0 ? arr[index - 1] : null;
+      const right = index !== arr.length - 1 ? arr[index + 1] : null;
+
+      return {
+        params: {
+          slug: post.slug,
+        },
+        props: {
+          post,
+          left,
+          right,
+        },
+      };
+    });
+}
+
+interface Props {
+  post: CollectionEntry<"tutorial">;
+  left: CollectionEntry<"tutorial">;
+  right: CollectionEntry<"tutorial">;
+}
+
+const { post, left, right } = Astro.props;
+const navigation = useNavigation(
+  { left, right },
+  {
+    href: (obj) => `/tutorial/${obj.slug}`,
+    primaryText: (obj) => obj.data.title,
+    secondaryText: (obj) => `Section ${obj.data.index}`,
+  },
+);
+const entry = await getEntry("tutorial", post.slug);
+const { Content } = await entry.render();
+---
+
+<SarkaraLayout
+  title={post.data.title}
+  image={entry.data.featuredImg?.src}
+  siteMetadata={siteMetadata}
+  menu={menu}
+>
+  <p
+    class={css({ textStyle: "headings", fontSize: "lg" })}
+    slot="jumbotron-header"
+  >
+    Section {entry.data.index}
+  </p>
+  <Paper>
+    <Content components={{ YouTube, PanelLink }} />
+  </Paper>
+  <Paper>
+    <footer>
+      <hgroup>
+        <p>Section {entry.data.index}</p>
+        <h2
+          class={css({ textStyle: "headings", fontSize: ["lg", "lg", "xl"] })}
+        >
+          {post.data.title}
+        </h2>
+      </hgroup>
+    </footer>
+  </Paper>
+  <Navigation {...navigation} />
+  <PaperLink href="/tutorial/">Tutorial Top</PaperLink>
+  <Navigation {...navigation} direction="column" slot="sidebar-top" />
+  <Analytics slot="top-of-head" />
+</SarkaraLayout>

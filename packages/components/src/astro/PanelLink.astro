@@ -29,7 +29,7 @@ const panelLink = cva({
     },
     margin: {
       yes: {
-        my: 4,
+        my: 8,
       },
       none: {
         my: 0,
@@ -89,8 +89,8 @@ const hostname = external ? new URL(link.href ?? "").hostname : null;
   <div class={flex({ flexGrow: 1, flexDirection: "column" })}>
     <a
       class={linkOverlay({ textStyle: "headings", fontSize: ["md", "lg"] })}
-      {...link}
       {...attrs}
+      {...link}
     >
       <slot />
     </a>

@@ -58,27 +58,13 @@ npm install @cieloazul310/astro-sarkara
 
 ```ts:panda.config.ts
 // panda.config.ts
-import { defineConfig } from "@pandacss/dev";
-import {
-  createSarkaraPreset,
-  astroComponentsPaths,
-} from "@cieloazul310/astro-sarkara/preset";
+import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
 
-export default defineConfig({
-  // ...,
-
-  // Use astro-sarkara preset and configure primary and secondary color
-  presets: [
-    "@pandacss/dev/presets",
-    createSarkaraPreset({ palette: { primary: "teal", secondary: "yellow" } }),
-  ],
-    
-  // add astroComponentsPaths
-  include: ["./src/**/*.{js,ts,astro}", ...astroComponentsPaths],
-
-  // IMPORTANT! change outdir to "@cieloazul310/sarkara-css" and emitPackage
-  outdir: "@cieloazul310/sarkara-css",
-  emitPackage: true,  
+export default defineSarkaraConfig({
+  palette: { primary: "teal", secondary: "yellow" },
+  include: ["./src/**/*.{js,jsx,ts,tsx,astro,mdx}"],
+  
+  // ...pandaConfig,
 });
 ```
 
@@ -130,18 +116,36 @@ const siteMetadata = {
 
 ## Configure `panda.config.ts`
 
-### 1. Using astro-sarkara preset
+### 1. Using `defineSarkaraConfig`
 
 ```ts:panda.config.ts
-import { createSarkaraPreset } from "@cieloazul310/astro-sarkara/preset";
+// import { defineConfig } from "@pandacss/dev";
+import {
+  defineSarkaraConfig,
+  // createSarkaraPreset,
+  // astroComponentsPaths,
+} from "@cieloazul310/astro-sarkara/preset";
 
+export default defineSarkaraConfig({
+  palette: { primary: "teal", secondary: "yellow" },
+  include: ["./src/**/*.{js,jsx,ts,tsx,astro,mdx}"],
+  
+  // ...pandaConfig,
+});
+
+/* equivalent to
 export default defineConfig({
-  ...,
   presets: [
     "@pandacss/dev/presets",
     createSarkaraPreset({ palette: { primary: "teal", secondary: "yellow" } }),
   ],
+
+  include: ["./src/**/*.{js,ts,astro}", ...astroComponentsPaths],
+
+  outdir: "@cieloazul310/sarkara-css",
+  emitPackage: true,  
 });
+*/
 ```
 
 <https://panda-css.com/docs/references/config#presets>
@@ -158,32 +162,6 @@ danger: red
   primary.100 => teal.100
   secondary.600 => yellow.600
   danger.800 => red.800
-```
-
-### 2. Includes `astroComponentsPaths`
-
-```ts:panda.config.ts
-import { astroComponentsPaths } from "@cieloazul310/astro-sarkara/preset";
-
-export default defineConfig({
-  ...,
-  include: ["./src/**/*.{js,ts,astro}", ...astroComponentsPaths],
- });
-```
-
-Add `...astroComponentsPaths` to `include` options. `...` means [Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
-
-<https://panda-css.com/docs/references/config#include>
-
-### 3. Change `outdir` and set `emitPackage` to `true`
-
-```ts:panda.config.ts
-// panda.config.ts
-export default defineConfig({
-  ...,
-  outdir: "@cieloazul310/sarkara-css",
-  emitPackage: true,  
-});
 ```
 
 > #### emitPackage
