@@ -9,18 +9,13 @@ import {
   Pagination,
 } from "@cieloazul310/astro-sarkara";
 import Analytics from "../../components/Analytics.astro";
-import PostYears from "../../components/PostYears.astro";
 import { pageSize, menu, siteMetadata } from "../../data";
-import { parseDate, slugify } from "../../utils";
+import { slugify } from "../../utils";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   // Load your data with fetch(), Astro.glob(), etc.
   const allPosts = await getCollection("posts");
-  const posts = allPosts.sort(
-    (a, b) =>
-      new Date(b.data.date ?? 0).getTime() -
-      new Date(a.data.date ?? 0).getTime(),
-  );
+  const posts = allPosts.sort((a, b) => a.data.index - b.data.index);
 
   // Return a paginated collection of paths for all posts
   return paginate(posts, { pageSize });
@@ -33,7 +28,7 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<SarkaraLayout title="Markdown Posts" siteMetadata={siteMetadata} menu={menu}>
+<SarkaraLayout title="チュートリアル" siteMetadata={siteMetadata} menu={menu}>
   <Fragment slot="jumbotron-footer">
     {page.currentPage !== 1 && `(${page.currentPage}/${page.lastPage})`}
   </Fragment>
@@ -46,20 +41,11 @@ const { page } = Astro.props;
           image={post.data.featuredImg?.src}
           imageAlt={post.data.featuredImgAlt}
         >
-          <Fragment slot="headerText">
-            <span>
-              <time datetime={post.data.date.toISOString()}>
-                {parseDate(post.data.date)}
-              </time>
-            </span>
-            {post.data.author && <span>by {post.data.author}</span>}
-          </Fragment>
+          <span slot="headerText">Section {post.data.index}</span>
         </ArticleListItem>
       ))
     }
   </ArticleList>
   <Pagination page={page} basePath="/posts" />
-  <PostYears slot="sidebar-top" />
-  <PostYears slot="drawer-top" />
   <Analytics slot="top-of-head" />
 </SarkaraLayout>

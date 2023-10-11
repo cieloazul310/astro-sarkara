@@ -5,25 +5,23 @@ import {
   SarkaraLayout,
   Paper,
   PaperLink,
+  PanelLink,
   Navigation,
   useNavigation,
 } from "@cieloazul310/astro-sarkara";
-import { hstack } from "@cieloazul310/sarkara-css/patterns";
 import { css } from "@cieloazul310/sarkara-css/css";
 import Analytics from "../../components/Analytics.astro";
-import PostYears from "../../components/PostYears.astro";
 import YouTube from "../../components/YouTube.astro";
 import { siteMetadata, menu } from "../../data";
-import { parseDate } from "../../utils";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
 
   return allPosts
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .sort((a, b) => a.data.index - b.data.index)
     .map((post, index, arr) => {
-      const newer = index !== 0 ? arr[index - 1] : null;
-      const older = index !== arr.length - 1 ? arr[index + 1] : null;
+      const left = index !== 0 ? arr[index - 1] : null;
+      const right = index !== arr.length - 1 ? arr[index + 1] : null;
 
       return {
         params: {
@@ -31,8 +29,8 @@ export async function getStaticPaths() {
         },
         props: {
           post,
-          newer,
-          older,
+          left,
+          right,
         },
       };
     });
@@ -40,17 +38,17 @@ export async function getStaticPaths() {
 
 interface Props {
   post: CollectionEntry<"posts">;
-  newer: CollectionEntry<"posts">;
-  older: CollectionEntry<"posts">;
+  left: CollectionEntry<"posts">;
+  right: CollectionEntry<"posts">;
 }
 
-const { post, newer, older } = Astro.props;
+const { post, left, right } = Astro.props;
 const navigation = useNavigation(
-  { left: newer, right: older },
+  { left, right },
   {
     href: (obj) => `/posts/${obj.slug}`,
     primaryText: (obj) => obj.data.title,
-    secondaryText: (obj) => parseDate(obj.data.date),
+    secondaryText: (obj) => `Section ${obj.data.index}`,
   },
 );
 const entry = await getEntry("posts", post.slug);
@@ -63,34 +61,29 @@ const { Content } = await entry.render();
   siteMetadata={siteMetadata}
   menu={menu}
 >
-  <Fragment slot="jumbotron-footer">
-    <time datetime={post.data.date.toISOString()}
-      >{parseDate(post.data.date)}</time
-    >
-    {post.data.author && <span>by {post.data.author}</span>}
-  </Fragment>
+  <p
+    class={css({ textStyle: "heading", fontSize: "lg" })}
+    slot="jumbotron-header"
+  >
+    Section {entry.data.index}
+  </p>
   <Paper>
-    <Content components={{ YouTube }} />
+    <Content components={{ YouTube, PanelLink }} />
   </Paper>
   <Paper>
     <footer>
-      <h2 class={css({ textStyle: "headings", fontSize: ["lg", "lg", "xl"] })}>
-        {post.data.title}
-      </h2>
-      <p class={hstack({ gap: 2 })}>
-        <time datetime={post.data.date.toISOString()}
-          >{parseDate(post.data.date)}</time
+      <hgroup>
+        <p>Section {entry.data.index}</p>
+        <h2
+          class={css({ textStyle: "headings", fontSize: ["lg", "lg", "xl"] })}
         >
-        {post.data.author && <span>by {post.data.author}</span>}
-      </p>
+          {post.data.title}
+        </h2>
+      </hgroup>
     </footer>
   </Paper>
   <Navigation {...navigation} />
   <PaperLink href="/posts/">Markdown Posts Top</PaperLink>
-  <Fragment slot="sidebar-top">
-    <Navigation {...navigation} direction="column" />
-    <PostYears />
-  </Fragment>
-  <PostYears slot="drawer-top" />
+  <Navigation {...navigation} direction="column" slot="sidebar-top" />
   <Analytics slot="top-of-head" />
 </SarkaraLayout>
