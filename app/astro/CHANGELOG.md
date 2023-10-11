@@ -1,5 +1,13 @@
 # astro-app
 
+## 0.0.8
+
+### Patch Changes
+
+- 8b04a9b: fix components and optimize fonts for japanese text
+- Updated dependencies [8b04a9b]
+  - @cieloazul310/astro-sarkara@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes

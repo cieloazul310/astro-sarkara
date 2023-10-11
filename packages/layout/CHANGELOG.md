@@ -1,5 +1,13 @@
 # @cieloazul310/astro-sarkara-layout
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [8b04a9b]
+  - @cieloazul310/panda-preset-sarkara-base@0.0.6
+  - @cieloazul310/astro-sarkara-components@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
