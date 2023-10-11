@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 0.0.6
+
+### Patch Changes
+
+- 8b04a9b: fix components and optimize fonts for japanese text
+
 ## 0.0.5
 
 ### Patch Changes
