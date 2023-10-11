@@ -15,7 +15,7 @@ export const heading1 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["xl", "2xl", "4xl"],
-  mt: 8,
+  mt: 12,
   mb: 6,
 });
 
@@ -23,7 +23,7 @@ export const heading2 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["xl", "2xl", "3xl"],
-  mt: 8,
+  mt: 12,
   mb: 4,
 });
 
@@ -31,7 +31,7 @@ export const heading3 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["lg", "lg", "2xl"],
-  mt: 8,
+  mt: 12,
   mb: 4,
 });
 
@@ -77,7 +77,7 @@ export const table = cx(
     width: "100%",
     borderWidth: "1px",
     borderColor: { base: "primary.50", _dark: "primary.950" },
-    my: 4,
+    my: 8,
     fontSize: ["sm", "md"],
   }),
 );
@@ -129,7 +129,7 @@ export const img = css({
 export const pre = cx(
   css({ colorPalette: "primary" }),
   paper({
-    my: 4,
+    my: 8,
     overflowX: "auto",
     maxWidth: "100%",
   }),
