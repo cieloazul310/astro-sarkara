@@ -58,7 +58,7 @@ export const buttonBase = defineRecipe({
   className: "buttonBase",
   base: {
     rounded: "md",
-    display: "flex",
+    display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     shadow: "sm",

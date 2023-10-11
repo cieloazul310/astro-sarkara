@@ -6,7 +6,6 @@ index: 1
 import {
   Badge,
   Button,
-  Divider,
   IconButton,
   Link,
   PanelLink,
@@ -29,7 +28,7 @@ import {
 ---
 ```
 
-Astroコンポーネント内のフロントマターでインポートを行う。
+Astroコンポーネント内のフロントマターでインポートを行う。またMDX内でも使用することができる。
 
 ## 基本コンポーネント
 
@@ -57,3 +56,18 @@ Astroコンポーネント内のフロントマターでインポートを行う
 ```
 
 <Button>Button</Button> <Button colorPalette="primary">Primary</Button> <Button size="md" colorPalette="secondary" visual="outline">Outline</Button> <Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">With Icon</Button>
+
+### IconButton
+
+```mdx
+<IconButton icon="mdi:menu" />
+<IconButton icon="mdi:menu" shape="circle" />
+```
+
+<IconButton icon="mdi:menu" /> 
+<IconButton icon="mdi:menu" shape="circle" />
+
+<PanelLink href="https://iconify.design/">Iconify Design</PanelLink>
+
+[astro-icon]: https://github.com/natemoo-re/astro-icon "astro-icon"
+[Iconify]: https://iconify.design/ "Iconify"
