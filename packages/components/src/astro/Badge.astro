@@ -1,4 +1,9 @@
 ---
+/**
+ * @todo
+ * should use Polymorphic type but it not works well...
+ * https://docs.astro.build/en/guides/typescript/#polymorphic-type
+ */
 import type { HTMLTag, HTMLAttributes } from "astro/types";
 import {
   css,
@@ -29,15 +34,21 @@ const badge = cva({
   },
 });
 
-export type Props<T extends HTMLTag> = RecipeVariantProps<typeof badge> &
-  HTMLAttributes<T> & {
+export type Props<T extends HTMLTag = HTMLTag> = RecipeVariantProps<
+  typeof badge
+> &
+  Omit<HTMLAttributes<T>, "slot"> & {
     colorPalette?: string;
     as?: T;
   };
-const { size, colorPalette = "neutral", as = "span", ...props } = Astro.props;
-const Element = as;
+const {
+  size,
+  colorPalette = "neutral",
+  as: Tag = "span",
+  ...props
+} = Astro.props;
 ---
 
-<Element class={cx(css({ colorPalette }), badge({ size }))} {...props}>
+<Tag class={cx(css({ colorPalette }), badge({ size }))} {...props}>
   <slot />
-</Element>
+</Tag>

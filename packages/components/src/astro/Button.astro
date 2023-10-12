@@ -1,7 +1,11 @@
 ---
 import { Icon } from "astro-icon";
-import type { HTMLTag, HTMLAttributes } from "astro/types";
-import { useLink } from "@cieloazul310/astro-sarkara-utils";
+/**
+ * @todo
+ * should use Polymorphic type but it not works well...
+ * https://docs.astro.build/en/guides/typescript/#polymorphic-type
+ */
+import type { HTMLAttributes } from "astro/types";
 import {
   css,
   cx,
@@ -96,30 +100,27 @@ type ButtonVariants = RecipeVariantProps<typeof button>;
 /** @todo recipes for astro problem */
 // type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
 
-export type Props<T extends HTMLTag> = ButtonVariants &
-  HTMLAttributes<T> & {
-    as?: T;
+export type Props = ButtonVariants &
+  HTMLAttributes<"button"> & {
     className?: string;
     colorPalette?: string;
     icon?: string;
   };
+
 const {
   visual,
   size,
   iconPlace,
   className,
   icon,
-  as = "button",
   colorPalette = "neutral",
-  ...props
+  ...buttonProps
 } = Astro.props;
 
 const classes = button({ iconPlace, size, visual });
-const Element = as;
-const link = as === "a" ? useLink(props.href) : {};
 ---
 
-<Element
+<button
   class={cx(
     css({ colorPalette }),
     /** @todo recipes for astro problem */
@@ -127,9 +128,8 @@ const link = as === "a" ? useLink(props.href) : {};
     classes.button,
     className,
   )}
-  {...props}
-  {...link}
+  {...buttonProps}
 >
   {icon && <Icon name={icon} class={classes.icon} />}
   <slot />
-</Element>
+</button>
