@@ -1,15 +1,18 @@
 ---
+import type { HTMLTag } from "astro/types";
 import { cx, css } from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
 
 export interface Props {
   className?: string;
   colorPalette?: string;
+  as?: HTMLTag;
 }
 
-const { className, colorPalette = "primary" } = Astro.props;
+const { className, colorPalette = "primary", as = "div" } = Astro.props;
+const Element = as;
 ---
 
-<div class={cx(css({ colorPalette }), paper(), className)}>
+<Element class={cx(css({ colorPalette }), paper(), className)}>
   <slot />
-</div>
+</Element>

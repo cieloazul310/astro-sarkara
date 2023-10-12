@@ -1,4 +1,5 @@
 ---
+import type { HTMLTag, HTMLAttributes } from "astro/types";
 import {
   css,
   cx,
@@ -13,7 +14,7 @@ const badge = cva({
     py: 1,
     fontWeight: "bolder",
     color: { base: "colorPalette.800", _dark: "colorPalette.100" },
-    bg: { base: "colorPalette.100", _dark: "colorPalette.900" },
+    bg: { base: "colorPalette.100", _dark: "colorPalette.800" },
   },
   variants: {
     size: {
@@ -28,12 +29,15 @@ const badge = cva({
   },
 });
 
-export type Props = RecipeVariantProps<typeof badge> & {
-  colorPalette?: string;
-};
-const { size, colorPalette = "neutral" } = Astro.props;
+export type Props<T extends HTMLTag> = RecipeVariantProps<typeof badge> &
+  HTMLAttributes<T> & {
+    colorPalette?: string;
+    as?: T;
+  };
+const { size, colorPalette = "neutral", as = "span", ...props } = Astro.props;
+const Element = as;
 ---
 
-<span class={cx(css({ colorPalette }), badge({ size }))}>
+<Element class={cx(css({ colorPalette }), badge({ size }))} {...props}>
   <slot />
-</span>
+</Element>

@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon";
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLTag, HTMLAttributes } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
 import {
   css,
   cx,
@@ -95,27 +96,30 @@ type ButtonVariants = RecipeVariantProps<typeof button>;
 /** @todo recipes for astro problem */
 // type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
 
-export type Props = ButtonVariants &
-  HTMLAttributes<"button"> & {
+export type Props<T extends HTMLTag> = ButtonVariants &
+  HTMLAttributes<T> & {
+    as?: T;
     className?: string;
     colorPalette?: string;
     icon?: string;
   };
-
 const {
   visual,
   size,
   iconPlace,
   className,
   icon,
+  as = "button",
   colorPalette = "neutral",
-  ...buttonProps
+  ...props
 } = Astro.props;
 
 const classes = button({ iconPlace, size, visual });
+const Element = as;
+const link = as === "a" ? useLink(props.href) : {};
 ---
 
-<button
+<Element
   class={cx(
     css({ colorPalette }),
     /** @todo recipes for astro problem */
@@ -123,8 +127,9 @@ const classes = button({ iconPlace, size, visual });
     classes.button,
     className,
   )}
-  {...buttonProps}
+  {...props}
+  {...link}
 >
   {icon && <Icon name={icon} class={classes.icon} />}
   <slot />
-</button>
+</Element>
