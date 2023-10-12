@@ -2,3 +2,39 @@
 title: レイアウトをカスタマイズする
 index: 6
 ---
+
+一つ前の記事でAstro Sarkaraのレイアウトに要素を注入する方法を紹介しましたが、もっと大胆にカスタマイズする方法もあります。
+
+## レイアウトコンポーネントを上書きするスロット
+
+- `seo`: 既存のSEOのための要素を置換
+- `header`: 既存のヘッダーを置換
+- `jumbotron`: 既存のジャンボトロンを置換
+- `sidebar`: 既存のサイドバーを置換
+- `footer`: 既存のフッターを置換
+- `fab`: 既存のFloating Action Buttonを置換
+- `drawer`: 既存のドロワーを置換
+
+以上のスロットは組み込みのAstro Sarkaraレイアウトを上書きするために使用します。
+
+### 置き換える
+
+下記のように`slot="header"`を指定することで、自作のオリジナルヘッダーを使用することができます。
+
+```jsx
+<header slot="header">
+  <Content />
+</header>
+```
+
+### 消去する
+
+空の`<Fragment>`要素をスロットに指定することで組み込みのAstro Sarkaraレイアウトコンポーネントを消去することができます。
+
+```jsx
+<Fragment slot="jumbotron" />
+```
+
+<PanelLink href="https://docs.astro.build/ja/core-concepts/astro-syntax/#%E3%83%95%E3%83%A9%E3%82%B0%E3%83%A1%E3%83%B3%E3%83%88">Astroの構文</PanelLink>
+
+<PanelLink href="/layouts/custom">Custom Layout</PanelLink>

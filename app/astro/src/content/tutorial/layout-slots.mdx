@@ -1,0 +1,136 @@
+---
+title: レイアウトに要素を注入する
+index: 5
+---
+
+Astroコンポーネントのスロットを使ってAstro Sarkaraレイアウトを拡張することができます。例えばサイドバーの上部に著者情報を表示したいときなど、用途に合わせた拡張が可能です。
+
+## Astro Sarkaraレイアウトのスロットの一覧
+
+### 注入のためのスロット
+
+- `top-of-head`: `<head>`要素の最上位
+- `meta`: `<meta>`要素の一覧の最下位
+- `bottom-of-head`: `<head>`要素の最下位
+- `top-of-body`: `<body>`要素の最上位
+- `jumbotron-header`: ジャンボトロンのタイトル上部
+- `jumbotron-footer`: ジャンボトロンのタイトル下部
+- `sidebar-top`: サイドバーの最上位
+- `sidebar-bottom`: サイドバーの最下位
+- `drawer-top`: ドロワー内部の最上位
+- `drawer-bottom`: ドロワー内部の最下位
+- `bottom-of-body`: `<body>`要素の最下位
+
+### 既存のレイアウトを上書きするためのスロット
+
+- `seo`: 既存のSEOのための要素を置換
+- `header`: 既存のヘッダーを置換
+- `jumbotron`: 既存のジャンボトロンを置換
+- `sidebar`: 既存のサイドバーを置換
+- `footer`: 既存のフッターを置換
+- `fab`: 既存のFloating Action Buttonを置換
+- `drawer`: 既存のドロワーを置換
+
+## 使い方
+
+例えばサイドバーの最上部にコンテンツを配置する場合は、配置したい要素に`slot="sidebar-top"`を与えます。
+
+```astro
+---
+import { SarkaraLayout, Paper } from "@cieloazul310/astro-sarkara";
+import { menu, siteMetadata } from "../data";
+---
+<SarkaraLayout menu={menu} siteMetadata={siteMetadata}>
+  <Content />
+  <Paper colorPalette="secondary" slot="sidebar-top">
+    <h2>Author</h2>
+    <p>Author description hoge hoge hoge...</p>
+  </Paper>
+</SarkaraLayout>
+```
+
+## Astro Sarkaraレイアウトの構成
+
+```jsx
+<!doctype html>
+<html>
+  <head>
+    <slot name="top-of-head" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{contentTitle}</title>
+    <slot name="seo">
+      <Seo>
+        <slot name="meta" />
+      </Seo>
+    </slot>
+    <slot name="bottom-of-head" />
+  </head>
+  <body>
+    <slot name="top-of-body" />
+    <slot name="header">
+      <Header />
+    </slot>
+    <main>
+      <article>
+        <slot name="jumbotron">
+          <Jumbotron>
+            <slot name="jumbotron-header" slot="jumbotron-header" />
+            <slot name="jumbotron-footer" slot="jumbotron-footer" />
+          </Jumbotron>
+        </slot>
+        <div>
+          {/* メインコンテンツ */}
+          <div>
+            <slot />
+            <div>
+              <MenuList />
+            </div>
+            <PaperLink>
+              Top
+            </PaperLink>
+          </div>
+          {/* メインコンテンツ */}
+          {/* サイドバー */}
+          <div>
+            <div>
+              <slot name="sidebar">
+                <slot name="sidebar-top" />
+                {Astro.slots.has("sidebar-top") && <Divider />}
+                <MenuList />
+                {Astro.slots.has("sidebar-bottom") && <Divider />}
+                <slot name="sidebar-bottom" />
+              </slot>
+            </div>
+          </div>
+          {/* サイドバー */}
+        </div>
+      </article>
+    </main>
+    <slot name="footer">
+      <Footer />
+    </slot>
+    <div>
+      <slot name="fab">
+        <Fab />
+      </slot>
+    </div>
+    <slot name="drawer">
+      <Drawer>
+        <slot name="drawer-top" slot="drawer-top" />
+        <MenuList />
+        <slot name="drawer-bottom" slot="drawer-bottom" />
+      </Drawer>
+    </slot>
+    <script />
+    <script />
+    <slot name="bottom-of-body" />
+  </body>
+</html>
+```
+
+<PanelLink href="https://github.com/cieloazul310/astro-sarkara/blob/main/packages/layout/src/layout.astro">astro-sarkara/packages/layout/src/layout.astro at main</PanelLink>
+
+<PanelLink href="https://docs.astro.build/ja/core-concepts/astro-components/#%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88">コンポーネント</PanelLink>
