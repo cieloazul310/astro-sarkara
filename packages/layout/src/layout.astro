@@ -143,6 +143,7 @@ const contentTitle =
               minWidth: 0,
             })}
           >
+            <slot name="top-of-main" />
             <slot />
             <div class={css({ hideFrom: "md" })}>
               <MenuList menu={menu} />
@@ -150,6 +151,7 @@ const contentTitle =
             <PaperLink className={css({ hideBelow: "md" })} href="/">
               Top
             </PaperLink>
+            <slot name="bottom-of-main" />
           </div>
           <div class={sidebar}>
             <div
