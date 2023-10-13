@@ -1,6 +1,7 @@
 ---
 /* eslint-disable-next-line import/no-unresolved */
-import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+import type { InferGetStaticPropsType } from "astro";
 import {
   SarkaraLayout,
   Paper,
@@ -36,11 +37,7 @@ export async function getStaticPaths() {
     });
 }
 
-interface Props {
-  post: CollectionEntry<"tutorial">;
-  left: CollectionEntry<"tutorial">;
-  right: CollectionEntry<"tutorial">;
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post, left, right } = Astro.props;
 const navigation = useNavigation(

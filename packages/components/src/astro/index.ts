@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { default as ArticleList } from "./ArticleList.astro";
 export {
   default as ArticleListItem,

@@ -1,7 +1,7 @@
 ---
 /* eslint-disable-next-line import/no-unresolved */
-import { getCollection, type CollectionEntry } from "astro:content";
-import type { GetStaticPathsOptions, Page } from "astro";
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions, InferGetStaticPropsType } from "astro";
 import {
   SarkaraLayout,
   ArticleList,
@@ -21,10 +21,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(posts, { pageSize });
 }
 
-interface Props {
-  page: Page<CollectionEntry<"tutorial">>;
-}
-
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props;
 ---
 
