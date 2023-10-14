@@ -4,27 +4,18 @@
  * should use Polymorphic type but it not works well...
  * https://docs.astro.build/en/guides/typescript/#polymorphic-type
  */
-import type { HTMLTag, HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from "astro/types";
 import { cx, css } from "@cieloazul310/sarkara-css/css";
 import { paper } from "@cieloazul310/sarkara-css/patterns";
 
-export type Props<T extends HTMLTag = HTMLTag> = Omit<
-  HTMLAttributes<T>,
-  "slot"
-> & {
+export interface Props extends HTMLAttributes<"div"> {
   className?: string;
   colorPalette?: string;
-  as?: T;
-};
+}
 
-const {
-  className,
-  colorPalette = "primary",
-  as: Tag = "div",
-  ...props
-} = Astro.props;
+const { className, colorPalette = "primary", ...props } = Astro.props;
 ---
 
-<Tag class={cx(css({ colorPalette }), paper(), className)} {...props}>
+<div class={cx(css({ colorPalette }), paper(), className)} {...props}>
   <slot />
-</Tag>
+</div>

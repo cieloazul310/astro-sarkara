@@ -4,7 +4,7 @@
  * should use Polymorphic type but it not works well...
  * https://docs.astro.build/en/guides/typescript/#polymorphic-type
  */
-import type { HTMLTag, HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from "astro/types";
 import {
   css,
   cx,
@@ -19,7 +19,7 @@ const badge = cva({
     py: 1,
     fontWeight: "bolder",
     color: { base: "colorPalette.800", _dark: "colorPalette.100" },
-    bg: { base: "colorPalette.100", _dark: "colorPalette.800" },
+    bg: { base: "colorPalette.100", _dark: "colorPalette.900" },
   },
   variants: {
     size: {
@@ -34,21 +34,13 @@ const badge = cva({
   },
 });
 
-export type Props<T extends HTMLTag = HTMLTag> = RecipeVariantProps<
-  typeof badge
-> &
-  Omit<HTMLAttributes<T>, "slot"> & {
+export type Props = RecipeVariantProps<typeof badge> &
+  HTMLAttributes<"span"> & {
     colorPalette?: string;
-    as?: T;
   };
-const {
-  size,
-  colorPalette = "neutral",
-  as: Tag = "span",
-  ...props
-} = Astro.props;
+const { size, colorPalette = "neutral", ...props } = Astro.props;
 ---
 
-<Tag class={cx(css({ colorPalette }), badge({ size }))} {...props}>
+<span class={cx(css({ colorPalette }), badge({ size }))} {...props}>
   <slot />
-</Tag>
+</span>

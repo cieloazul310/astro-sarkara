@@ -4,6 +4,7 @@ index: 1
 ---
 
 import {
+  Alert,
   Badge,
   Button,
   IconButton,
@@ -32,6 +33,26 @@ import {
 
 ## 基本コンポーネント
 
+### Alert
+
+```mdx
+<Alert status="success" title="Good job!">成功しました。</Alert>
+<Alert status="info">AstroはTypeScriptにデフォルトで対応しています。</Alert>
+<Alert status="warning">`mjs`と`cjs`が混在しないように注意してください</Alert>
+<Alert status="danger" title="Error">失敗です。</Alert>
+<Alert status="tips">コンテンツコレクションを使うことができます。</Alert>
+```
+
+<Alert status="success" title="Good job!">成功しました。</Alert>
+
+<Alert status="info">AstroはTypeScriptにデフォルトで対応しています。</Alert>
+
+<Alert status="warning">`mjs`と`cjs`が混在しないように注意してください</Alert>
+
+<Alert status="danger" title="Error">失敗です。</Alert>
+
+<Alert status="tips" title="Tips">コンテンツコレクションを使うことができます。</Alert>
+
 ### Badge
 
 バッジコンポーネント。
@@ -40,11 +61,9 @@ import {
 <Badge>Badge</Badge>
 <Badge colorPalette="primary">Primary</Badge>
 <Badge colorPalette="red" size="md">Red</Badge>
-<Badge as="a" href="/tutorial">As link</Badge>
 ```
 
-<Badge>Badge</Badge> <Badge colorPalette="primary">Primary</Badge> <Badge colorPalette="red" size="md">Red</Badge> 
-<Badge as="a" href="/tutorial">As link</Badge>
+<Badge>Badge</Badge> <Badge colorPalette="primary">Primary</Badge> <Badge colorPalette="red" size="md">Red</Badge>
 
 ### Button
 
