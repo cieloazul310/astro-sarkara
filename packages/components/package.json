@@ -56,6 +56,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.2.0",
+    "@astrojs/ts-plugin": "^1.2.0",
     "@cieloazul310/astro-sarkara-utils": "^0.0.5",
     "@cieloazul310/tsconfig": "^0.0.2",
     "@pandacss/dev": "^0.15.5",

@@ -35,12 +35,14 @@ import {
 
 ### Alert
 
+アラートを表示するコンポーネント。
+
 ```mdx
 <Alert status="success" title="Good job!">成功しました。</Alert>
 <Alert status="info">AstroはTypeScriptにデフォルトで対応しています。</Alert>
 <Alert status="warning">`mjs`と`cjs`が混在しないように注意してください</Alert>
 <Alert status="danger" title="Error">失敗です。</Alert>
-<Alert status="tips">コンテンツコレクションを使うことができます。</Alert>
+<Alert status="tips" title="Tips">コンテンツコレクションを使うことができます。</Alert>
 ```
 
 <Alert status="success" title="Good job!">成功しました。</Alert>
@@ -61,9 +63,10 @@ import {
 <Badge>Badge</Badge>
 <Badge colorPalette="primary">Primary</Badge>
 <Badge colorPalette="red" size="md">Red</Badge>
+<Badge colorPalette="secondary" as="a" href="/">As link</Badge>
 ```
 
-<Badge>Badge</Badge> <Badge colorPalette="primary">Primary</Badge> <Badge colorPalette="red" size="md">Red</Badge>
+<Badge>Badge</Badge> <Badge colorPalette="primary">Primary</Badge> <Badge colorPalette="red" size="md">Red</Badge> <Badge colorPalette="secondary" as="a" href="/">As link</Badge>
 
 ### Button
 
@@ -71,16 +74,19 @@ import {
 
 ```mdx
 <Button>Button</Button>
-<Button size="sm" colorPalette="primary">Primary</Button>
+<Button size="sm" colorPalette="primary">Primary sm</Button>
 <Button colorPalette="secondary" visual="outline">
   Outline
 </Button>
 <Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">
   With Icon
 </Button>
+<Button colorPalette="primary" as="a" href="/">
+  As Link
+</Button>
 ```
 
-<Button>Button</Button> <Button size="sm" colorPalette="primary">Primary</Button> <Button colorPalette="secondary" visual="outline">Outline</Button> <Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">With Icon</Button>
+<Button>Button</Button> <Button size="sm" colorPalette="primary">Primary sm</Button> <Button colorPalette="secondary" visual="outline">Outline</Button> <Button size="lg" icon="mdi:arrow-right-bold-circle" iconPlace="end">With Icon</Button> <Button colorPalette="primary" as="a" href="/">As Link</Button>
 
 ### IconButton
 

@@ -5,7 +5,8 @@ import { Icon } from "astro-icon";
  * should use Polymorphic type but it not works well...
  * https://docs.astro.build/en/guides/typescript/#polymorphic-type
  */
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
 import {
   css,
   cx,
@@ -54,7 +55,7 @@ const button = sva({
       },
       outline: {
         button: {
-          borderWidth: "1px",
+          borderWidth: "2px",
           borderColor: { base: "colorPalette.700", _dark: "colorPalette.200" },
           color: { base: "colorPalette.700", _dark: "colorPalette.200" },
           _hover: {
@@ -95,32 +96,32 @@ const button = sva({
   },
 });
 
-type ButtonVariants = RecipeVariantProps<typeof button>;
+/** @todo recipes for astro problem
+type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
+*/
 
-/** @todo recipes for astro problem */
-// type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
-
-export type Props = ButtonVariants &
-  HTMLAttributes<"button"> & {
+export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof button> &
+  Polymorphic<{ as: Tag }> & {
     className?: string;
     colorPalette?: string;
     icon?: string;
   };
-
 const {
   visual,
   size,
   iconPlace,
   className,
   icon,
+  as: Tag = "button",
   colorPalette = "neutral",
-  ...buttonProps
+  ...props
 } = Astro.props;
 
 const classes = button({ iconPlace, size, visual });
+const link = Tag === "a" && props.href ? useLink(props.href) : {};
 ---
 
-<button
+<Tag
   class={cx(
     css({ colorPalette }),
     /** @todo recipes for astro problem */
@@ -128,8 +129,9 @@ const classes = button({ iconPlace, size, visual });
     classes.button,
     className,
   )}
-  {...buttonProps}
+  {...props}
+  {...link}
 >
   {icon && <Icon name={icon} class={classes.icon} />}
   <slot />
-</button>
+</Tag>

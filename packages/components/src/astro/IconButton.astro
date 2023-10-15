@@ -5,7 +5,8 @@ import { Icon } from "astro-icon";
  * should use Polymorphic type but it not works well...
  * https://docs.astro.build/en/guides/typescript/#polymorphic-type
  */
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
 import {
   css,
   cx,
@@ -22,8 +23,9 @@ import {
 } from "@cieloazul310/sarkara-css/recipes";
 */
 
-/** @todo recipes for astro problem */
-// type ButtonVariants = IconButtonVariantProps & ButtonBaseVariantProps;
+/** @todo recipes for astro problem
+type ButtonVariants = IconButtonVariantProps & ButtonBaseVariantProps;
+*/
 
 const iconButton = sva({
   slots: ["button", "icon"],
@@ -50,7 +52,7 @@ const iconButton = sva({
       },
       outline: {
         button: {
-          borderWidth: "1px",
+          borderWidth: "2px",
           borderColor: { base: "colorPalette.700", _dark: "colorPalette.200" },
           color: { base: "colorPalette.700", _dark: "colorPalette.200" },
           _hover: {
@@ -83,10 +85,8 @@ const iconButton = sva({
   },
 });
 
-type ButtonVariants = RecipeVariantProps<typeof iconButton>;
-
-export type Props = ButtonVariants &
-  HTMLAttributes<"button"> & {
+export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof iconButton> &
+  Polymorphic<{ as: Tag }> & {
     className?: string;
     colorPalette?: string;
     icon: string;
@@ -97,13 +97,15 @@ const {
   shape,
   className,
   icon,
+  as: Tag = "button",
   colorPalette = "neutral",
-  ...buttonProps
+  ...props
 } = Astro.props;
 const classes = iconButton({ size, shape, visual });
+const link = Tag === "a" && props.href ? useLink(props.href) : {};
 ---
 
-<button
+<Tag
   class={cx(
     css({ colorPalette }),
     /** @todo recipes for astro problem */
@@ -111,7 +113,8 @@ const classes = iconButton({ size, shape, visual });
     classes.button,
     className,
   )}
-  {...buttonProps}
+  {...props}
+  {...link}
 >
   <Icon name={icon} class={classes.icon} />
-</button>
+</Tag>
