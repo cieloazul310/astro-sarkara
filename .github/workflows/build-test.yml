@@ -4,6 +4,7 @@ on:
   # Runs on pushes targeting the default branch
   pull_request:
     paths-ignore:
+      - .changeset
       - "README.md"
       - "*/**/README.md"
       - "*/**/CHANGELOG.md"
