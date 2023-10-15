@@ -1,5 +1,15 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 0.0.7
+
+### Patch Changes
+
+- 9cb9115: - Add astro check
+  - Update packages
+  - (components): Add Alert components
+  - (layout): Add withBaseUrl to favicon url
+  - (layout): Add slots, `top-of-main` and `bottom-of-main`
+
 ## 0.0.6
 
 ### Patch Changes

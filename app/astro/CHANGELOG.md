@@ -1,5 +1,17 @@
 # astro-app
 
+## 0.0.9
+
+### Patch Changes
+
+- 9cb9115: - Add astro check
+  - Update packages
+  - (components): Add Alert components
+  - (layout): Add withBaseUrl to favicon url
+  - (layout): Add slots, `top-of-main` and `bottom-of-main`
+- Updated dependencies [9cb9115]
+  - @cieloazul310/astro-sarkara@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes
