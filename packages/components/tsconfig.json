@@ -1,4 +1,11 @@
 {
   "extends": "@cieloazul310/tsconfig/astro",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  },
   "include": ["src", ".eslintrc.cjs", "panda.config.ts"]
 }

@@ -93,9 +93,7 @@ const { siteTitle } = Astro.props;
     >
       <ColorModeButton />
       <div class={hstack({ gap: 2 })}>
-        <Link href="/">
-          <Button colorPalette="primary">Top</Button>
-        </Link>
+        <Button colorPalette="primary" as="a" href="/">Top</Button>
         <Button className="drawer-handler" colorPalette="slate">Close</Button>
       </div>
     </footer>

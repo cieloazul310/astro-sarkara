@@ -4,7 +4,8 @@
  * should use Polymorphic type but it not works well...
  * https://docs.astro.build/en/guides/typescript/#polymorphic-type
  */
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
 import {
   css,
   cx,
@@ -34,13 +35,20 @@ const badge = cva({
   },
 });
 
-export type Props = RecipeVariantProps<typeof badge> &
-  HTMLAttributes<"span"> & {
+export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof badge> &
+  Polymorphic<{ as: Tag }> & {
     colorPalette?: string;
   };
-const { size, colorPalette = "neutral", ...props } = Astro.props;
+const {
+  size,
+  as: Tag = "span",
+  colorPalette = "neutral",
+  ...props
+} = Astro.props;
+
+const link = Tag === "a" && props.href ? useLink(props.href) : {};
 ---
 
-<span class={cx(css({ colorPalette }), badge({ size }))} {...props}>
+<Tag class={cx(css({ colorPalette }), badge({ size }))} {...props} {...link}>
   <slot />
-</span>
+</Tag>
