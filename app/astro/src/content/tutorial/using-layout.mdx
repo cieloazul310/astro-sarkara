@@ -3,7 +3,7 @@ title: レイアウトを利用する
 index: 2
 ---
 
-Astro Sarkaraのレイアウトコンポーネントを利用するにはAstroコンポーネント内のフロントマターでインポートを行う。
+Astro Sarkaraにはデフォルトのレイアウトコンポーネントを用意しています。これを利用するにはAstroコンポーネント内のフロントマターでインポートを行います。
 
 ```astro
 ---
@@ -24,13 +24,23 @@ const menu = defineMenu([
 </SarkaraLayout>
 ```
 
+## Astro Sarkaraレイアウトの機能
+
+- レスポンシブデザイン
+- ドロワー
+- ダークモード
+- 拡張性
+- SEOの設定済
+
 ## 基本的な使い方
 
-### `./src/pages/*.astro`内で直接利用
+### `src/pages/*.astro`内で直接利用
+
+Astroページコンポーネントで直接利用する方法です。
 
 ```astro
 ---
-// ./src/pages/hoge.astro
+// src/pages/hoge.astro
 import { SarkaraLayout } from "@cieloazul310/astro-sarkara";
 import { menu, siteMetadata } from "../data";
 ---
@@ -47,6 +57,8 @@ import { menu, siteMetadata } from "../data";
 ```
 
 ### Markdown/MDXのテンプレートとして利用
+
+Markdown/MDXのテンプレートとして利用する方法です。この場合`<slot />`にMarkdownのコンテンツが描写されます。
 
 ```astro
 ---
@@ -77,9 +89,11 @@ const { frontmatter } = Astro.props;
 </SarkaraLayout>
 ```
 
+`src/pages`に配置したMarkdown/MDXコンテンツのフロントマターにレイアウトのパスを記述することで、コンテンツがレイアウト内に描写されます。
+
 ```md
 ---
-# ./src/pages/hoge.md
+# src/pages/hoge.md
 title: Markdown contents
 description: Markdown contents example
 layout: ../layout/markdown.astro
@@ -88,9 +102,10 @@ layout: ../layout/markdown.astro
 Markdown contents.
 ```
 
-## サイトメタデータ、メニューの作成
+### サイトメタデータ、メニューの作成
 
-`./src/data/index.ts`に作成することを推奨する。サイトメタデータとメニューの内容は、レイアウトコンポーネントを経由してサイドバーやドロワーに描写される。
+Astro Sarkaraレイアウトには`menu`と`siteMetadata`の属性が必須です。これらのデータは
+`src/data/index.ts`に作成することを推奨します。サイトメタデータとメニューの内容は、レイアウトコンポーネントを経由してサイドバーやドロワーに描写されます。
 
 ```ts
 // src/data/index.ts
@@ -114,3 +129,15 @@ export const menu = defineMenu([
   },
 ]);
 ```
+
+## Full-widthレイアウト
+
+Full-widthレイアウトを使用することができます。Full-widthレイアウトではサイドバーは非表示になり、Floating Action Buttonが常に表示されます。
+
+```jsx
+<SarkaraLayout variant="fullWidth">
+  <Content />
+</SarkaraLayout>
+```
+
+<PanelLink href="/layouts/full-width">Full-width Layout</PanelLink>

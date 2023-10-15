@@ -10,20 +10,22 @@
     "preview": "astro preview",
     "astro": "astro",
     "panda": "panda",
+    "check": "astro check",
     "eslint": "eslint src --ext .js,.ts,.astro --fix"
   },
   "dependencies": {
+    "@astrojs/check": "^0.2.0",
     "@cieloazul310/astro-sarkara": "^0.0.8",
-    "astro": "^3.2.0",
+    "astro": "^3.2.4",
     "rehype": "^13.0.1",
     "rehype-class-names": "^1.0.14"
   },
   "devDependencies": {
     "@astrojs/mdx": "^1.1.1",
     "@astrojs/partytown": "^2.0.1",
-    "@pandacss/astro": "^0.15.4",
-    "@pandacss/dev": "^0.15.4",
-    "eslint": "^8.50.0",
+    "@pandacss/astro": "^0.15.5",
+    "@pandacss/dev": "^0.15.5",
+    "eslint": "^8.51.0",
     "eslint-config-custom": "^0.0.2"
   }
 }

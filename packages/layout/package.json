@@ -37,15 +37,17 @@
     "panda": "panda",
     "build": "npm run panda -- --clean",
     "dev": "npm run panda -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "astro check"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.2.0",
     "@cieloazul310/astro-sarkara-components": "^0.0.6",
     "@cieloazul310/astro-sarkara-utils": "^0.0.4",
     "@cieloazul310/tsconfig": "^0.0.2",
-    "@pandacss/dev": "^0.15.4",
-    "astro": "^3.2.0",
-    "eslint": "^8.50.0",
+    "@pandacss/dev": "^0.15.5",
+    "astro": "^3.2.4",
+    "eslint": "^8.51.0",
     "eslint-config-custom": "^0.0.2"
   },
   "peerDependencies": {

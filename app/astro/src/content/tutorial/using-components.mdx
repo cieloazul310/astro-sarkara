@@ -4,6 +4,7 @@ index: 1
 ---
 
 import {
+  Alert,
   Badge,
   Button,
   IconButton,
@@ -14,7 +15,7 @@ import {
 } from "@cieloazul310/astro-sarkara";
 import { vstack } from "@cieloazul310/sarkara-css/patterns";
 
-Astro Sarkaraのコンポーネントを利用するにはAstroコンポーネント内のフロントマターでインポートを行う。またMDX内でも使用することができる。
+Astro SarkaraにはいくつかのAstroコンポーネントを用意しています。これを利用するには、Astroコンポーネント内のフロントマターでインポートを行います。また同様にMDXファイル内でも使用することができます。
 
 ```astro
 ---
@@ -31,6 +32,26 @@ import {
 ```
 
 ## 基本コンポーネント
+
+### Alert
+
+```mdx
+<Alert status="success" title="Good job!">成功しました。</Alert>
+<Alert status="info">AstroはTypeScriptにデフォルトで対応しています。</Alert>
+<Alert status="warning">`mjs`と`cjs`が混在しないように注意してください</Alert>
+<Alert status="danger" title="Error">失敗です。</Alert>
+<Alert status="tips">コンテンツコレクションを使うことができます。</Alert>
+```
+
+<Alert status="success" title="Good job!">成功しました。</Alert>
+
+<Alert status="info">AstroはTypeScriptにデフォルトで対応しています。</Alert>
+
+<Alert status="warning">`mjs`と`cjs`が混在しないように注意してください</Alert>
+
+<Alert status="danger" title="Error">失敗です。</Alert>
+
+<Alert status="tips" title="Tips">コンテンツコレクションを使うことができます。</Alert>
 
 ### Badge
 
@@ -63,7 +84,7 @@ import {
 
 ### IconButton
 
-アイコンボタンコンポーネント。アイコンは[astro-icon]で実装し、[Iconify]でアイコンネームを取得できる。
+アイコンボタンコンポーネント。アイコンは[astro-icon]で実装し、[Iconify]でアイコンネームを取得可能です。
 
 ```mdx
 <IconButton icon="mdi:menu" />
@@ -79,9 +100,11 @@ import {
 
 ### Link
 
-Astroはリンクのベースパスのプレフィックスを行わない。`https://xxx.github.io/base-path/`がサイトのURLだとすると、サイト内リンクのすべてに`<a href="/base-path/{path}/">`のようにベースパスを記載しなければならない。`<Link>`コンポーネントはベースパスを取得し自動的に付与する。また外部リンクの時は`target="_blank"`と`rel="noreferrer noopener"`を付与する。他のリンクコンポーネントも同様に機能する。
+AstroはGatsbyと異なり、リンクのベースパスのプレフィックスを行いません。`https://xxx.github.io/base-path/`がサイトのURLだとすると、サイト内リンクのすべてに`<a href="/base-path/{path}/">`のようにベースパスを記載する必要があります。
 
-また自作のAstroコンポーネントに使う場合は同様の機能を実装するフックを用意している。
+Astro Sarkaraの`<Link>`コンポーネントは`astro.config`で指定されたベースパスを取得し自動的に付与する機能があります。また外部リンクの場合は`target="_blank"`と`rel="noreferrer noopener"`を自動的に付与します。
+
+この機能は他のリンクコンポーネントにも実装しています。また自作のAstroコンポーネントに使う場合は同様の機能を実装するフックを用意しています。
 
 ```mdx
 <Link href="/">Internal</Link>

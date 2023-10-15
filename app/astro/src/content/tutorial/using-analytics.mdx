@@ -1,0 +1,51 @@
+---
+title: Googleアナリティクスを設置
+index: 10
+---
+
+Googleアナリティクスは`<head>`要素内の先頭に位置することが推奨されている。Sarkaraレイアウトでは`top-of-head`のスロットでコードを挿入することができる。
+
+```astro
+---
+import { SarkaraLayout } from "@cieloazul310/astro-sarkara";
+import { menu, siteMetadata } from "../data";
+---
+
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu}>
+  <Fragment slot="top-of-head">
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id={your_analytics_id}"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "{your_analytics_id}");
+    </script>
+  <Fragment/>
+</SarkaraLayout>
+```
+
+## Partytownを使う
+
+```sh
+npm install @astrojs/partytown
+```
+
+```ts
+// astro.config.ts
+import { defineConfig } from "astro/config";
+import partytown from "@astrojs/partytown";
+
+export default defineConfig({
+  integrations: [partytown()],
+});
+```
+
+<PanelLink href="https://partytown.builder.io/">Partytown</PanelLink>
+
+<PanelLink href="https://docs.astro.build/ja/guides/integrations-guide/partytown/">@astrojs/partytown</PanelLink>

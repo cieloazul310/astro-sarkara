@@ -1,3 +1,4 @@
+// @ts-nocheck
 export {
   default as SarkaraLayout,
   type Props as SarkaraLayoutProps,

@@ -5,7 +5,9 @@ index: 0
 
 ## 方法
 
-### その1 テンプレートを使用する
+Astro Sarkaraを利用するには2種類の方法があります。一つ目はスターターをクローンする方法です。二つ目は新規または既存のAstroプロジェクトに手動でインストールする方法です。
+
+### その1 スターターを使用する
 
 ```sh
 git clone git@github.com:cieloazul310/astro-sarkara-starter.git
@@ -13,20 +15,34 @@ cd astro-sarkara-starter
 npm install
 ```
 
+スタータープロジェクトのソースは以下になります。
+
 <PanelLink href="https://github.com/cieloazul310/astro-sarkara-starter">Astro Sarkara Starter</PanelLink>
 
 ### その2 手動でインストール
 
-既存のAstroプロジェクトに手動でインストールする方法
+新規または既存のAstroプロジェクトに手動でインストールする方法です。
+
+#### 0. Astroプロジェクトを作成
+
+新規のAstroプロジェクトを作成する場合はAstroのドキュメントに従って作成してください。
+
+```sh
+npm create astro@latest
+```
+
+<PanelLink href="https://docs.astro.build/ja/getting-started/">はじめに</PanelLink>
 
 #### 1. Panda CSSをインストール
+
+Panda CSSを手順に沿ってインストールします。
 
 ```sh
 npm install -D @pandacss/dev @pandacss/astro
 npx panda init
 ```
 
-`astro.config.*`と`package.json`を以下のように設定。
+`astro.config.*`と`package.json`を以下のように設定します。
 
 ```ts
 // astro.config.ts
@@ -50,9 +66,13 @@ export default defineConfig({
 
 #### 2. Astro Sarkaraをインストール
 
+Astro + Panda CSSプロジェクトの準備が整ったらAstro Sarkaraをインストールします。
+
 ```sh
 npm install @cieloazul310/astro-sarkara
 ```
+
+`panda.config.ts`を以下のように設定します。
 
 ```ts
 // panda.config.ts
@@ -69,10 +89,10 @@ export default defineSarkaraConfig({
 });
 ```
 
-`panda.config.ts`を以上のように設定。`palette.primary`, `palette.secondary`にはPanda CSSのデフォルトのカラートークンを設定する。
+`defineSarkaraConfig`はPanda CSSの`defineConfig`にAstro Sarkaraの設定を組み込んだものです。`palette.primary`, `palette.secondary`は必須の項目で、Panda CSSのデフォルトのカラートークンを設定します。
 
 <PanelLink href="https://panda-css.com/docs/references/config">Config Reference</PanelLink>
 
 <PanelLink href="https://panda-css.com/docs/customization/theme#colors">Theme</PanelLink>
 
-インストール、設定の手順は以上。
+Astro Sarkaraのインストール、設定の手順は以上となります。

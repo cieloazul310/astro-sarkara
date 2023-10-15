@@ -1,0 +1,35 @@
+---
+title: Markdown / MDXを利用する
+index: 4
+---
+
+AstroではデフォルトでMarkdownをサポートしているため、`src/pages`下のMarkdownファイルは自動的にページに変換されます。MDXファイルはデフォルトでサポートされていませんが、`@astrojs/mdx`インテグレーションをインストールすることで使用可能です。
+
+ただし、Panda CSSはスタイルをリセットするため、Markdown / MDXコンテンツに読みやすいスタイルを適用するにはRehypeプラグインなどで要素にclassNameを与える必要があります。
+
+<PanelLink href="https://docs.astro.build/ja/guides/markdown-content/">MarkdownとMDX</PanelLink>
+
+## Astroの設定
+
+Markdown / MDXコンテンツにスタイルを設定する方法について、ここでは[Rehype Class Names]というRehypeプラグインを用いる方法を紹介します。
+
+```ts
+import { defineConfig } from "astro/config";
+import pandacss from "@pandacss/astro";
+import rehypeClassNames from "rehype-class-names";
+import { rehypeClassNamesOptions } from "@cieloazul310/astro-sarkara/classes";
+
+// https://astro.build/config
+export default defineConfig({
+  integrations: [pandacss()],
+  markdown: {
+    rehypePlugins: [[rehypeClassNames, rehypeClassNamesOptions]],
+  },
+});
+```
+
+Astro SarkaraではRehype Class Names向けのデフォルトオプションを用意しています。`@cieloazul310/astro-sarkara/classes`から`rehypeClassNamesOptions`をインポートして、上記のように設定することでAstro SarkaraのデフォルトのMarkdownスタイルを適用することができます。
+
+<PanelLink href="https://github.com/riderjensen/rehype-class-names">Rehype Class Names</PanelLink>
+
+[Rehype Class Names]: https://github.com/riderjensen/rehype-class-names

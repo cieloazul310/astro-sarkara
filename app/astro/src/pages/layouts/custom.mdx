@@ -1,10 +1,12 @@
 ---
 title: Custom Layout
 description: Customizing the default Sarkara layout.
-layout: ../layout/custom-layout.astro
+layout: ../../layout/custom-layout.astro
 ---
 
-## Customizing Layout
+import { PanelLink } from "@cieloazul310/astro-sarkara";
+
+## Custom Layout
 
 ### Example code
 
@@ -20,7 +22,7 @@ interface Props extends SarkaraLayoutProps {
 }
 const { ...props } = Astro.props;
 ---
-<SarkaraLayout siteMetadata={siteMetadata} menu={menu}>
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
   <header slot="header" class={css({ /* ... */ })}>
     <!-- custom header replace default header -->
   </header>
@@ -43,26 +45,4 @@ const { ...props } = Astro.props;
 </SarkaraLayout>
 ```
 
-## Layout slots
-
-### Slots for structure
-
-- `header`
-- `jumbotron`
-- `sidebar`
-- `footer`
-- `fab`
-- `drawer`
-
-### Slots for insert
-
-- `meta`
-- `jumbotron-header`
-- `jumbotron-footer`
-- `sidebar-top`
-- `sidebar-bottom`
-- `script`
-
-## Code
-
-<https://github.com/cieloazul310/astro-sarkara/blob/main/packages/layout/src/layout.astro>
+<PanelLink href="/tutorial/customize-layout">レイアウトをカスタマイズする</PanelLink>

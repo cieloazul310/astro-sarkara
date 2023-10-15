@@ -6,7 +6,11 @@ import {
   type RecipeVariantProps,
 } from "@cieloazul310/sarkara-css/css";
 import { PaperLink, Divider } from "@cieloazul310/astro-sarkara-components";
-import { defineMenu, type Menu } from "@cieloazul310/astro-sarkara-utils";
+import {
+  defineMenu,
+  withBaseUrl,
+  type Menu,
+} from "@cieloazul310/astro-sarkara-utils";
 
 import Seo, { type Props as SeoProps } from "./seo.astro";
 import Header from "./header.astro";
@@ -95,7 +99,7 @@ const contentTitle =
     <slot name="top-of-head" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={withBaseUrl("/favicon.svg")} />
     <meta name="generator" content={Astro.generator} />
     <title>{contentTitle}</title>
     <slot name="seo">
@@ -143,6 +147,7 @@ const contentTitle =
               minWidth: 0,
             })}
           >
+            <slot name="top-of-main" />
             <slot />
             <div class={css({ hideFrom: "md" })}>
               <MenuList menu={menu} />
@@ -150,6 +155,7 @@ const contentTitle =
             <PaperLink className={css({ hideBelow: "md" })} href="/">
               Top
             </PaperLink>
+            <slot name="bottom-of-main" />
           </div>
           <div class={sidebar}>
             <div
