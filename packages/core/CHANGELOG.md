@@ -1,5 +1,15 @@
 # @cieloazul310/astro-sarkara
 
+## 0.0.10
+
+### Patch Changes
+
+- d8756e2: adapted to Polymorphic components
+- Updated dependencies [d8756e2]
+  - @cieloazul310/astro-sarkara-components@0.0.8
+  - @cieloazul310/astro-sarkara-layout@0.0.8
+  - @cieloazul310/astro-sarkara-article-classes@0.0.8
+
 ## 0.0.9
 
 ### Patch Changes
