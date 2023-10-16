@@ -13,7 +13,13 @@ Astro
 Panda CSS  
 <https://panda-css.com/>
 
-## Setup
+## Getting started with the template
+
+```sh
+npm create astro@latest -- --template cieloazul310/astro-sarkara-starter
+```
+
+## Getting started with an empty project
 
 ### 1. Create Astro project
 
