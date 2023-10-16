@@ -114,7 +114,7 @@ const classes = navigation({ direction });
         </hgroup>
       </a>
     ) : (
-      <div class={classes.button} />
+      direction !== "column" && <div class={classes.button} />
     )
   }
   {
@@ -134,7 +134,7 @@ const classes = navigation({ direction });
         </hgroup>
       </a>
     ) : (
-      <div class={classes.button} />
+      direction !== "column" && <div class={classes.button} />
     )
   }
 </nav>
