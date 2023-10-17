@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara-components
 
+## 0.0.9
+
+### Patch Changes
+
+- 3a3369a: fix navigation component
+
 ## 0.0.8
 
 ### Patch Changes

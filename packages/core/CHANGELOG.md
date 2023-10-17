@@ -1,5 +1,15 @@
 # @cieloazul310/astro-sarkara
 
+## 0.0.11
+
+### Patch Changes
+
+- 3a3369a: fix navigation component
+- Updated dependencies [3a3369a]
+  - @cieloazul310/astro-sarkara-components@0.0.9
+  - @cieloazul310/astro-sarkara-article-classes@0.0.9
+  - @cieloazul310/astro-sarkara-layout@0.0.9
+
 ## 0.0.10
 
 ### Patch Changes
