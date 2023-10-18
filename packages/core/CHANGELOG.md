@@ -1,5 +1,15 @@
 # @cieloazul310/astro-sarkara
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [c53ea76]
+  - @cieloazul310/astro-sarkara-components@0.0.10
+  - @cieloazul310/astro-sarkara-layout@0.0.10
+  - @cieloazul310/astro-sarkara-utils@0.0.6
+  - @cieloazul310/astro-sarkara-article-classes@0.0.10
+
 ## 0.0.11
 
 ### Patch Changes

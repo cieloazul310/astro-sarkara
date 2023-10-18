@@ -1,5 +1,11 @@
 # astro-app
 
+## 0.0.12
+
+### Patch Changes
+
+- @cieloazul310/astro-sarkara@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes
