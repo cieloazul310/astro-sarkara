@@ -1,5 +1,16 @@
 # @cieloazul310/astro-sarkara-layout
 
+## 0.0.10
+
+### Patch Changes
+
+- c53ea76: - **utils**: add `defineSiteMetadata` helper for defining siteMetadata.
+  - **layout**: enable to use original favicon (ex. favicon.ico)
+  - **components**: Fix `Pagination` component when basePath is `/`
+- Updated dependencies [c53ea76]
+  - @cieloazul310/astro-sarkara-components@0.0.10
+  - @cieloazul310/astro-sarkara-utils@0.0.6
+
 ## 0.0.9
 
 ### Patch Changes
