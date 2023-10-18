@@ -91,6 +91,14 @@ const contentTitle =
   title && title !== siteMetadata.title
     ? `${title} - ${siteMetadata.title}`
     : siteMetadata.title;
+const favicon = {
+  type:
+    !siteMetadata.favicon ||
+    siteMetadata.favicon?.split(".").slice(-1)[0] === "svg"
+      ? "image/svg+xml"
+      : null,
+  href: withBaseUrl(siteMetadata.favicon ?? "/favicon.svg"),
+};
 ---
 
 <!doctype html>
@@ -99,7 +107,7 @@ const contentTitle =
     <slot name="top-of-head" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={withBaseUrl("/favicon.svg")} />
+    <link rel="icon" type={favicon.type} href={favicon.href} />
     <meta name="generator" content={Astro.generator} />
     <title>{contentTitle}</title>
     <slot name="seo">

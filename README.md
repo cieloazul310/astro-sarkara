@@ -87,14 +87,15 @@ npm run prepare
 
 ### Layout
 
-```astro:/src/pages/index.astro
+```astro
 ---
-import { SarkaraLayout } from "@cieloazul310/astro-sarkara";
+// src/pages/index.astro
+import { defineSiteMetadata, SarkaraLayout } from "@cieloazul310/astro-sarkara";
 
-const siteMetadata = {
+const siteMetadata = defineSiteMetadata({
   title: "Site title",
   description: "Site description",
-};
+});
 ---
 <SarkaraLayout siteMetadata={siteMetadata}>
   <!-- contents -->
@@ -103,15 +104,20 @@ const siteMetadata = {
 
 ### Components
 
-```astro:/src/pages/index.astro
+```astro
 ---
-import { SarkaraLayout, Paper } from "@cieloazul310/astro-sarkara";
+// src/pages/index.astro
+import { 
+  defineSiteMetadata, 
+  SarkaraLayout, 
+  Paper,
+} from "@cieloazul310/astro-sarkara";
 import { css } from "@cieloazul310/sarkara-css";
 
-const siteMetadata = {
+const siteMetadata = defineSiteMetadata({
   title: "Site title",
   description: "Site description",
-};
+});
 ---
 <SarkaraLayout siteMetadata={siteMetadata}>
   <Paper>

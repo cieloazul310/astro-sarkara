@@ -1,12 +1,11 @@
 ---
-import { useAbsoluteUrl } from "@cieloazul310/astro-sarkara-utils";
+import {
+  useAbsoluteUrl,
+  type SiteMetadata,
+} from "@cieloazul310/astro-sarkara-utils";
 
 export interface Props {
-  siteMetadata: {
-    title: string;
-    description: string;
-    image?: string;
-  };
+  siteMetadata: SiteMetadata;
   title?: string;
   description?: string;
   image?: string;
