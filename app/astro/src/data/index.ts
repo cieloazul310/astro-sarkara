@@ -1,10 +1,10 @@
-import { defineMenu } from "@cieloazul310/astro-sarkara";
+import { defineSiteMetadata, defineMenu } from "@cieloazul310/astro-sarkara";
 
-export const siteMetadata = {
+export const siteMetadata = defineSiteMetadata({
   title: "Astro Sarkara",
   description: "Astro components library built with Panda CSS.",
   image: "/ogimage.jpeg",
-};
+});
 
 export const menu = defineMenu([
   { title: "Top", href: "/" },
