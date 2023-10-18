@@ -8,12 +8,12 @@ Astro Sarkaraにはデフォルトのレイアウトコンポーネントを用�
 ```astro
 ---
 // src/page/hoge.astro
-import { SarkaraLayout, defineMenu } from "@cieloazul310/astro-sarkara";
+import { SarkaraLayout, defineSiteMetadata, defineMenu } from "@cieloazul310/astro-sarkara";
 
-const siteMetadata = {
+const siteMetadata = defineSiteMetadata({
   title: "Site title",
   description: "Site description",
-};
+});
 const menu = defineMenu([
   { title: "Top", href: "/" },
 ]);
@@ -109,13 +109,14 @@ Astro Sarkaraレイアウトには`menu`と`siteMetadata`の属性が必須で�
 
 ```ts
 // src/data/index.ts
-import { defineMenu } from "@cieloazul310/astro-sarkara";
+import { defineSiteMetadata, defineMenu } from "@cieloazul310/astro-sarkara";
 
-export const siteMetadata = {
+export const siteMetadata = defineSiteMetadata({
   title: "Astro Sarkara",
   description: "Astro components library built with Panda CSS.",
   image: "/ogimage.jpeg", // for opengraph (optional)
-};
+  // favicon: "/favicon.ico", for original favicon (optional)
+};)
 
 export const menu = defineMenu([
   { title: "Top", href: "/" },
