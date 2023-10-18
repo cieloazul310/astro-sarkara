@@ -1,4 +1,5 @@
 ---
+import * as path from "path";
 import type { Page } from "astro";
 import { getPagination } from "@cieloazul310/astro-sarkara-utils";
 import { cva } from "@cieloazul310/sarkara-css/css";
@@ -58,7 +59,9 @@ const paginations = getPagination(currentPage, lastPage, { neighbors: 2 });
             className={paginationButton({
               display: optional ? "optional" : "base",
             })}
-            href={value === 1 ? basePath : `${basePath}/${value}`}
+            href={
+              value === 1 ? basePath : path.join(basePath, value.toString())
+            }
             selected={value === currentPage}
           >
             {value}
