@@ -49,7 +49,7 @@ const {
           top: 1,
           left: 1,
           gap: 1,
-          zIndex: `calc(token(zIndex.docked) + 1)`,
+          zIndex: 1,
         })}
       >
         <slot name="badge" />
@@ -68,7 +68,7 @@ const {
               class={css({
                 objectFit: "fill",
                 rounded: "xl",
-                zIndex: "docked",
+                zIndex: 0,
                 _dark: {
                   filter: "brightness(0.8)",
                 },
@@ -110,11 +110,7 @@ const {
           {headerText}
         </slot>
       </header>
-      <Link
-        className={linkOverlay({ zIndex: `calc(token(zIndex.docked) + 2)` })}
-        href={href}
-        disablePrefix={disablePrefix}
-      >
+      <Link className={linkOverlay()} href={href} disablePrefix={disablePrefix}>
         <slot name="title">
           <h1
             class={css({ fontSize: ["md", "lg", "xl"], textStyle: "headings" })}
