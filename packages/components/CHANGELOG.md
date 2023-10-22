@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara-components
 
+## 0.0.11
+
+### Patch Changes
+
+- 8eb8dd9: fix some components style
+
 ## 0.0.10
 
 ### Patch Changes
