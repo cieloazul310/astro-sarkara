@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        repo: ['cieloazul310/astro-sarkara-starter', 'cieloazul310/map310-beta']
+        repo: ['cieloazul310/astro-sarkara-starter', 'cieloazul310/cieloazul310.github.io']
 
     steps:
       - name: Checkout
