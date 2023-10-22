@@ -1,7 +1,6 @@
 ---
 import Icon from "astro-icon";
 import {
-  cx,
   css,
   cva,
   type RecipeVariantProps,
@@ -11,7 +10,6 @@ const alert = cva({
   base: {
     display: "flex",
     py: 4,
-    my: 4,
     rounded: "xl",
     alignItems: "center",
   },
@@ -31,8 +29,15 @@ const alert = cva({
 
 export type Props = RecipeVariantProps<typeof alert> & {
   title?: string;
+  disableMargin?: boolean;
+  className?: string;
 };
-const { title, status = "warning" } = Astro.props;
+const {
+  title,
+  className,
+  status = "warning",
+  disableMargin = false,
+} = Astro.props;
 const alertStyle = alert({ status });
 const iconName = (() => {
   if (status === "danger") return "mdi:close-octagon";
@@ -41,13 +46,16 @@ const iconName = (() => {
   if (status === "tips") return "mdi:lightbulb-on";
   return "mdi:alert-circle";
 })();
+const withMarginStyle = css({ my: 4 });
 ---
 
 <aside
-  class={cx(
+  class:list={[
     alertStyle,
     css({ bg: { base: "colorPalette.100", _dark: "colorPalette.950" } }),
-  )}
+    { [withMarginStyle]: !disableMargin },
+    className,
+  ]}
 >
   <div class={css({ px: 4 })}>
     <Icon
