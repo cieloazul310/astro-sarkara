@@ -2,7 +2,7 @@
   "name": "astro-app",
   "private": true,
   "type": "module",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
-    "@cieloazul310/astro-sarkara": "^0.0.12",
+    "@cieloazul310/astro-sarkara": "^0.0.13",
     "astro": "^3.2.4",
     "rehype": "^13.0.1",
     "rehype-class-names": "^1.0.14"
