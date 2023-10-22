@@ -38,9 +38,11 @@ const badge = cva({
 export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof badge> &
   Polymorphic<{ as: Tag }> & {
     colorPalette?: string;
+    className?: string;
   };
 const {
   size,
+  className,
   as: Tag = "span",
   colorPalette = "neutral",
   ...props
@@ -49,6 +51,10 @@ const {
 const link = Tag === "a" && props.href ? useLink(props.href) : {};
 ---
 
-<Tag class={cx(css({ colorPalette }), badge({ size }))} {...props} {...link}>
+<Tag
+  class={cx(css({ colorPalette }), badge({ size }), className)}
+  {...props}
+  {...link}
+>
   <slot />
 </Tag>

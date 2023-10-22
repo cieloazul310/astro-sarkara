@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 import type { HTMLAttributes } from "astro/types";
-import { css, cx, cva } from "@cieloazul310/sarkara-css/css";
+import { css, cva } from "@cieloazul310/sarkara-css/css";
 import {
   paper,
   linkBox,
@@ -27,18 +27,9 @@ const panelLink = cva({
         borderWidth: 0,
       },
     },
-    margin: {
-      yes: {
-        my: 8,
-      },
-      none: {
-        my: 0,
-      },
-    },
   },
   defaultVariants: {
     border: "yes",
-    margin: "yes",
   },
 });
 
@@ -63,10 +54,11 @@ const {
 const link = useLink(href, { disablePrefix });
 const external = !isInternal(href);
 const hostname = external ? new URL(link.href ?? "").hostname : null;
+const withMarginStyle = css({ my: 8 });
 ---
 
 <div
-  class={cx(
+  class:list={[
     linkBox({ colorPalette }),
     paper({
       hover: true,
@@ -74,10 +66,10 @@ const hostname = external ? new URL(link.href ?? "").hostname : null;
     }),
     panelLink({
       border: disableBorder ? "none" : "yes",
-      margin: disableMargin ? "none" : "yes",
     }),
+    { [withMarginStyle]: !disableMargin },
     className,
-  )}
+  ]}
   role="button"
 >
   <div class={flex({ flexShrink: 0 })}>
