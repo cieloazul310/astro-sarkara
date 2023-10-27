@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara",
   "description": "Core package of astro-sarkara, including Astro components and layout built with Panda CSS.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
