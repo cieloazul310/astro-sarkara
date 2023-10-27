@@ -11,10 +11,8 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        repo: ['cieloazul310/astro-sarkara-starter', 'cieloazul310/cieloazul310.github.io']
-
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,10 +54,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+  
+  dispatch:
+    name: Repository dispatch
+    needs: release
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ['cieloazul310/astro-sarkara-starter', 'cieloazul310/cieloazul310.github.io']
+    steps:
       - name: Dispatch update-packages
         uses: peter-evans/repository-dispatch@v2
-        if: steps.changesets.outputs.published == 'true'
+        if: needs.release.outputs.published == 'true'
         with:
           token: ${{ secrets.PAT }}
           repository: ${{ matrix.repo }}
