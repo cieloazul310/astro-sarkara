@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: dispatch update-packages
+      - name: Dispatch update-packages
         uses: peter-evans/repository-dispatch@v2
         if: steps.changesets.outputs.published == 'true'
         with:
