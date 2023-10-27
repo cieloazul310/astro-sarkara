@@ -72,6 +72,7 @@ export type Props = SeoProps &
   RecipeVariantProps<typeof layoutStyle> & {
     menu?: Menu;
     htmlLang?: string;
+    disableSidebarSticky?: boolean;
   };
 
 const {
@@ -82,11 +83,18 @@ const {
   variant = "default",
   htmlLang = "ja",
   menu = defaultMenu,
+  disableSidebarSticky = false,
   siteType = "website",
   twitterCardType = "summary",
 } = Astro.props;
 
 const { sidebar, fab } = layoutStyle({ variant });
+const sidebarStickyStyle = css({
+  position: "sticky",
+  top: "calc(token(sizes.headerHeight) + token(spacing.4))",
+  maxHeight: "calc(100vh - token(sizes.headerHeight))",
+  overflowY: "auto",
+});
 const contentTitle =
   title && title !== siteMetadata.title
     ? `${title} - ${siteMetadata.title}`
@@ -165,7 +173,12 @@ const favicon = {
             </PaperLink>
             <slot name="bottom-of-main" />
           </div>
-          <div class={sidebar}>
+          <div
+            class:list={[
+              sidebar,
+              { [sidebarStickyStyle]: !disableSidebarSticky },
+            ]}
+          >
             <div
               class={vstack({
                 gap: 4,
