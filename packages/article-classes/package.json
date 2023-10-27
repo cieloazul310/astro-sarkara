@@ -46,8 +46,8 @@
     "@cieloazul310/astro-sarkara-components": "^0.0.11",
     "@cieloazul310/astro-sarkara-utils": "^0.0.6",
     "@cieloazul310/tsconfig": "^0.0.2",
-    "@pandacss/dev": "^0.15.5",
-    "astro": "^3.2.4",
+    "@pandacss/dev": "^0.16.0",
+    "astro": "^3.4.0",
     "eslint": "^8.51.0",
     "eslint-config-custom": "^0.0.2"
   },
