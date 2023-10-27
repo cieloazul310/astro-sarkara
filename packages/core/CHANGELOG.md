@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara
 
+## 1.0.0
+
+### Major Changes
+
+- 093eeb1: bump major package
+
 ## 0.1.0
 
 ### Minor Changes
