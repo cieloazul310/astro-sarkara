@@ -32,6 +32,7 @@ export const paper = definePattern({
       },
       p: [4, 8],
       rounded: "xl",
+      wordBreak: "break-all",
       transition: "background .25s",
       ...props,
     };

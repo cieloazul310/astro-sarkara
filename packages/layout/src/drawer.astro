@@ -73,7 +73,7 @@ const { siteTitle } = Astro.props;
       </Link>
     </header>
     <div class={css({ flexGrow: 1, overflowY: "auto", px: 4 })}>
-      <div class={vstack({ gap: 4, alignItems: "stretch" })}>
+      <div class={vstack({ gap: "md", alignItems: "stretch" })}>
         <slot name="drawer-top" />
         {Astro.slots.has("drawer-top") && <Divider />}
         <slot />
@@ -92,7 +92,7 @@ const { siteTitle } = Astro.props;
       })}
     >
       <ColorModeButton />
-      <div class={hstack({ gap: 2 })}>
+      <div class={hstack({ gap: "sm" })}>
         <Button colorPalette="primary" as="a" href="/">Top</Button>
         <Button className="drawer-handler" colorPalette="slate">Close</Button>
       </div>

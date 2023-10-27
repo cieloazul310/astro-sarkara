@@ -3,7 +3,59 @@ title: Googleアナリティクスを設置
 index: 10
 ---
 
-Googleアナリティクスは`<head>`要素内の先頭に位置することが推奨されている。Sarkaraレイアウトでは`top-of-head`のスロットでコードを挿入することができる。
+Astro Sarkaraのレイアウト内にGoogleアナリティクスを設置する場合、[Section 5『レイアウトに要素を注入する』](/tutorial/layout-slots)で説明した機能、スロットを活用します。
+
+Googleアナリティクスは`<head>`要素内の先頭に位置することが推奨されています。Astro Sarkaraレイアウトでは`top-of-head`のスロットで、`<head>`要素の最上位にコードを注入することが可能です。
+
+<PanelLink href="/tutorial/layout-slots">Section 5 レイアウトに要素を注入する</PanelLink>
+
+```astro
+---
+import { SarkaraLayout } from "@cieloazul310/astro-sarkara";
+import { menu, siteMetadata } from "../data";
+---
+
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu}>
+  <Fragment slot="top-of-head">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id={your_analytics_id}"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "{your_analytics_id}");
+    </script>
+  <Fragment/>
+</SarkaraLayout>
+```
+
+## Partytownを使う
+
+Partytownは[サードパーティースクリプトの処理をサービスワーカーに任せることで読み込み速度を爆速にしてくれる](https://gigazine.net/news/20230510-partytown/)ライブラリです。AstroにはPartytownを有効にするインテグレーションが提供されています。これをGoogleアナリティクスと組み合わせて使用することができます。
+
+<PanelLink href="https://partytown.builder.io/">Partytown</PanelLink>
+
+<PanelLink href="https://docs.astro.build/ja/guides/integrations-guide/partytown/">@astrojs/partytown</PanelLink>
+
+```sh
+npm install @astrojs/partytown
+```
+
+```ts
+// astro.config.ts
+import { defineConfig } from "astro/config";
+import partytown from "@astrojs/partytown";
+
+export default defineConfig({
+  integrations: [partytown()],
+});
+```
 
 ```astro
 ---
@@ -30,22 +82,4 @@ import { menu, siteMetadata } from "../data";
 </SarkaraLayout>
 ```
 
-## Partytownを使う
-
-```sh
-npm install @astrojs/partytown
-```
-
-```ts
-// astro.config.ts
-import { defineConfig } from "astro/config";
-import partytown from "@astrojs/partytown";
-
-export default defineConfig({
-  integrations: [partytown()],
-});
-```
-
-<PanelLink href="https://partytown.builder.io/">Partytown</PanelLink>
-
-<PanelLink href="https://docs.astro.build/ja/guides/integrations-guide/partytown/">@astrojs/partytown</PanelLink>
+<PanelLink href="https://www.kevinzunigacuellar.com/blog/google-analytics-in-astro/">Add google analytics to Astro with Partytown</PanelLink>

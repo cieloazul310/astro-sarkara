@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@cieloazul310/tsconfig": "^0.0.2",
-    "@pandacss/dev": "^0.15.5",
+    "@pandacss/dev": "^0.16.0",
     "eslint": "^8.51.0",
     "eslint-config-custom": "^0.0.2"
   },
