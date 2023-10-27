@@ -1,5 +1,12 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 0.1.0
+
+### Minor Changes
+
+- 57fda61: - feat(preset-base): Add semanticTokens for spacing like as `xs`, `sm`, `md`, `lg` and `xl`.
+  - refactor(layout): Refactor margin and gap with spacing token above.
+
 ## 0.0.7
 
 ### Patch Changes
