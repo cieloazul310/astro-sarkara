@@ -74,7 +74,7 @@ export const navigation = defineSlotRecipe({
     container: {
       width: "100%",
       display: "flex",
-      gap: 2,
+      gap: "sm",
       colorPalette: "primary",
       flexDirection: ["column", "row"],
     },
@@ -82,7 +82,7 @@ export const navigation = defineSlotRecipe({
       display: "flex",
       alignItems: "center",
       justifyContent: "flex-start",
-      gap: 2,
+      gap: "sm",
       width: ["100%", "50%"],
     },
     title: {

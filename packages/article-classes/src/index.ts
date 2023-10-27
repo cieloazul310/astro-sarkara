@@ -15,46 +15,46 @@ export const heading1 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["xl", "2xl", "4xl"],
-  mt: 12,
-  mb: 6,
+  mt: "calc(token(spacing.md) + token(spacing.lg))",
+  mb: "calc(token(spacing.sm) + token(spacing.md))",
 });
 
 export const heading2 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["xl", "2xl", "3xl"],
-  mt: 12,
-  mb: 4,
+  mt: "calc(token(spacing.md) + token(spacing.lg))",
+  mb: "md",
 });
 
 export const heading3 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["lg", "lg", "2xl"],
-  mt: 12,
-  mb: 4,
+  mt: "calc(token(spacing.md) + token(spacing.lg))",
+  mb: "md",
 });
 
 export const heading4 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["md", "lg", "xl"],
-  mt: 8,
-  mb: 4,
+  mt: "lg",
+  mb: "md",
 });
 
 export const heading5 = css({
   ...common,
   textStyle: "headings",
   fontSize: ["md", "md", "lg"],
-  mt: 4,
-  mb: 2,
+  mt: "md",
+  mb: "sm",
 });
 
 export const paragraph = css({
   ...common,
   fontSize: "md",
-  my: 2,
+  my: "sm",
   overflowWrap: "break-word",
 });
 
@@ -67,7 +67,7 @@ export const anchor = css({
 export const blockquote = cx(
   css({ colorPalette: "primary" }),
   paper({
-    my: 4,
+    my: "md",
   }),
 );
 
@@ -77,7 +77,7 @@ export const table = cx(
     width: "100%",
     borderWidth: "1px",
     borderColor: { base: "primary.50", _dark: "primary.950" },
-    my: 8,
+    my: "lg",
     fontSize: ["sm", "md"],
   }),
 );
@@ -103,25 +103,25 @@ export const td = css({
 export const hr = divider({
   orientation: "horizontal",
   color: { base: "primary.50", _dark: "primary.950" },
-  my: 8,
+  my: "lg",
 });
 
 export const unorderedList = css({
   ...common,
-  my: 4,
+  my: "md",
   listStyleType: "disc",
   paddingInlineStart: 4,
 });
 
 export const orderedList = css({
   ...common,
-  my: 4,
+  my: "md",
   listStyleType: "decimal",
   paddingInlineStart: 4,
 });
 
 export const img = css({
-  my: 4,
+  my: "md",
   maxWidth: "100%",
   rounded: "xl",
 });
@@ -129,7 +129,7 @@ export const img = css({
 export const pre = cx(
   css({ colorPalette: "primary" }),
   paper({
-    my: 8,
+    my: "lg",
     overflowX: "auto",
     maxWidth: "100%",
   }),

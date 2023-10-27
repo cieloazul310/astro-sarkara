@@ -15,7 +15,7 @@ const panelLink = cva({
     display: "flex",
     justifyContent: "start",
     alignItems: "center",
-    gap: 4,
+    gap: "md",
     borderColor: { base: "colorPalette.500", _dark: "colorPalette.800" },
   },
   variants: {
@@ -54,7 +54,7 @@ const {
 const link = useLink(href, { disablePrefix });
 const external = !isInternal(href);
 const hostname = external ? new URL(link.href ?? "").hostname : null;
-const withMarginStyle = css({ my: 8 });
+const withMarginStyle = css({ my: "lg" });
 ---
 
 <div
