@@ -35,6 +35,7 @@ const { page } = Astro.props;
         <ArticleListItem
           href={slugify("tutorial", post)}
           title={post.data.title}
+          astroImage={post.data.featuredImg}
           image={post.data.featuredImg?.src}
           imageAlt={post.data.featuredImgAlt}
           imagePlaceholder="Tutorial"
