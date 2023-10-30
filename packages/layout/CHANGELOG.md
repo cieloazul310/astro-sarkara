@@ -1,5 +1,18 @@
 # @cieloazul310/astro-sarkara-layout
 
+## 2.0.0
+
+### Patch Changes
+
+- cbe0328: # @cieloazul310/astro-sarkara-components
+
+  - add `astroImage` props to `<ArticleListItem>`
+
+- Updated dependencies [cbe0328]
+  - @cieloazul310/panda-preset-sarkara-base@1.0.0
+  - @cieloazul310/astro-sarkara-utils@1.0.0
+  - @cieloazul310/astro-sarkara-components@2.0.0
+
 ## 1.0.0
 
 ### Minor Changes

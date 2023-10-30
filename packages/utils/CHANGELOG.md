@@ -1,5 +1,13 @@
 # @cieloazul310/astro-sarkara-utils
 
+## 1.0.0
+
+### Major Changes
+
+- cbe0328: # @cieloazul310/astro-sarkara-components
+
+  - add `astroImage` props to `<ArticleListItem>`
+
 ## 0.0.6
 
 ### Patch Changes

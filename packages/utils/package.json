@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara-utils",
   "description": "Utility package for astro-sarkara",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "license": "ISC",
   "type": "module",
   "main": "dist/index.js",
