@@ -1,4 +1,6 @@
 ---
+/* eslint-disable-next-line import/no-unresolved */
+import { Image, type LocalImageProps } from "astro:assets";
 import type { HTMLAttributes } from "astro/types";
 import { css } from "@cieloazul310/sarkara-css/css";
 import {
@@ -16,6 +18,7 @@ export interface Props extends HTMLAttributes<"a"> {
   footerText?: string;
   disablePrefix?: boolean;
   image?: string;
+  astroImage?: LocalImageProps["src"];
   imageAlt?: string;
   imagePlaceholder?: string;
 }
@@ -26,6 +29,7 @@ const {
   headerText,
   footerText,
   disablePrefix,
+  astroImage,
   image,
   imageAlt,
   imagePlaceholder = "Article",
@@ -63,7 +67,25 @@ const {
         })}
       >
         {
-          image ? (
+          astroImage && (
+            <Image
+              class={css({
+                objectFit: "fill",
+                rounded: "xl",
+                zIndex: 0,
+                _dark: {
+                  filter: "brightness(0.8)",
+                },
+              })}
+              src={astroImage}
+              width={240}
+              densities={[1, 2]}
+              alt={imageAlt ?? title ?? imagePlaceholder}
+            />
+          )
+        }
+        {
+          !astroImage && image && (
             <img
               class={css({
                 objectFit: "fill",
@@ -76,7 +98,10 @@ const {
               src={image}
               alt={imageAlt}
             />
-          ) : (
+          )
+        }
+        {
+          !astroImage && !image && (
             <span
               class={css({
                 fontWeight: "extrabold",
