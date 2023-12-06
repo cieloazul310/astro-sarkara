@@ -1,5 +1,17 @@
 # @cieloazul310/astro-sarkara-components
 
+## 3.0.0
+
+### Minor Changes
+
+- 48fce6f: Add astro v4 support and upgrade packages
+
+### Patch Changes
+
+- Updated dependencies [48fce6f]
+  - @cieloazul310/panda-preset-sarkara-base@1.1.0
+  - @cieloazul310/astro-sarkara-utils@1.1.0
+
 ## 2.0.0
 
 ### Patch Changes

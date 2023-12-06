@@ -1,5 +1,16 @@
 # astro-app
 
+## 0.2.0
+
+### Minor Changes
+
+- 48fce6f: Add astro v4 support and upgrade packages
+
+### Patch Changes
+
+- Updated dependencies [48fce6f]
+  - @cieloazul310/astro-sarkara@1.1.0
+
 ## 0.1.1
 
 ### Patch Changes
