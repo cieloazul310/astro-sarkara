@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 1.1.0
+
+### Minor Changes
+
+- 48fce6f: Add astro v4 support and upgrade packages
+
 ## 1.0.0
 
 ### Major Changes
