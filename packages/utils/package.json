@@ -28,8 +28,9 @@
   },
   "scripts": {
     "tsup": "tsup src --format=esm,cjs --dts",
-    "build": "npm run tsup -- --clean",
-    "dev": "npm run tsup -- --watch"
+    "build": "npm run clean && npm run tsup",
+    "dev": "npm run tsup -- --watch",
+    "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
     "@repo/eslint-config": "^0.1.0",

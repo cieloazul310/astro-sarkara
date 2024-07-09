@@ -39,10 +39,10 @@
     "directory": "packages/preset-base"
   },
   "scripts": {
-    "clean": "rimraf dist",
     "tsup": "tsup src/index.ts --dts --format=esm,cjs --external @pandacss/dev",
-    "build": "npm run tsup -- --clean",
-    "dev": "npm run tsup -- --watch"
+    "build": "npm run clean && npm run tsup",
+    "dev": "npm run tsup -- --watch",
+    "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.42.0",

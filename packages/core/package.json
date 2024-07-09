@@ -46,7 +46,8 @@
   "scripts": {
     "tsup": "tsup src/preset.ts src/article-classes.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils --external @cieloazul310/astro-sarkara-article-classes",
     "dev": "npm run tsup -- --watch",
-    "build": "npm run tsup -- --clean"
+    "build": "npm run clean && npm run tsup",
+    "clean": "git clean -fx .turbo/ dist/"
   },
   "dependencies": {
     "@cieloazul310/astro-sarkara-article-classes": "^3.0.0",

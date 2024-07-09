@@ -40,7 +40,8 @@
     "dev:panda": "panda --watch",
     "dev:components": "npm run tsup -- --watch",
     "build": "npm run codegen && npm run build:components",
-    "build:components": "npm run tsup -- --clean"
+    "build:components": "npm run tsup -- --clean",
+    "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
     "@cieloazul310/astro-sarkara-components": "^3.0.0",

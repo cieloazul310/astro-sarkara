@@ -4,12 +4,15 @@
     "target": "esnext",
     "module": "esnext",
     "declaration": true,
+    "declarationMap": true,
     "strict": true,
     "lib": ["esnext", "dom"],
+    "moduleDetection": "force",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true
   }
 }

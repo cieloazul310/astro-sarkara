@@ -1,5 +1,5 @@
-const { resolve } = require("node:path");
-const project = resolve(process.cwd(), "tsconfig.json");
+// const { resolve } = require("node:path");
+// const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
     "prettier",
     "eslint-config-turbo",
   ],
+  /*
   settings: {
     "import/resolver": {
       typescript: {
@@ -21,6 +22,7 @@ module.exports = {
       },
     },
   },
+  */
   overrides: [
     {
       files: ["*.astro"],
