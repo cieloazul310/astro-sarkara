@@ -1,3 +1,7 @@
+const { resolve } = require("node:path");
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   env: {
     es6: true,
@@ -8,8 +12,15 @@ module.exports = {
     "airbnb-typescript/base",
     "plugin:astro/recommended",
     "prettier",
+    "eslint-config-turbo",
   ],
-  parser: "@typescript-eslint/parser",
+  settings: {
+    "import/resolver": {
+      typescript: {
+        project,
+      },
+    },
+  },
   overrides: [
     {
       files: ["*.astro"],

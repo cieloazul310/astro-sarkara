@@ -10,8 +10,13 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^2.0.6",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-import": "^2.29.1"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.56.10",
+    "eslint": "^8.57.0"
   },
   "peerDependencies": {
     "eslint": "^8.0.0"

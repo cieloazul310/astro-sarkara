@@ -1,5 +1,5 @@
 {
-  "extends": "@cieloazul310/tsconfig/astro",
+  "extends": "@repo/typescript-config/astro",
   "compilerOptions": {
     "plugins": [
       {

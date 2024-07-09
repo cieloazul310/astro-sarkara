@@ -1,4 +1,4 @@
 {
-  "extends": "@cieloazul310/tsconfig/astro",
+  "extends": "@repo/typescript-config/astro",
   "include": ["src", ".eslintrc.cjs"]
 }

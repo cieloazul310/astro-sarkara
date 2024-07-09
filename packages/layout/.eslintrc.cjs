@@ -1,6 +1,8 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: "custom",
+  extends: "@repo/eslint-config/index.cjs",
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: "./tsconfig.json",

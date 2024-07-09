@@ -59,6 +59,7 @@
     "@pandacss/dev": "^0.42.0",
     "@repo/eslint-config": "^0.1.0",
     "@repo/typescript-config": "^0.1.0",
+    "@types/eslint": "^8.56.10",
     "eslint": "^8.57.0"
   },
   "peerDependencies": {
