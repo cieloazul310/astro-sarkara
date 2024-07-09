@@ -56,13 +56,13 @@
     "@cieloazul310/panda-preset-sarkara-base": "^1.1.0"
   },
   "devDependencies": {
-    "@cieloazul310/tsconfig": "^0.1.0",
-    "@pandacss/dev": "^0.20.1",
-    "eslint": "^8.55.0",
-    "eslint-config-custom": "^0.1.0"
+    "@pandacss/dev": "^0.42.0",
+    "@repo/eslint-config": "^0.1.0",
+    "@repo/typescript-config": "^0.1.0",
+    "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "astro": "^3.0.0 || ^4.0.0",
+    "astro": "^4.0.0",
     "@pandacss/dev": ">=0.15.0"
   }
 }

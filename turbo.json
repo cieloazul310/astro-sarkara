@@ -1,13 +1,23 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["node_modules", "dist"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "node_modules",
+        "dist"
+      ]
     },
     "dev": {
-      "dependsOn": ["^dev"],
-      "outputs": ["node_modules", "dist"]
+      "dependsOn": [
+        "^dev"
+      ],
+      "outputs": [
+        "node_modules",
+        "dist"
+      ]
     },
     "clean": {}
   }
