@@ -5,7 +5,8 @@ const layerStyles = defineLayerStyles({
     description: "Sarkara basic paper style with translucent background color.",
     value: {
       // @ts-expect-error
-      bgct: "colorPalette.600/92",
+      bg: "colorPalette.600/8",
+      // bgct: "colorPalette.600/92",
     },
   },
 });
