@@ -39,13 +39,13 @@
     "directory": "packages/preset-base"
   },
   "scripts": {
-    "tsup": "tsup src/index.ts --dts --format=esm,cjs --external @pandacss/dev",
+    "tsup": "tsup",
     "build": "npm run clean && npm run tsup",
     "dev": "npm run tsup -- --watch",
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.42.0",
+    "@pandacss/dev": "^0.45.0",
     "@repo/eslint-config": "^0.1.0",
     "@repo/typescript-config": "^0.1.0",
     "@types/eslint": "^8.56.10",

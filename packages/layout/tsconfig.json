@@ -5,7 +5,11 @@
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "styled-system/*": ["./styled-system/*"]
+    }
   },
   "include": ["src", "panda.config.ts", ".eslintrc.cjs"]
 }

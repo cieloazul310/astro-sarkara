@@ -10,6 +10,10 @@ module.exports = {
     "prettier",
     "eslint-config-turbo",
   ],
+  parserOptions: {
+    sourceType: "module",
+    ecmaVersion: "latest",
+  },
   overrides: [
     {
       files: ["*.astro"],
@@ -24,7 +28,7 @@ module.exports = {
       },
     },
     {
-      files: ["panda.config.ts"],
+      files: ["panda.config.ts", "tsup.config.ts"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },

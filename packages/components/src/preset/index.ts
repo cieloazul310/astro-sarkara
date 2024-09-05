@@ -4,6 +4,7 @@ import recipes from "./recipes";
 import slotRecipes from "./slotRecipes";
 
 const sarkaraComponentsPreset = definePreset({
+  name: "sarkara-components",
   patterns,
   theme: {
     extend: {

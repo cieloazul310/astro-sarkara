@@ -1,22 +1,16 @@
 ---
-import { Icon } from "astro-icon";
-import {
-  cx,
-  css,
-  cva,
-  sva,
-  type RecipeVariantProps,
-} from "@cieloazul310/sarkara-css/css";
-import { paper } from "@cieloazul310/sarkara-css/patterns";
+import { Icon } from "astro-icon/components";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
+import { cx, css, cva, sva, type RecipeVariantProps } from "styled-system/css";
+import { paper } from "styled-system/patterns";
 /** @todo recipes for astro problem */
 /*
 import {
   navigation,
   navigationHgroup,
   type NavigationVariantProps,
-} from "@cieloazul310/sarkara-css/recipes";
+} from "styled-system/recipes";
 */
-import { useLink } from "@cieloazul310/astro-sarkara-utils";
 
 const iconStyle = css({ width: 6, height: 6, flexShrink: 0 });
 
@@ -107,7 +101,7 @@ const classes = navigation({ direction });
         class={cx(classes.button, paper({ hover: true }))}
         role="button"
       >
-        <Icon class={iconStyle} name="ic:baseline-arrow-back" />
+        <Icon class={iconStyle} name="mdi:arrow-left" />
         <hgroup class={navigationHgroup()}>
           <h1 class={classes.title}>{left.primaryText}</h1>
           {left.secondaryText && <p>{left.secondaryText}</p>}
@@ -127,7 +121,7 @@ const classes = navigation({ direction });
         )}
         role="button"
       >
-        <Icon class={iconStyle} name="ic:baseline-arrow-forward" />
+        <Icon class={iconStyle} name="mdi:arrow-right" />
         <hgroup class={navigationHgroup({ type: "right" })}>
           <h1 class={classes.title}>{right.primaryText}</h1>
           {right.secondaryText && <p>{right.secondaryText}</p>}

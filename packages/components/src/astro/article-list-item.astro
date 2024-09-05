@@ -2,15 +2,9 @@
 /* eslint-disable-next-line import/no-unresolved */
 import { Image, type LocalImageProps } from "astro:assets";
 import type { HTMLAttributes } from "astro/types";
-import { css } from "@cieloazul310/sarkara-css/css";
-import {
-  linkBox,
-  linkOverlay,
-  aspectRatio,
-  hstack,
-  flex,
-} from "@cieloazul310/sarkara-css/patterns";
-import Link from "./Link.astro";
+import { css } from "styled-system/css";
+import { linkOverlay, aspectRatio, hstack, flex } from "styled-system/patterns";
+import Link from "./link.astro";
 
 export interface Props extends HTMLAttributes<"a"> {
   title?: string;
@@ -37,12 +31,13 @@ const {
 ---
 
 <li
-  class={linkBox({
+  class={css({
+    pos: "relative",
     listStyleType: "none",
     rounded: "xl",
     borderWidth: "2px",
     borderColor: { base: "neutral.100", _dark: "neutral.800" },
-    bgct: { _hover: "primary.600/92" },
+    bg: { _hover: "primary.600/8" },
   })}
 >
   <article class={flex()}>
@@ -60,7 +55,7 @@ const {
       </div>
       <div
         class={aspectRatio({
-          bgct: "primary.600/92",
+          bg: "primary.600/8",
           ratio: { base: 1, sm: 16 / 9 },
           width: ["120px", "180px", "240px"],
           rounded: "xl",

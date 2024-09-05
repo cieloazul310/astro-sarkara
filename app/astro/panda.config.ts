@@ -1,6 +1,6 @@
 import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
 
-export default defineSarkaraConfig({
+const config = defineSarkaraConfig({
   palette: { primary: "teal", secondary: "yellow" },
   include: ["./src/**/*.{js,jsx,ts,tsx,astro,mdx}"],
   theme: {
@@ -8,4 +8,7 @@ export default defineSarkaraConfig({
       // customize theme
     },
   },
+  outdir: "styled-system",
 });
+
+export default config;

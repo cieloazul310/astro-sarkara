@@ -8,9 +8,11 @@ import {
   ArticleListItem,
   Pagination,
 } from "@cieloazul310/astro-sarkara";
-import Analytics from "../../components/Analytics.astro";
-import { pageSize, menu, siteMetadata } from "../../data";
-import { slugify } from "../../utils";
+import Analytics from "@/components/Analytics.astro";
+import { pageSize, menu, siteMetadata } from "@/data";
+import { slugify } from "@/utils";
+
+import "../../index.css";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   // Load your data with fetch(), Astro.glob(), etc.

@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 /**
  * @todo
  * should use Polymorphic type but it not works well...
@@ -7,27 +7,18 @@ import { Icon } from "astro-icon";
  */
 import type { HTMLTag, Polymorphic } from "astro/types";
 import { useLink } from "@cieloazul310/astro-sarkara-utils";
-import {
-  css,
-  cx,
-  sva,
-  type RecipeVariantProps,
-} from "@cieloazul310/sarkara-css/css";
+import { css, cx, sva, type RecipeVariantProps } from "styled-system/css";
 /** @todo recipes for astro problem */
 /*
 import {
-  iconButton,
   buttonBase,
-  type IconButtonVariantProps,
+  button,
   type ButtonBaseVariantProps,
-} from "@cieloazul310/sarkara-css/recipes";
+  type ButtonVariantProps,
+} from "styled-system/recipes";
 */
 
-/** @todo recipes for astro problem
-type ButtonVariants = IconButtonVariantProps & ButtonBaseVariantProps;
-*/
-
-const iconButton = sva({
+const button = sva({
   slots: ["button", "icon"],
   base: {
     button: {
@@ -37,6 +28,13 @@ const iconButton = sva({
       justifyContent: "center",
       shadow: "sm",
       cursor: "pointer",
+      width: "fit-content",
+      py: 2,
+      px: "0.8em",
+    },
+    icon: {
+      width: "1.2em",
+      height: "1.2em",
     },
   },
   variants: {
@@ -61,47 +59,60 @@ const iconButton = sva({
         },
       },
     },
-    shape: {
-      square: { button: { rounded: "md" } },
-      circle: { button: { rounded: "full" } },
-    },
     size: {
-      sm: { button: { width: 10, height: 10 }, icon: { width: 6, height: 6 } },
-      md: { button: { width: 14, height: 14 }, icon: { width: 8, height: 8 } },
-      lg: {
-        button: { width: 16, height: 16 },
-        icon: { width: 10, height: 10 },
+      sm: { button: { fontSize: "xs", gap: 1 } },
+      md: { button: { fontSize: "md", gap: 1 } },
+      lg: { button: { fontSize: "xl", gap: 1 } },
+      xl: { button: { fontSize: "4xl", gap: 2 } },
+    },
+    iconPlace: {
+      start: {
+        button: {
+          flexDirection: "row",
+        },
+        icon: {
+          ml: "-0.4em",
+        },
       },
-      xl: {
-        button: { width: 20, height: 20 },
-        icon: { width: 14, height: 14 },
+      end: {
+        button: {
+          flexDirection: "row-reverse",
+        },
+        icon: {
+          mr: "-0.4em",
+        },
       },
     },
   },
   defaultVariants: {
     visual: "solid",
     size: "md",
-    shape: "square",
+    iconPlace: "start",
   },
 });
 
-export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof iconButton> &
+/** @todo recipes for astro problem
+type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
+*/
+
+export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof button> &
   Polymorphic<{ as: Tag }> & {
     className?: string;
     colorPalette?: string;
-    icon: string;
+    icon?: string;
   };
 const {
   visual,
   size,
-  shape,
+  iconPlace,
   className,
   icon,
   as: Tag = "button",
   colorPalette = "neutral",
   ...props
 } = Astro.props;
-const classes = iconButton({ size, shape, visual });
+
+const classes = button({ iconPlace, size, visual });
 const link = Tag === "a" && props.href ? useLink(props.href) : {};
 ---
 
@@ -109,12 +120,13 @@ const link = Tag === "a" && props.href ? useLink(props.href) : {};
   class={cx(
     css({ colorPalette }),
     /** @todo recipes for astro problem */
-    // buttonBase({ visual }),
+    // buttonBase({ visual, size }),
     classes.button,
     className,
   )}
   {...props}
   {...link}
 >
-  <Icon name={icon} class={classes.icon} />
+  {icon && <Icon name={icon} class={classes.icon} />}
+  <slot />
 </Tag>

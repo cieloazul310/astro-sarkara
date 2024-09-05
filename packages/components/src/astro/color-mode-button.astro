@@ -1,7 +1,7 @@
 ---
-import { Icon } from "astro-icon";
-import { css, cx } from "@cieloazul310/sarkara-css/css";
-import { hstack } from "@cieloazul310/sarkara-css/patterns";
+import { Icon } from "astro-icon/components";
+import { css, cx } from "styled-system/css";
+import { hstack } from "styled-system/patterns";
 ---
 
 <div
@@ -13,6 +13,7 @@ import { hstack } from "@cieloazul310/sarkara-css/patterns";
     borderWidth: "1px",
     borderColor: { base: "gray.200", _dark: "gray.800" },
     shadow: "inner",
+    fontSize: "2xl",
   })}
 >
   <button
@@ -29,12 +30,7 @@ import { hstack } from "@cieloazul310/sarkara-css/patterns";
     )}
     aria-label="Light mode"
   >
-    <Icon
-      name="mdi:brightness-5"
-      class={css({
-        width: 6,
-      })}
-    />
+    <Icon name="mdi:brightness-5" />
   </button>
   <button
     class={cx(
@@ -50,11 +46,6 @@ import { hstack } from "@cieloazul310/sarkara-css/patterns";
     )}
     aria-label="Dark mode"
   >
-    <Icon
-      name="mdi:brightness-3"
-      class={css({
-        width: 6,
-      })}
-    />
+    <Icon name="mdi:brightness-3" />
   </button>
 </div>

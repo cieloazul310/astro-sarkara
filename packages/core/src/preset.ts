@@ -20,7 +20,7 @@ export const astroComponentsPaths = [
   ),
 );
 
-export type CreateSarkaraPresetOptions = Preset & {
+export type CreateSarkaraPresetOptions = Omit<Preset, "name"> & {
   palette: SarkaraPaletteOptions;
 };
 
@@ -29,6 +29,7 @@ export function createSarkaraPreset({
   ...preset
 }: CreateSarkaraPresetOptions) {
   return definePreset({
+    name: "sarkara-preset",
     presets: [sarkaraPresetBase, sarkaraComponentsPreset],
     theme: {
       extend: {
@@ -57,8 +58,6 @@ export function defineSarkaraConfig({
       ...(options?.presets ?? []),
     ],
     include: [...astroComponentsPaths, ...(options?.include ?? [])],
-    outdir: "@cieloazul310/sarkara-css",
-    emitPackage: true,
     theme: {
       ...options?.theme,
       extend: {

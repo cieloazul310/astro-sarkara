@@ -6,10 +6,12 @@ import {
   paragraph,
   type SarkaraLayoutProps,
 } from "@cieloazul310/astro-sarkara";
-import { css } from "@cieloazul310/sarkara-css/css";
-import { container, flex } from "@cieloazul310/sarkara-css/patterns";
-import Analytics from "../components/Analytics.astro";
-import { siteMetadata, menu } from "../data";
+import { css } from "styled-system/css";
+import { container, flex } from "styled-system/patterns";
+import Analytics from "@/components/Analytics.astro";
+import { siteMetadata, menu } from "@/data";
+
+import "../index.css";
 
 interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {
   frontmatter: {

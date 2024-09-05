@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { css } from "@cieloazul310/sarkara-css/css";
-import { aspectRatio } from "@cieloazul310/sarkara-css/patterns";
+import { css } from "styled-system/css";
+import { aspectRatio } from "styled-system/patterns";
 
 interface Props extends Omit<HTMLAttributes<"iframe">, "src"> {
   src: string;

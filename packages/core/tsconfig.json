@@ -1,4 +1,4 @@
 {
   "extends": "@repo/typescript-config/astro",
-  "include": ["src", ".eslintrc.cjs"]
+  "include": ["src", ".eslintrc.cjs", "tsup.config.ts"]
 }

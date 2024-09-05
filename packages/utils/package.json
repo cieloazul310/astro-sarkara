@@ -27,7 +27,7 @@
     "directory": "packages/utils"
   },
   "scripts": {
-    "tsup": "tsup src --format=esm,cjs --dts",
+    "tsup": "tsup",
     "build": "npm run clean && npm run tsup",
     "dev": "npm run tsup -- --watch",
     "clean": "git clean -fx .turbo/ dist/"
@@ -37,8 +37,5 @@
     "@repo/typescript-config": "^0.1.0",
     "@types/eslint": "^8.56.10",
     "eslint": "^8.57.0"
-  },
-  "peerDependencies": {
-    "astro": "^4.0.0"
   }
 }

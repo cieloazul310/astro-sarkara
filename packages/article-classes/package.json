@@ -34,7 +34,7 @@
     "directory": "packages/article-classes"
   },
   "scripts": {
-    "tsup": "tsup src/index.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/sarkara-css",
+    "tsup": "tsup",
     "codegen": "panda --clean",
     "dev": "npm-run-all --parallel dev:panda dev:components",
     "dev:panda": "panda --watch",
@@ -46,11 +46,11 @@
   "devDependencies": {
     "@cieloazul310/astro-sarkara-components": "^3.0.0",
     "@cieloazul310/astro-sarkara-utils": "^1.1.0",
-    "@pandacss/dev": "^0.42.0",
+    "@pandacss/dev": "^0.45.0",
     "@repo/eslint-config": "^0.1.0",
     "@repo/typescript-config": "^0.1.0",
     "@types/eslint": "^8.56.10",
-    "astro": "^4.11.5",
+    "astro": "^4.13.1",
     "eslint": "^8.57.0"
   },
   "peerDependencies": {

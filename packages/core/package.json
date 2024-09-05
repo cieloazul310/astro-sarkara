@@ -44,27 +44,26 @@
     "directory": "packages/core"
   },
   "scripts": {
-    "tsup": "tsup src/preset.ts src/article-classes.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils --external @cieloazul310/astro-sarkara-article-classes",
+    "tsup": "tsup",
     "dev": "npm run tsup -- --watch",
     "build": "npm run clean && npm run tsup",
     "clean": "git clean -fx .turbo/ dist/"
   },
   "dependencies": {
-    "@cieloazul310/astro-sarkara-article-classes": "^3.0.0",
     "@cieloazul310/astro-sarkara-components": "^3.0.0",
     "@cieloazul310/astro-sarkara-layout": "^3.0.0",
     "@cieloazul310/astro-sarkara-utils": "^1.1.0",
     "@cieloazul310/panda-preset-sarkara-base": "^1.1.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.42.0",
+    "@pandacss/dev": "^0.45.0",
     "@repo/eslint-config": "^0.1.0",
     "@repo/typescript-config": "^0.1.0",
     "@types/eslint": "^8.56.10",
     "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "astro": "^4.0.0",
-    "@pandacss/dev": ">=0.15.0"
+    "@pandacss/dev": ">=0.15.0",
+    "astro": "^4.0.0"
   }
 }

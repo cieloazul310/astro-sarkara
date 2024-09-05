@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import type { HTMLAttributes } from "astro/types";
-import { css } from "@cieloazul310/sarkara-css/css";
 import { useLink, isInternal } from "@cieloazul310/astro-sarkara-utils";
+import { css } from "styled-system/css";
 
 export interface Props extends HTMLAttributes<"a"> {
   className?: string;

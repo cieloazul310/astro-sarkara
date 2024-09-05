@@ -1,4 +1,10 @@
 {
   "extends": "@repo/typescript-config/astro",
-  "include": ["src", ".eslintrc.cjs", "panda.config.ts"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "styled-system/*": ["./styled-system/*"]
+    }
+  },
+  "include": ["src", ".eslintrc.cjs", "panda.config.ts", "tsup.config.ts"]
 }

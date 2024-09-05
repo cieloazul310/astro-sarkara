@@ -19,6 +19,5 @@ export default defineConfig({
   exclude: [],
 
   // The output directory for your css system
-  outdir: "@cieloazul310/sarkara-css",
-  emitPackage: true,
+  outdir: "styled-system",
 });

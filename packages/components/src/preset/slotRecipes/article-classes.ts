@@ -1,6 +1,7 @@
-import { cx, css } from "styled-system/css";
-import { paper, divider } from "styled-system/patterns";
+// import { cx, css } from "styled-system/css";
+// import { paper, divider } from "styled-system/patterns";
 import type { SystemStyleObject } from "styled-system/types";
+import { defineSlotRecipe } from "@pandacss/dev";
 
 const common: SystemStyleObject = {
   _first: {
@@ -11,6 +12,60 @@ const common: SystemStyleObject = {
   },
 };
 
+const articleClasses = defineSlotRecipe({
+  className: "sarkara-article",
+  slots: ["h1", "h2", "h3", "h4", "h5", "p", "a", "blockquote"],
+  base: {
+    h1: {
+      ...common,
+      textStyle: "headings",
+      fontSize: ["xl", "2xl", "4xl"],
+      mt: "calc(token(spacing.md) + token(spacing.lg))",
+      mb: "calc(token(spacing.sm) + token(spacing.md))",
+    },
+    h2: {
+      ...common,
+      textStyle: "headings",
+      fontSize: ["xl", "2xl", "3xl"],
+      mt: "calc(token(spacing.md) + token(spacing.lg))",
+      mb: "md",
+    },
+    h3: {
+      ...common,
+      textStyle: "headings",
+      fontSize: ["lg", "lg", "2xl"],
+      mt: "calc(token(spacing.md) + token(spacing.lg))",
+      mb: "md",
+    },
+    h4: {
+      ...common,
+      fontSize: "md",
+      my: "sm",
+      overflowWrap: "break-word",
+    },
+    h5: {
+      ...common,
+      textStyle: "headings",
+      fontSize: ["md", "md", "lg"],
+      mt: "md",
+      mb: "sm",
+    },
+    p: {
+      ...common,
+      fontSize: "md",
+      my: "sm",
+      overflowWrap: "break-word",
+    },
+    a: {
+      color: { base: "primary.700", _hover: "primary.500" },
+      textDecoration: { _hover: "underline" },
+      _dark: { color: { base: "primary.300", _hover: "primary.200" } },
+    },
+  },
+});
+
+export default articleClasses;
+/*
 export const heading1 = css({
   ...common,
   textStyle: "headings",
@@ -148,6 +203,7 @@ export const iframe = css({
   maxWidth: "100%",
 });
 
+
 export const rehypeClassNamesOptions = {
   h1: heading1,
   h2: heading2,
@@ -170,3 +226,4 @@ export const rehypeClassNamesOptions = {
   code,
   iframe,
 };
+*/

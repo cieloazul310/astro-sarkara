@@ -1,8 +1,8 @@
 import { defineConfig } from "@pandacss/dev";
 import sarkaraPresetBase from "@cieloazul310/panda-preset-sarkara-base";
-import patterns from "./src/patterns";
-import recipes from "./src/recipes";
-import slotRecipes from "./src/slotRecipes";
+import patterns from "./src/preset/patterns";
+import recipes from "./src/preset/recipes";
+import slotRecipes from "./src/preset/slotRecipes";
 
 export default defineConfig({
   presets: ["@pandacss/dev/presets", sarkaraPresetBase],
@@ -26,6 +26,5 @@ export default defineConfig({
   },
 
   // The output directory for your css system
-  outdir: "@cieloazul310/sarkara-css",
-  emitPackage: true,
+  outdir: "styled-system",
 });
