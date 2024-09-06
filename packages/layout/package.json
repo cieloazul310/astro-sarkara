@@ -37,6 +37,7 @@
     "panda": "panda",
     "build": "npm run panda -- --clean",
     "dev": "npm run panda -- --watch",
+    "clean": "git clean -fx .turbo/ styled-system/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "astro check"
   },

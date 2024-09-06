@@ -3,7 +3,7 @@ title: Panda CSSを使う
 index: 3
 ---
 
-import { css } from "@cieloazul310/sarkara-css/css";
+import { css } from "styled-system/css";
 
 Astro SarkaraプロジェクトでPanda CSSを使う場合、通常のAstro + Panda CSSプロジェクトでPanda CSSを使う場合と少し異なる方法を用います。
 
@@ -11,8 +11,8 @@ Astro SarkaraプロジェクトでPanda CSSを使う場合、通常のAstro + Pa
 
 ```astro
 ---
-import { css } from "@cieloazul310/sarkara-css/css";
-import { flex } from "@cieloazul310/sarkara-css/patterns"; 
+import { css } from "styled-system/css";
+import { flex } from "styled-system/patterns"; 
 ---
 
 <p class={css({ color: "primary.600" })}>

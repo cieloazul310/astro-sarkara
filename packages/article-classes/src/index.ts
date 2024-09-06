@@ -138,7 +138,7 @@ export const pre = cx(
 export const code = css({
   ":not(pre) > &": {
     color: { base: "secondary.800", _dark: "secondary.400" },
-    bgct: "secondary.600/92",
+    bg: "secondary.600/8",
     px: 1,
     rounded: "md",
   },

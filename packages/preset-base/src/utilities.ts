@@ -1,4 +1,3 @@
-/* eslint import/prefer-default-export: off */
 import { defineUtility } from "@pandacss/dev";
 
 /**
@@ -38,4 +37,4 @@ export const backgroundColorTransparentize = defineUtility({
   },
 });
 
-export default { backgroundColorTransparentize };
+export default {};

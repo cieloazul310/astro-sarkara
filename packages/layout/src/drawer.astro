@@ -26,7 +26,7 @@ const { siteTitle } = Astro.props;
         position: "fixed",
         top: 0,
         left: 0,
-        bg: "bg.dark/60",
+        bg: "black/60",
         zIndex: "drawerBackdrop",
         backdropFilter: "blur(2px)",
         _drawerOpen: {
@@ -94,7 +94,7 @@ const { siteTitle } = Astro.props;
       <ColorModeButton />
       <div class={hstack({ gap: "sm" })}>
         <Button colorPalette="primary" as="a" href="/">Top</Button>
-        <Button className="drawer-handler" colorPalette="slate">Close</Button>
+        <Button className="drawer-handler">Close</Button>
       </div>
     </footer>
   </div>

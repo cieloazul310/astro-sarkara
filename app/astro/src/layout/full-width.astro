@@ -21,6 +21,7 @@ const { frontmatter } = Astro.props;
   menu={menu}
   title={frontmatter?.title}
   description={frontmatter?.description}
+  viewTransition
 >
   <Paper>
     <slot />

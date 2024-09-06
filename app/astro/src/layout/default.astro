@@ -12,7 +12,12 @@ interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {}
 const { ...props } = Astro.props;
 ---
 
-<SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
+<SarkaraLayout
+  siteMetadata={siteMetadata}
+  menu={menu}
+  viewTransition
+  {...props}
+>
   <slot />
   <Analytics slot="top-of-head" />
 </SarkaraLayout>

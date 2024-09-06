@@ -27,7 +27,12 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props;
 ---
 
-<SarkaraLayout title="チュートリアル" siteMetadata={siteMetadata} menu={menu}>
+<SarkaraLayout
+  title="チュートリアル"
+  siteMetadata={siteMetadata}
+  menu={menu}
+  viewTransition
+>
   <Fragment slot="jumbotron-footer">
     {page.currentPage !== 1 && `(${page.currentPage}/${page.lastPage})`}
   </Fragment>

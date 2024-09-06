@@ -1,4 +1,6 @@
 ---
+/* eslint-disable-next-line import/no-unresolved */
+import { ViewTransitions } from "astro:transitions";
 import { PaperLink, Divider } from "@cieloazul310/astro-sarkara-components";
 import {
   defineMenu,
@@ -69,6 +71,7 @@ export type Props = SeoProps &
     menu?: Menu;
     htmlLang?: string;
     disableSidebarSticky?: boolean;
+    viewTransition?: boolean;
   };
 
 const {
@@ -76,6 +79,7 @@ const {
   title,
   description,
   image,
+  viewTransition = false,
   variant = "default",
   htmlLang = "ja",
   menu = defaultMenu,
@@ -126,6 +130,7 @@ const favicon = {
         <slot name="meta" />
       </Seo>
     </slot>
+    {viewTransition && <ViewTransitions />}
     <slot name="bottom-of-head" />
   </head>
   <body>
@@ -212,25 +217,31 @@ const favicon = {
       import "./scripts/toggleColorMode.ts";
     </script>
     <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage === "undefined") return "light";
+      function setDarkMode() {
+        const theme = (() => {
+          if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+          ) {
+            return localStorage.getItem("theme");
+          }
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+          }
+          return "light";
+        })();
 
-        const localStorageItem = localStorage.getItem("astro-color-mode");
-        if (
-          localStorageItem &&
-          (localStorageItem === "light" || localStorageItem === "dark")
-        ) {
-          return localStorageItem;
+        if (theme === "light") {
+          document.documentElement.classList.remove("dark");
+        } else {
+          document.documentElement.classList.add("dark");
         }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
 
-      document.documentElement?.setAttribute("data-color-mode", theme);
+        window.localStorage.setItem("theme", theme);
+      }
 
-      window.localStorage.setItem("astro-color-mode", theme);
+      setDarkMode();
+      document.addEventListener("astro:after-swap", setDarkMode);
     </script>
     <slot name="bottom-of-body" />
   </body>
