@@ -1,5 +1,16 @@
 # @cieloazul310/astro-sarkara
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- 4c32f10: fix
+- Updated dependencies [4c32f10]
+  - @cieloazul310/panda-preset-sarkara-base@2.0.0-next.1
+  - @cieloazul310/astro-sarkara-components@4.0.0-next.1
+  - @cieloazul310/astro-sarkara-layout@4.0.0-next.1
+  - @cieloazul310/astro-sarkara-utils@2.0.0-next.1
+
 ## 2.0.0-next.0
 
 ### Major Changes
