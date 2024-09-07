@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara-article-classes",
   "description": "Panda CSS classes package for astro-sarkara.",
-  "version": "4.0.0-next.0",
+  "version": "4.0.0-next.1",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -44,19 +44,19 @@
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@cieloazul310/astro-sarkara-components": "^4.0.0-next.0",
-    "@cieloazul310/astro-sarkara-utils": "^2.0.0-next.0",
+    "@cieloazul310/astro-sarkara-components": "^4.0.0-next.1",
+    "@cieloazul310/astro-sarkara-utils": "^2.0.0-next.1",
     "@pandacss/dev": "^0.45.2",
-    "@repo/eslint-config": "^1.0.0-next.0",
-    "@repo/typescript-config": "^1.0.0-next.0",
+    "@repo/eslint-config": "^1.0.0-next.1",
+    "@repo/typescript-config": "^1.0.0-next.1",
     "@types/eslint": "^8.56.10",
     "astro": "^4.15.4",
     "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "@cieloazul310/astro-sarkara-components": "^4.0.0-next.0",
-    "@cieloazul310/astro-sarkara-utils": "^2.0.0-next.0",
-    "@cieloazul310/panda-preset-sarkara-base": "^2.0.0-next.0",
+    "@cieloazul310/astro-sarkara-components": "^4.0.0-next.1",
+    "@cieloazul310/astro-sarkara-utils": "^2.0.0-next.1",
+    "@cieloazul310/panda-preset-sarkara-base": "^2.0.0-next.1",
     "astro": "^4.0.0"
   }
 }

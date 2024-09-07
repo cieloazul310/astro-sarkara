@@ -13,6 +13,7 @@
     "@cieloazul310/astro-sarkara-utils": "1.1.0"
   },
   "changesets": [
+    "sour-starfishes-attack",
     "ten-pans-prove"
   ]
 }
