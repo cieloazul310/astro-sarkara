@@ -13,9 +13,9 @@ export const astroComponentsPaths = [
   "@cieloazul310/astro-sarkara-components",
   "@cieloazul310/astro-sarkara-layout",
   "@cieloazul310/astro-sarkara-article-classes",
-].map((components) =>
+].map((lib) =>
   path.resolve(
-    path.dirname(require.resolve(components)),
+    path.dirname(require.resolve(lib)),
     "**/*.{js,ts,jsx,tsx,astro}",
   ),
 );

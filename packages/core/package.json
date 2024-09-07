@@ -13,13 +13,8 @@
     },
     "./preset": {
       "types": "./dist/preset.d.ts",
-      "require": "./dist/preset.d.cjs",
+      "require": "./dist/preset.cjs",
       "import": "./dist/preset.js"
-    },
-    "./classes": {
-      "types": "./dist/article-classes.d.ts",
-      "require": "./dist/article-classes.d.cjs",
-      "import": "./dist/article-classes.js"
     }
   },
   "files": [
