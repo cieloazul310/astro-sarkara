@@ -12,5 +12,7 @@
     "@repo/typescript-config": "0.1.0",
     "@cieloazul310/astro-sarkara-utils": "1.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "ten-pans-prove"
+  ]
 }

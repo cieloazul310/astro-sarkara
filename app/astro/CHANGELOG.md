@@ -1,5 +1,16 @@
 # astro-app
 
+## 1.0.0-next.0
+
+### Major Changes
+
+- 36024a2: Prerelease next major
+
+### Patch Changes
+
+- Updated dependencies [36024a2]
+  - @cieloazul310/astro-sarkara@2.0.0-next.0
+
 ## 0.2.0
 
 ### Minor Changes
