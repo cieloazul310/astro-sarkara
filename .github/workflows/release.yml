@@ -36,7 +36,7 @@ jobs:
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: latest
           cache: ${{ steps.detect-package-manager.outputs.manager }}
@@ -64,7 +64,7 @@ jobs:
         repo: ['cieloazul310/astro-sarkara-starter', 'cieloazul310/cieloazul310.github.io']
     steps:
       - name: Dispatch update-packages
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         if: needs.release.outputs.published == 'true'
         with:
           token: ${{ secrets.PAT }}
