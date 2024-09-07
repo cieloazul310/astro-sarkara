@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara
 
+## 2.0.0-next.3
+
+### Patch Changes
+
+- fc8d4ad: tiny fix
+
 ## 2.0.0-next.2
 
 ### Patch Changes
