@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.0-next.0
+
+### Major Changes
+
+- 36024a2: Prerelease next major
+
 ## 0.1.0
 
 ### Minor Changes
