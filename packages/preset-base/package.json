@@ -45,13 +45,13 @@
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.45.0",
+    "@pandacss/dev": "^0.45.2",
     "@repo/eslint-config": "^0.1.0",
     "@repo/typescript-config": "^0.1.0",
     "@types/eslint": "^8.56.10",
     "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "@pandacss/dev": ">=0.15.0"
+    "@pandacss/dev": ">=0.40.0"
   }
 }
