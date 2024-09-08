@@ -8,7 +8,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 import { cx, css } from "styled-system/css";
 import { paper } from "styled-system/patterns";
 
-export type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+export type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   className?: string;
   colorPalette?: string;
 };
