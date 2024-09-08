@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara",
   "description": "Core package of astro-sarkara, including Astro components and layout built with Panda CSS.",
-  "version": "1.1.0",
+  "version": "2.0.0-next.4",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
@@ -13,13 +13,8 @@
     },
     "./preset": {
       "types": "./dist/preset.d.ts",
-      "require": "./dist/preset.d.cjs",
+      "require": "./dist/preset.cjs",
       "import": "./dist/preset.js"
-    },
-    "./classes": {
-      "types": "./dist/article-classes.d.ts",
-      "require": "./dist/article-classes.d.cjs",
-      "import": "./dist/article-classes.js"
     }
   },
   "files": [
@@ -50,20 +45,20 @@
     "clean": "git clean -fx .turbo/ dist/"
   },
   "dependencies": {
-    "@cieloazul310/astro-sarkara-components": "^3.0.0",
-    "@cieloazul310/astro-sarkara-layout": "^3.0.0",
-    "@cieloazul310/astro-sarkara-utils": "^1.1.0",
-    "@cieloazul310/panda-preset-sarkara-base": "^1.1.0"
+    "@cieloazul310/astro-sarkara-components": "^4.0.0-next.2",
+    "@cieloazul310/astro-sarkara-layout": "^4.0.0-next.1",
+    "@cieloazul310/astro-sarkara-utils": "^2.0.0-next.1",
+    "@cieloazul310/panda-preset-sarkara-base": "^2.0.0-next.1"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.45.0",
-    "@repo/eslint-config": "^0.1.0",
-    "@repo/typescript-config": "^0.1.0",
+    "@pandacss/dev": "^0.45.2",
+    "@repo/eslint-config": "^1.0.0-next.1",
+    "@repo/typescript-config": "^1.0.0-next.1",
     "@types/eslint": "^8.56.10",
     "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "@pandacss/dev": ">=0.15.0",
+    "@pandacss/dev": ">=0.40.0",
     "astro": "^4.0.0"
   }
 }

@@ -47,10 +47,7 @@ const external = !isInternal(href);
   <slot />
   {
     external && (
-      <Icon
-        class={css({ width: "1em", height: "1em" })}
-        name="mdi:open-in-new"
-      />
+      <Icon class={css({ fontSize: "inherit" })} name="mdi:open-in-new" />
     )
   }
 </a>
