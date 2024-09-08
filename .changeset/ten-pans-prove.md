@@ -1,6 +1,5 @@
 ---
 "@repo/typescript-config": major
-"@cieloazul310/astro-sarkara-article-classes": major
 "@repo/eslint-config": major
 "@cieloazul310/panda-preset-sarkara-base": major
 "@cieloazul310/astro-sarkara-components": major

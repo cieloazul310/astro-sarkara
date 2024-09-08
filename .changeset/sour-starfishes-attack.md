@@ -1,6 +1,5 @@
 ---
 "@repo/typescript-config": patch
-"@cieloazul310/astro-sarkara-article-classes": patch
 "@repo/eslint-config": patch
 "@cieloazul310/panda-preset-sarkara-base": patch
 "@cieloazul310/astro-sarkara-components": patch
