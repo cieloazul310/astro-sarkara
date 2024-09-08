@@ -1,5 +1,139 @@
 # astro-app
 
+## 1.0.0
+
+### Major Changes
+
+- c011a2c: Using Panda CSS with Astro
+  <https://panda-css.com/docs/installation/astro>
+
+  ```txt
+  @pandacss/dev >= 40.0.0
+  ```
+
+  ```sh
+  npm install astro-icon @iconify-json/mdi
+  ```
+
+  Upgrade to Astro Icon v1
+  <https://www.astroicon.dev/guides/upgrade/v1/>
+
+  ```diff
+  // panda.config.ts
+  import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
+
+  export default defineSarkaraConfig({
+    palette: { primary: "teal", secondary: "yellow" },
+    include: [
+      "./src/**/*.{js,jsx,ts,tsx,astro,mdx}",
+  +   "./node_modules/@cieloazul310/**/*.{js,ts,astro}"
+    ],
+  });
+  ```
+
+  ```diff
+  // astro.config.ts
+  import { defineConfig } from "astro/config";
+  +import icon from "astro-icon";
+
+  // https://astro.build/config
+  export default defineConfig({
+    integrations: [
+  +   icon(),
+    ],
+  });
+  ```
+
+  Upgrade to Astro Icon v1
+  <https://www.astroicon.dev/guides/upgrade/v1/>
+
+  ```diff
+  {
+    "compilerOptions": {
+  +   "baseUrl": ".",
+  +   "paths": {
+  +     "styled-system/*": ["./styled-system/*"]
+      }
+    }
+  }
+  ```
+
+  Compiler Options / Paths - `paths`
+  <https://www.typescriptlang.org/tsconfig/#paths>
+
+  ```css
+  /** ./src/index.css */
+  @layer reset, base, tokens, recipes, utilities;
+  ```
+
+  ```diff
+  ---
+  // ./src/pages/index.astro
+
+  import { SarkaraLayout } from "@cieloazul310/astro-sarkara/preset";
+
+  + import "../src/index.css";
+  ---
+
+  ```
+
+  ```diff
+  - import { css } from "@cieloazul310/sarkara-css/css";
+  + import { css } from "styled-system/css";
+  ```
+
+  ```ts
+  // src/mdx-classes.ts
+
+  /**
+   * DO NOT use path alias
+   * ❌ import { articleClasses } from "styled-system";
+   */
+  import { articleClasses } from "../styled-system/recipes";
+
+  export default articleClasses();
+  ```
+
+  ```shell
+  npm install @astrojs/mdx rehype-class-names
+  ```
+
+  ```diff
+  // astro.config.ts
+  import { defineConfig } from "astro/config";
+  + import mdx from "@astrojs/mdx";
+  + import rehypeClassNames from "rehype-class-names";
+  + import mdxClasses from "./src/mdx-classes";
+
+  export default defineConfig({
+    integrations: [
+  +   mdx(),
+    ],
+  + markdown: {
+  +   rehypePlugins: [[rehypeClassNames, mdxClasses]],
+  + },
+  });
+  ```
+
+  Markdown & MDX
+  <https://docs.astro.build/en/guides/markdown-content/>
+
+  Rehype Class Names
+  <https://github.com/riderjensen/rehype-class-names>
+
+- 36024a2: Prerelease next major
+
+### Patch Changes
+
+- 4c32f10: fix
+- Updated dependencies [d388dc1]
+- Updated dependencies [3e2704c]
+- Updated dependencies [c011a2c]
+- Updated dependencies [fc8d4ad]
+- Updated dependencies [4c32f10]
+- Updated dependencies [36024a2]
+  - @cieloazul310/astro-sarkara@2.0.0
+
 ## 1.0.0-next.1
 
 ### Patch Changes
