@@ -1,5 +1,25 @@
 # @cieloazul310/astro-sarkara
 
+## 2.0.0
+
+### Major Changes
+
+- 36024a2: Prerelease next major
+
+### Patch Changes
+
+- d388dc1: fix components
+- 3e2704c: tiny fix
+- fc8d4ad: tiny fix
+- 4c32f10: fix
+- Updated dependencies [d388dc1]
+- Updated dependencies [4c32f10]
+- Updated dependencies [36024a2]
+  - @cieloazul310/astro-sarkara-components@4.0.0
+  - @cieloazul310/panda-preset-sarkara-base@2.0.0
+  - @cieloazul310/astro-sarkara-layout@4.0.0
+  - @cieloazul310/astro-sarkara-utils@2.0.0
+
 ## 2.0.0-next.4
 
 ### Patch Changes

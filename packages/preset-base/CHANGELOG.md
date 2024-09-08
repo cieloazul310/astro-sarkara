@@ -1,5 +1,15 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 2.0.0
+
+### Major Changes
+
+- 36024a2: Prerelease next major
+
+### Patch Changes
+
+- 4c32f10: fix
+
 ## 2.0.0-next.1
 
 ### Patch Changes
