@@ -1,5 +1,13 @@
 # @cieloazul310/astro-sarkara
 
+## 2.0.0-next.4
+
+### Patch Changes
+
+- d388dc1: fix components
+- Updated dependencies [d388dc1]
+  - @cieloazul310/astro-sarkara-components@4.0.0-next.2
+
 ## 2.0.0-next.3
 
 ### Patch Changes
