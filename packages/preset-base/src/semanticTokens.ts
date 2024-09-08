@@ -2,9 +2,9 @@ import { defineSemanticTokens } from "@pandacss/dev";
 
 export default defineSemanticTokens({
   colors: {
-    bg: {
-      DEFAULT: { value: "white" },
-      dark: { value: "{colors.neutral.900}" },
+    bg: { value: { base: "white", _dark: "{colors.neutral.900}" } },
+    fg: {
+      value: { base: "{colors.neutral.950}", _dark: "{colors.neutral.50}" },
     },
   },
   spacing: {

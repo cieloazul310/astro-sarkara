@@ -1,11 +1,15 @@
 {
-  "extends": "@cieloazul310/tsconfig/astro",
+  "extends": "@repo/typescript-config/astro",
   "compilerOptions": {
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "styled-system/*": ["./styled-system/*"]
+    }
   },
-  "include": ["src", ".eslintrc.cjs", "panda.config.ts"]
+  "include": ["src", ".eslintrc.cjs", "panda.config.ts", "tsup.config.ts"]
 }

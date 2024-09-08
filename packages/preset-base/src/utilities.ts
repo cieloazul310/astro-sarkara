@@ -1,7 +1,9 @@
-/* eslint import/prefer-default-export: off */
 import { defineUtility } from "@pandacss/dev";
 
 /**
+ * @deprecated
+ * migrate to Color opacity modifier
+ * https://panda-css.com/docs/concepts/color-opacity-modifier
  * https://play.panda-css.com/huZH-3NCkd
  */
 export const backgroundColorTransparentize = defineUtility({
@@ -9,6 +11,7 @@ export const backgroundColorTransparentize = defineUtility({
   property: "backgroundColor",
   className: "transparentize_bgc",
   values: { type: "string" },
+  deprecated: true,
   transform: (value: string, { token }) => {
     const lastIndex = value?.lastIndexOf("/");
     if (!lastIndex) {
@@ -34,4 +37,4 @@ export const backgroundColorTransparentize = defineUtility({
   },
 });
 
-export default { backgroundColorTransparentize };
+export default {};

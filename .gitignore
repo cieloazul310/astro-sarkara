@@ -132,6 +132,7 @@ dist
 # Panda
 styled-system
 styled-system-static
+!packages/styled-system
 
 # astro
 .astro

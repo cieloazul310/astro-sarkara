@@ -1,11 +1,17 @@
 import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
 
-export default defineSarkaraConfig({
+const config = defineSarkaraConfig({
   palette: { primary: "teal", secondary: "yellow" },
-  include: ["./src/**/*.{js,jsx,ts,tsx,astro,mdx}"],
+  include: [
+    "./src/**/*.{js,ts,astro,mdx}",
+    "../../node_modules/@cieloazul310/**/*.{js,ts,astro,mdx}",
+  ],
   theme: {
     extend: {
       // customize theme
     },
   },
+  outdir: "styled-system",
 });
+
+export default config;

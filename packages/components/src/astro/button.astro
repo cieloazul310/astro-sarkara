@@ -1,0 +1,131 @@
+---
+import { Icon } from "astro-icon/components";
+/**
+ * @todo
+ * should use Polymorphic type but it not works well...
+ * https://docs.astro.build/en/guides/typescript/#polymorphic-type
+ */
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { useLink } from "@cieloazul310/astro-sarkara-utils";
+import { css, cx, sva, type RecipeVariantProps } from "styled-system/css";
+/** @todo recipes for astro problem */
+/*
+import {
+  buttonBase,
+  button,
+  type ButtonBaseVariantProps,
+  type ButtonVariantProps,
+} from "styled-system/recipes";
+*/
+
+const button = sva({
+  slots: ["button", "icon"],
+  base: {
+    button: {
+      rounded: "md",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      shadow: "sm",
+      cursor: "pointer",
+      width: "fit-content",
+      py: 2,
+      px: "0.8em",
+    },
+    icon: {
+      fontSize: "1.2em",
+    },
+  },
+  variants: {
+    visual: {
+      solid: {
+        button: {
+          bg: { base: "colorPalette.600", _hover: "colorPalette.700" },
+          color: "white",
+          _dark: {
+            bg: { base: "colorPalette.700", _hover: "colorPalette.600" },
+          },
+        },
+      },
+      outline: {
+        button: {
+          borderWidth: "2px",
+          borderColor: { base: "colorPalette.700", _dark: "colorPalette.200" },
+          color: { base: "colorPalette.700", _dark: "colorPalette.200" },
+          _hover: {
+            color: { base: "colorPalette.500", _dark: "colorPalette.50" },
+          },
+        },
+      },
+    },
+    size: {
+      sm: { button: { fontSize: "xs", gap: 1 } },
+      md: { button: { fontSize: "md", gap: 1 } },
+      lg: { button: { fontSize: "xl", gap: 1 } },
+      xl: { button: { fontSize: "4xl", gap: 2 } },
+    },
+    iconPlace: {
+      start: {
+        button: {
+          flexDirection: "row",
+        },
+        icon: {
+          ml: "-0.4em",
+        },
+      },
+      end: {
+        button: {
+          flexDirection: "row-reverse",
+        },
+        icon: {
+          mr: "-0.4em",
+        },
+      },
+    },
+  },
+  defaultVariants: {
+    visual: "solid",
+    size: "md",
+    iconPlace: "start",
+  },
+});
+
+/** @todo recipes for astro problem
+type ButtonVariants = ButtonBaseVariantProps & ButtonVariantProps;
+*/
+
+export type Props<Tag extends HTMLTag> = RecipeVariantProps<typeof button> &
+  Polymorphic<{ as: Tag }> & {
+    className?: string;
+    colorPalette?: string;
+    icon?: string;
+  };
+const {
+  visual,
+  size,
+  iconPlace,
+  className,
+  icon,
+  as: Tag = "button",
+  colorPalette = "neutral",
+  ...props
+} = Astro.props;
+
+const classes = button({ iconPlace, size, visual });
+const link = Tag === "a" && props.href ? useLink(props.href) : {};
+---
+
+<Tag
+  class={cx(
+    css({ colorPalette }),
+    /** @todo recipes for astro problem */
+    // buttonBase({ visual, size }),
+    classes.button,
+    className,
+  )}
+  {...props}
+  {...link}
+>
+  {icon && <Icon name={icon} class={classes.icon} />}
+  <slot />
+</Tag>

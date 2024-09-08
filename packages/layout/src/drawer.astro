@@ -5,8 +5,8 @@ import {
   Button,
   ColorModeButton,
 } from "@cieloazul310/astro-sarkara-components";
-import { css, cx } from "@cieloazul310/sarkara-css/css";
-import { flex, vstack, hstack } from "@cieloazul310/sarkara-css/patterns";
+import { css, cx } from "styled-system/css";
+import { flex, vstack, hstack } from "styled-system/patterns";
 
 export interface Props {
   siteTitle?: string;
@@ -26,10 +26,10 @@ const { siteTitle } = Astro.props;
         position: "fixed",
         top: 0,
         left: 0,
-        bgct: "bg.dark/40",
+        bg: "black/60",
         zIndex: "drawerBackdrop",
         backdropFilter: "blur(2px)",
-        "body[data-drawer-open=true] &": {
+        _drawerOpen: {
           display: "block",
           opacity: 1,
         },
@@ -52,7 +52,7 @@ const { siteTitle } = Astro.props;
       transition: "bottom .25s",
       direction: "column",
       alignItems: "stretch",
-      "body[data-drawer-open=true] &": {
+      _drawerOpen: {
         bottom: 0,
       },
     })}
@@ -94,7 +94,7 @@ const { siteTitle } = Astro.props;
       <ColorModeButton />
       <div class={hstack({ gap: "sm" })}>
         <Button colorPalette="primary" as="a" href="/">Top</Button>
-        <Button className="drawer-handler" colorPalette="slate">Close</Button>
+        <Button className="drawer-handler">Close</Button>
       </div>
     </footer>
   </div>

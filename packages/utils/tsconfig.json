@@ -1,4 +1,4 @@
 {
-  "extends": "@cieloazul310/tsconfig/build",
-  "include": ["src", ".eslintrc.cjs"]
+  "extends": "@repo/typescript-config/build",
+  "include": ["src", "tsup.config.ts", ".eslintrc.cjs"]
 }

@@ -7,10 +7,10 @@ import tokens from "./tokens";
 import utilities from "./utilities";
 
 const sarkaraPresetBase = definePreset({
+  name: "sarkara-preset-base",
   globalCss,
   conditions: {
-    light: "[data-color-mode=light] &",
-    dark: "[data-color-mode=dark] &",
+    drawerOpen: "[data-drawer-open=true] &",
   },
   theme: {
     extend: {

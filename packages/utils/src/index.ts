@@ -1,5 +1,5 @@
-export * from "./getPagination";
-export * from "./menu";
-export * from "./siteMetadata";
-export * from "./url";
-export { default as useNavigation } from "./useNavigation";
+export * from "./get-pagination.js";
+export * from "./menu.js";
+export * from "./site-metadata.js";
+export * from "./url.js";
+export { default as useNavigation } from "./use-navigation.js";

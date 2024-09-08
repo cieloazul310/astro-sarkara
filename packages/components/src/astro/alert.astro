@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+import { css, cva, type RecipeVariantProps } from "styled-system/css";
+
+const alert = cva({
+  base: {
+    display: "flex",
+    py: 4,
+    rounded: "xl",
+    alignItems: "center",
+  },
+  variants: {
+    status: {
+      warning: { colorPalette: "yellow" },
+      danger: { colorPalette: "red" },
+      success: { colorPalette: "emerald" },
+      info: { colorPalette: "sky" },
+      tips: { colorPalette: "amber" },
+    },
+  },
+  defaultVariants: {
+    status: "warning",
+  },
+});
+
+export type Props = RecipeVariantProps<typeof alert> & {
+  title?: string;
+  disableMargin?: boolean;
+  className?: string;
+};
+const {
+  title,
+  className,
+  status = "warning",
+  disableMargin = false,
+} = Astro.props;
+const alertStyle = alert({ status });
+const iconName = (() => {
+  if (status === "danger") return "mdi:close-octagon";
+  if (status === "info") return "mdi:information";
+  if (status === "success") return "mdi:check-circle";
+  if (status === "tips") return "mdi:lightbulb-on";
+  return "mdi:alert-circle";
+})();
+const withMarginStyle = css({ my: "md" });
+---
+
+<aside
+  class:list={[
+    alertStyle,
+    css({ bg: { base: "colorPalette.100", _dark: "colorPalette.950" } }),
+    { [withMarginStyle]: !disableMargin },
+    className,
+  ]}
+>
+  <div class={css({ px: 4 })}>
+    <Icon
+      class={css({
+        color: { base: "colorPalette.700", _dark: "colorPalette.300" },
+        fontSize: "2xl",
+      })}
+      name={iconName}
+    />
+  </div>
+  <article class={css({ pr: 4, display: "flex", flexDirection: "column" })}>
+    {
+      title && (
+        <h1 class={css({ textStyle: "headings", fontSize: ["md", "lg"] })}>
+          {title}
+        </h1>
+      )
+    }
+    <p><slot /></p>
+  </article>
+</aside>

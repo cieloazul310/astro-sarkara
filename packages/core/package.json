@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara",
   "description": "Core package of astro-sarkara, including Astro components and layout built with Panda CSS.",
-  "version": "1.1.0",
+  "version": "2.0.0-next.4",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
@@ -13,13 +13,8 @@
     },
     "./preset": {
       "types": "./dist/preset.d.ts",
-      "require": "./dist/preset.d.cjs",
+      "require": "./dist/preset.cjs",
       "import": "./dist/preset.js"
-    },
-    "./classes": {
-      "types": "./dist/article-classes.d.ts",
-      "require": "./dist/article-classes.d.cjs",
-      "import": "./dist/article-classes.js"
     }
   },
   "files": [
@@ -44,25 +39,26 @@
     "directory": "packages/core"
   },
   "scripts": {
-    "tsup": "tsup src/preset.ts src/article-classes.ts --format=esm,cjs --dts --external @pandacss/dev --external @cieloazul310/panda-preset-sarkara-base --external @cieloazul310/astro-sarkara-components --external @cieloazul310/astro-sarkara-utils --external @cieloazul310/astro-sarkara-article-classes",
+    "tsup": "tsup",
     "dev": "npm run tsup -- --watch",
-    "build": "npm run tsup -- --clean"
+    "build": "npm run clean && npm run tsup",
+    "clean": "git clean -fx .turbo/ dist/"
   },
   "dependencies": {
-    "@cieloazul310/astro-sarkara-article-classes": "^3.0.0",
-    "@cieloazul310/astro-sarkara-components": "^3.0.0",
-    "@cieloazul310/astro-sarkara-layout": "^3.0.0",
-    "@cieloazul310/astro-sarkara-utils": "^1.1.0",
-    "@cieloazul310/panda-preset-sarkara-base": "^1.1.0"
+    "@cieloazul310/astro-sarkara-components": "^4.0.0-next.2",
+    "@cieloazul310/astro-sarkara-layout": "^4.0.0-next.1",
+    "@cieloazul310/astro-sarkara-utils": "^2.0.0-next.1",
+    "@cieloazul310/panda-preset-sarkara-base": "^2.0.0-next.1"
   },
   "devDependencies": {
-    "@cieloazul310/tsconfig": "^0.1.0",
-    "@pandacss/dev": "^0.20.1",
-    "eslint": "^8.55.0",
-    "eslint-config-custom": "^0.1.0"
+    "@pandacss/dev": "^0.45.2",
+    "@repo/eslint-config": "^1.0.0-next.1",
+    "@repo/typescript-config": "^1.0.0-next.1",
+    "@types/eslint": "^8.56.10",
+    "eslint": "^8.57.0"
   },
   "peerDependencies": {
-    "astro": "^3.0.0 || ^4.0.0",
-    "@pandacss/dev": ">=0.15.0"
+    "@pandacss/dev": ">=0.40.0",
+    "astro": "^4.0.0"
   }
 }

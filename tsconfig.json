@@ -1,1 +1,4 @@
-{}
+{
+  "extends": "@repo/typescript-config/astro.json",
+  "include": [".eslintrc.cjs", "**/__test__/**/*.test.ts"]
+}

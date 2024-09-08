@@ -1,7 +1,9 @@
 ---
 import { Paper, SarkaraLayout } from "@cieloazul310/astro-sarkara";
-import Analytics from "../components/Analytics.astro";
-import { menu, siteMetadata } from "../data";
+import Analytics from "@/components/Analytics.astro";
+import { menu, siteMetadata } from "@/data";
+
+import "../index.css";
 
 interface Props {
   frontmatter?: {
@@ -18,6 +20,7 @@ const { frontmatter } = Astro.props;
   menu={menu}
   title={frontmatter?.title}
   description={frontmatter?.description}
+  viewTransition
 >
   <Paper>
     <slot />

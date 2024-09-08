@@ -1,6 +1,6 @@
 ---
-import { css } from "@cieloazul310/sarkara-css/css";
 import { Link } from "@cieloazul310/astro-sarkara-components";
+import { css } from "styled-system/css";
 
 export interface Props {
   siteTitle: string;
@@ -19,7 +19,7 @@ const year = new Date().getFullYear().toString();
     py: "lg",
     bgGradient: "to-t",
     gradientFrom: { base: "primary.300", _dark: "primary.800" },
-    gradientTo: { base: "bg", _dark: "bg.dark" },
+    gradientTo: "bg",
   })}
 >
   <slot>

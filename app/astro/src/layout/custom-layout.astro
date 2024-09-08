@@ -2,14 +2,15 @@
 import {
   SarkaraLayout,
   PaperLink,
-  heading2,
-  paragraph,
   type SarkaraLayoutProps,
 } from "@cieloazul310/astro-sarkara";
-import { css } from "@cieloazul310/sarkara-css/css";
-import { container, flex } from "@cieloazul310/sarkara-css/patterns";
-import Analytics from "../components/Analytics.astro";
-import { siteMetadata, menu } from "../data";
+import { css } from "styled-system/css";
+import { container, flex } from "styled-system/patterns";
+import { articleClasses } from "styled-system/recipes";
+import Analytics from "@/components/Analytics.astro";
+import { siteMetadata, menu } from "@/data";
+
+import "../index.css";
 
 interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {
   frontmatter: {
@@ -19,12 +20,14 @@ interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {
 }
 
 const { frontmatter } = Astro.props;
+const { h2, p } = articleClasses();
 ---
 
 <SarkaraLayout
   title={frontmatter?.title}
   siteMetadata={siteMetadata}
   menu={menu}
+  viewTransition
 >
   <header
     slot="header"
@@ -67,8 +70,8 @@ const { frontmatter } = Astro.props;
   </div>
   <Fragment slot="sidebar">
     <aside class={css({ p: 4 })}>
-      <h2 class={heading2}>Custom Sidebar</h2>
-      <p class={paragraph}>
+      <h2 class={h2}>Custom Sidebar</h2>
+      <p class={p}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

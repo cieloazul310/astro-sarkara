@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components";
+import type { HTMLAttributes } from "astro/types";
+import { useLink, isInternal } from "@cieloazul310/astro-sarkara-utils";
+import { css, cx } from "styled-system/css";
+import { paper } from "styled-system/patterns";
+
+export interface Props extends HTMLAttributes<"a"> {
+  className?: string;
+  disablePrefix?: boolean;
+  colorPalette?: string;
+  selected?: boolean;
+}
+
+const {
+  className,
+  href,
+  disablePrefix,
+  selected = false,
+  colorPalette = "primary",
+  ...attrs
+} = Astro.props;
+const link = useLink(href, { disablePrefix });
+const external = !isInternal(href);
+---
+
+<a
+  class={cx(
+    css({ colorPalette }),
+    paper({
+      hover: true,
+      display: "inline-flex",
+      minHeight: "48px",
+      fontWeight: "bold",
+      justifyContent: "center",
+      alignItems: "center",
+      height: 10,
+      gap: 1,
+    }),
+    className,
+  )}
+  role="button"
+  data-selected={selected}
+  {...attrs}
+  {...link}
+>
+  <slot />
+  {
+    external && (
+      <Icon class={css({ fontSize: "inherit" })} name="mdi:open-in-new" />
+    )
+  }
+</a>

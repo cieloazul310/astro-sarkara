@@ -1,4 +1,11 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".eslintrc.cjs", "src", "astro.config.ts", "panda.config.ts"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "styled-system/*": ["./styled-system/*"]
+    }
+  },
+  "include": ["src", "astro.config.ts", "panda.config.ts", "postcss.config.cjs", ".eslintrc.cjs"]
 }

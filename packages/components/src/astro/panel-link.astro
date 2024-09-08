@@ -1,0 +1,86 @@
+---
+import { Icon } from "astro-icon/components";
+import type { HTMLAttributes } from "astro/types";
+import { useLink, isInternal } from "@cieloazul310/astro-sarkara-utils";
+import { css, cva } from "styled-system/css";
+import { paper, linkOverlay, flex } from "styled-system/patterns";
+
+const panelLink = cva({
+  base: {
+    display: "flex",
+    justifyContent: "start",
+    alignItems: "center",
+    gap: "md",
+    borderColor: { base: "colorPalette.500", _dark: "colorPalette.800" },
+  },
+  variants: {
+    border: {
+      yes: {
+        borderWidth: "1px",
+      },
+      none: {
+        borderWidth: 0,
+      },
+    },
+  },
+  defaultVariants: {
+    border: "yes",
+  },
+});
+
+export type Props = HTMLAttributes<"a"> & {
+  className?: string;
+  disablePrefix?: boolean;
+  colorPalette?: string;
+  disableMargin?: boolean;
+  disableBorder?: boolean;
+};
+
+const {
+  className,
+  href,
+  disablePrefix,
+  colorPalette = "primary",
+  disableBorder = false,
+  disableMargin = false,
+  ...attrs
+} = Astro.props;
+
+const link = useLink(href, { disablePrefix });
+const external = !isInternal(href);
+const hostname = external ? new URL(link.href ?? "").hostname : null;
+const withMarginStyle = css({ my: "lg" });
+---
+
+<div
+  class:list={[
+    css({ pos: "relative", colorPalette }),
+    paper({
+      hover: true,
+      minHeight: "48px",
+    }),
+    panelLink({
+      border: disableBorder ? "none" : "yes",
+    }),
+    { [withMarginStyle]: !disableMargin },
+    className,
+  ]}
+  role="button"
+>
+  <div class={flex({ flexShrink: 0 })}>
+    <Icon
+      class={css({ fontSize: "2xl" })}
+      name={external ? "mdi:open-in-new" : "mdi:arrow-right-circle"}
+    />
+  </div>
+  <div class={flex({ flexGrow: 1, flexDirection: "column" })}>
+    <a
+      class={linkOverlay({ textStyle: "headings", fontSize: ["md", "lg"] })}
+      {...attrs}
+      {...link}
+    >
+      <slot />
+    </a>
+    {hostname && <div class={css({ fontSize: "sm" })}>{hostname}</div>}
+  </div>
+</div>

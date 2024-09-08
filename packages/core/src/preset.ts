@@ -1,4 +1,3 @@
-import * as path from "path";
 import {
   definePreset,
   defineConfig,
@@ -9,18 +8,7 @@ import sarkaraPresetBase from "@cieloazul310/panda-preset-sarkara-base";
 import sarkaraComponentsPreset from "@cieloazul310/astro-sarkara-components/preset";
 import { definePalette, type SarkaraPaletteOptions } from "./definePalette";
 
-export const astroComponentsPaths = [
-  "@cieloazul310/astro-sarkara-components",
-  "@cieloazul310/astro-sarkara-layout",
-  "@cieloazul310/astro-sarkara-article-classes",
-].map((components) =>
-  path.resolve(
-    path.dirname(require.resolve(components)),
-    "**/*.{js,ts,jsx,tsx,astro}",
-  ),
-);
-
-export type CreateSarkaraPresetOptions = Preset & {
+export type CreateSarkaraPresetOptions = Omit<Preset, "name"> & {
   palette: SarkaraPaletteOptions;
 };
 
@@ -29,6 +17,7 @@ export function createSarkaraPreset({
   ...preset
 }: CreateSarkaraPresetOptions) {
   return definePreset({
+    name: "sarkara-preset",
     presets: [sarkaraPresetBase, sarkaraComponentsPreset],
     theme: {
       extend: {
@@ -56,9 +45,6 @@ export function defineSarkaraConfig({
       sarkaraComponentsPreset,
       ...(options?.presets ?? []),
     ],
-    include: [...astroComponentsPaths, ...(options?.include ?? [])],
-    outdir: "@cieloazul310/sarkara-css",
-    emitPackage: true,
     theme: {
       ...options?.theme,
       extend: {
