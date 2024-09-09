@@ -5,6 +5,7 @@ export default defineTextStyles({
     description: "Text style for heading.",
     value: {
       fontWeight: "bold",
+      wordBreak: "auto-phrase",
     },
   },
 });

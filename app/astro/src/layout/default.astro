@@ -1,4 +1,6 @@
 ---
+/* eslint-disable-next-line import/no-unresolved */
+import { ViewTransitions } from "astro:transitions";
 import {
   SarkaraLayout,
   type SarkaraLayoutProps,
@@ -6,18 +8,14 @@ import {
 import Analytics from "@/components/Analytics.astro";
 import { siteMetadata, menu } from "@/data";
 
-import "../index.css";
+import "@/index.css";
 
 interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {}
 const { ...props } = Astro.props;
 ---
 
-<SarkaraLayout
-  siteMetadata={siteMetadata}
-  menu={menu}
-  viewTransition
-  {...props}
->
+<SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
   <slot />
   <Analytics slot="top-of-head" />
+  <ViewTransitions slot="bottom-of-head" />
 </SarkaraLayout>

@@ -1,9 +1,11 @@
 ---
+/* eslint-disable-next-line import/no-unresolved */
+import { ViewTransitions } from "astro:transitions";
 import { Paper, SarkaraLayout } from "@cieloazul310/astro-sarkara";
 import Analytics from "@/components/Analytics.astro";
 import { menu, siteMetadata } from "@/data";
 
-import "../index.css";
+import "@/index.css";
 
 interface Props {
   frontmatter?: {
@@ -20,10 +22,10 @@ const { frontmatter } = Astro.props;
   menu={menu}
   title={frontmatter?.title}
   description={frontmatter?.description}
-  viewTransition
 >
   <Paper>
     <slot />
   </Paper>
   <Analytics slot="top-of-head" />
+  <ViewTransitions slot="bottom-of-head" />
 </SarkaraLayout>
