@@ -1,5 +1,30 @@
 # @cieloazul310/astro-sarkara-utils
 
+## 2.0.1
+
+### Patch Changes
+
+- c270b7e: Set `wordBreak` to `"auto-phrase"` for all heading components.
+
+  Remove viewTransition option from `<Layout>` component.
+
+  To use view transition, change your code as below:
+
+  ```diff
+  ---
+  + import { ViewTransitions } from "astro:transitions";
+  import { SarkaraLayout } from "@cieloazul310/astro-sarkara";
+  ---
+
+  <SarkaraLayout
+  - viewTransition
+    {...props}
+  >
+    <slot>
+  + <ViewTransitions slot="bottom-of-head" />
+  </SarkaraLayout>
+  ```
+
 ## 2.0.0
 
 ### Major Changes
