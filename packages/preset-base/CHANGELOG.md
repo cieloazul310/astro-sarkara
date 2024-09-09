@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 2.0.2
+
+### Patch Changes
+
+- aaa3d05: Set heading TextStyle `overflow-wrap` to `"anywhere"`.
+
 ## 2.0.1
 
 ### Patch Changes
