@@ -1,5 +1,14 @@
 # @cieloazul310/astro-sarkara-components
 
+## 4.0.2
+
+### Patch Changes
+
+- aaa3d05: Set heading TextStyle `overflow-wrap` to `"anywhere"`.
+- Updated dependencies [aaa3d05]
+  - @cieloazul310/panda-preset-sarkara-base@2.0.2
+  - @cieloazul310/astro-sarkara-utils@2.0.2
+
 ## 4.0.1
 
 ### Patch Changes
