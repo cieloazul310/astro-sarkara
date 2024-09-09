@@ -6,6 +6,7 @@ export default defineTextStyles({
     value: {
       fontWeight: "bold",
       wordBreak: "auto-phrase",
+      overflowWrap: "anywhere",
     },
   },
 });
