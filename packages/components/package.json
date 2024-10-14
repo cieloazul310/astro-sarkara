@@ -61,7 +61,7 @@
     "@repo/eslint-config": "^1.0.0",
     "@repo/typescript-config": "^1.0.0",
     "@types/eslint": "^8.56.10",
-    "astro": "^4.15.4",
+    "astro": "^4.16.1",
     "astro-icon": "^1.1.0",
     "eslint": "^8.57.0"
   },
