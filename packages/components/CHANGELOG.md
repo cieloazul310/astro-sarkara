@@ -1,5 +1,17 @@
 # @cieloazul310/astro-sarkara-components
 
+## 5.0.0
+
+### Minor Changes
+
+- 4dbb456: astro v5
+
+### Patch Changes
+
+- Updated dependencies [4dbb456]
+  - @cieloazul310/panda-preset-sarkara-base@2.1.0
+  - @cieloazul310/astro-sarkara-utils@2.1.0
+
 ## 4.0.2
 
 ### Patch Changes

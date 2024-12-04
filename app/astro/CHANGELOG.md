@@ -1,5 +1,16 @@
 # astro-app
 
+## 1.1.0
+
+### Minor Changes
+
+- 4dbb456: astro v5
+
+### Patch Changes
+
+- Updated dependencies [4dbb456]
+  - @cieloazul310/astro-sarkara@2.1.0
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 2.1.0
+
+### Minor Changes
+
+- 4dbb456: astro v5
+
 ## 2.0.2
 
 ### Patch Changes
