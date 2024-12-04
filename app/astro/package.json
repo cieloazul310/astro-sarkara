@@ -15,17 +15,17 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@cieloazul310/astro-sarkara": "^2.0.0",
-    "@iconify-json/mdi": "^1.2.0",
+    "@cieloazul310/astro-sarkara": "^2.0.2",
+    "@iconify-json/mdi": "^1.2.1",
     "astro": "^5.0.2",
     "astro-icon": "^1.1.4",
-    "rehype": "^13.0.1",
+    "rehype": "^13.0.2",
     "rehype-class-names": "^2.0.0"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.0.1",
     "@astrojs/partytown": "^2.1.2",
-    "@pandacss/dev": "^0.45.2",
+    "@pandacss/dev": "^0.48.0",
     "@repo/eslint-config": "^1.0.0",
     "eslint": "^8.57.0"
   }
