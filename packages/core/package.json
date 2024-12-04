@@ -59,6 +59,6 @@
   },
   "peerDependencies": {
     "@pandacss/dev": ">=0.40.0",
-    "astro": "^4.0.0"
+    "astro": "^4.0.0 || ^5.0.0"
   }
 }

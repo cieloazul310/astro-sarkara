@@ -25,10 +25,16 @@ export const paper = definePattern({
         _dark: "colorPalette.600/10",
         _hover: hover ? "colorPalette.600/16" : undefined,
       },
-      "&[data-selected]": {
+      _selected: {
         bg: { base: "colorPalette.600/16", _dark: "colorPalette.600/16" },
         color: { base: "colorPalette.800", _dark: "colorPalette.300" },
         pointerEvents: "none",
+      },
+      "a&": {
+        _active: {
+          bg: { base: "colorPalette.600/20", _dark: "colorPalette.600/20" },
+          color: { base: "colorPalette.800", _dark: "colorPalette.300" },
+        },
       },
       p: [4, 8],
       rounded: "xl",
