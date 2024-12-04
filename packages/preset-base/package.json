@@ -45,7 +45,7 @@
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.45.2",
+    "@pandacss/dev": "^0.48.0",
     "@repo/eslint-config": "^1.0.0",
     "@repo/typescript-config": "^1.0.0",
     "@types/eslint": "^8.56.10",

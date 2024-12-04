@@ -1,6 +1,4 @@
 ---
-/* eslint-disable-next-line import/no-unresolved */
-import { ViewTransitions } from "astro:transitions";
 import {
   SarkaraLayout,
   type SarkaraLayoutProps,
@@ -17,5 +15,4 @@ const { ...props } = Astro.props;
 <SarkaraLayout siteMetadata={siteMetadata} menu={menu} {...props}>
   <slot />
   <Analytics slot="top-of-head" />
-  <ViewTransitions slot="bottom-of-head" />
 </SarkaraLayout>

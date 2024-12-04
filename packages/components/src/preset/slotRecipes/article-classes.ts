@@ -83,9 +83,22 @@ const articleClasses = defineSlotRecipe({
       overflowWrap: "break-word",
     },
     a: {
-      color: { base: "primary.700", _hover: "primary.500" },
+      color: {
+        base: "primary.700",
+        _hover: "primary.500",
+        _active: "colorPalette.600",
+      },
       textDecoration: { _hover: "underline" },
-      _dark: { color: { base: "primary.300", _hover: "primary.200" } },
+      _dark: {
+        color: {
+          base: "primary.300",
+          _hover: "primary.200",
+          _active: "colorPalette.500",
+        },
+      },
+      _focusVisible: {
+        bg: { base: "yellow.100", _dark: "yellow.900" },
+      },
     },
     blockquote: {
       ...paper,
