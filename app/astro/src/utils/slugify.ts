@@ -30,6 +30,6 @@ export function slugify<T extends "microcms" | "tutorial">(
     if (disablePrefix) return slug;
     return `/microcms/${slug}`;
   }
-  if (disablePrefix) return obj.slug;
-  return `/tutorial/${obj.slug}`;
+  if (disablePrefix) return obj.id;
+  return `/tutorial/${obj.id}`;
 }

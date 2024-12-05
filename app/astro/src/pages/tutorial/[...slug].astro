@@ -1,8 +1,6 @@
 ---
 /* eslint-disable-next-line import/no-unresolved */
-import { ViewTransitions } from "astro:transitions";
-/* eslint-disable-next-line import/no-unresolved */
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import type { InferGetStaticPropsType } from "astro";
 import {
   SarkaraLayout,
@@ -30,7 +28,7 @@ export async function getStaticPaths() {
 
       return {
         params: {
-          slug: post.slug,
+          slug: post.id,
         },
         props: {
           post,
@@ -47,13 +45,14 @@ const { post, left, right } = Astro.props;
 const navigation = useNavigation(
   { left, right },
   {
-    href: (obj) => `/tutorial/${obj.slug}`,
+    href: (obj) => `/tutorial/${obj.id}`,
     primaryText: (obj) => obj.data.title,
     secondaryText: (obj) => `Section ${obj.data.index}`,
   },
 );
-const entry = await getEntry("tutorial", post.slug);
-const { Content } = await entry.render();
+const entry = await getEntry("tutorial", post.id);
+if (!entry) return;
+const { Content } = await render(entry);
 ---
 
 <SarkaraLayout
@@ -87,5 +86,4 @@ const { Content } = await entry.render();
   <PaperLink href="/tutorial/">Tutorial Top</PaperLink>
   <Navigation {...navigation} direction="column" slot="sidebar-top" />
   <Analytics slot="top-of-head" />
-  <ViewTransitions slot="bottom-of-head" />
 </SarkaraLayout>
