@@ -1,8 +1,9 @@
 /* eslint import/prefer-default-export: off */
 import { z, defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 
 const tutorialCollection = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/tutorial" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),

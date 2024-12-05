@@ -1,7 +1,5 @@
 ---
 /* eslint-disable-next-line import/no-unresolved */
-import { ViewTransitions } from "astro:transitions";
-/* eslint-disable-next-line import/no-unresolved */
 import { getCollection } from "astro:content";
 import type { GetStaticPathsOptions, InferGetStaticPropsType } from "astro";
 import {
@@ -51,5 +49,4 @@ const { page } = Astro.props;
   </ArticleList>
   <Pagination page={page} basePath="/tutorial" />
   <Analytics slot="top-of-head" />
-  <ViewTransitions slot="bottom-of-head" />
 </SarkaraLayout>
