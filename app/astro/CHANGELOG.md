@@ -1,5 +1,13 @@
 # astro-app
 
+## 1.1.1
+
+### Patch Changes
+
+- 8d8547b: Components: fix invalid a11y property
+- Updated dependencies [8d8547b]
+  - @cieloazul310/astro-sarkara@2.1.1
+
 ## 1.1.0
 
 ### Minor Changes

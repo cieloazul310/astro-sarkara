@@ -2,7 +2,7 @@
   "name": "astro-app",
   "private": true,
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@cieloazul310/astro-sarkara": "^2.1.0",
+    "@cieloazul310/astro-sarkara": "^2.1.1",
     "@iconify-json/mdi": "^1.2.1",
     "astro": "^5.0.2",
     "astro-icon": "^1.1.4",
@@ -26,7 +26,7 @@
     "@astrojs/mdx": "^4.0.1",
     "@astrojs/partytown": "^2.1.2",
     "@pandacss/dev": "^0.48.0",
-    "@repo/eslint-config": "^1.1.0",
+    "@repo/eslint-config": "^1.1.1",
     "eslint": "^9.16.0"
   },
   "lint-staged": {

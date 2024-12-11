@@ -1,5 +1,11 @@
 # @cieloazul310/tsconfig
 
+## 1.1.1
+
+### Patch Changes
+
+- 8d8547b: Components: fix invalid a11y property
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara-components",
   "description": "Astro components package built with Panda CSS.",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
@@ -55,18 +55,18 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/ts-plugin": "^1.10.4",
-    "@cieloazul310/astro-sarkara-utils": "^2.1.0",
+    "@cieloazul310/astro-sarkara-utils": "^2.1.1",
     "@iconify-json/mdi": "^1.2.1",
     "@pandacss/dev": "^0.48.0",
-    "@repo/eslint-config": "^1.1.0",
-    "@repo/typescript-config": "^1.1.0",
+    "@repo/eslint-config": "^1.1.1",
+    "@repo/typescript-config": "^1.1.1",
     "astro": "^5.0.2",
     "astro-icon": "^1.1.0",
     "eslint": "^9.16.0"
   },
   "peerDependencies": {
-    "@cieloazul310/astro-sarkara-utils": "^2.1.0",
-    "@cieloazul310/panda-preset-sarkara-base": "^2.1.0",
+    "@cieloazul310/astro-sarkara-utils": "^2.1.1",
+    "@cieloazul310/panda-preset-sarkara-base": "^2.1.1",
     "@iconify-json/mdi": "^1.0.0",
     "astro": "^4.0.0 || ^5.0.0",
     "astro-icon": "^1.0.0"
