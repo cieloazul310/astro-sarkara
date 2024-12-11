@@ -10,9 +10,9 @@
   "include": [
     "src",
     "astro.config.ts",
+    "eslint.config.mjs",
     "panda.config.ts",
     "postcss.config.cjs",
-    ".eslintrc.cjs",
     ".astro/types.d.ts"
   ]
 }

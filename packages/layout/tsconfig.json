@@ -11,5 +11,5 @@
       "styled-system/*": ["./styled-system/*"]
     }
   },
-  "include": ["src", "panda.config.ts", ".eslintrc.cjs"]
+  "include": ["src", "panda.config.ts", "eslint.config.mjs"]
 }

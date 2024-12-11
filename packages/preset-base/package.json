@@ -48,10 +48,15 @@
     "@pandacss/dev": "^0.48.0",
     "@repo/eslint-config": "^1.1.0",
     "@repo/typescript-config": "^1.1.0",
-    "@types/eslint": "^8.56.10",
-    "eslint": "^8.57.0"
+    "eslint": "^9.16.0"
   },
   "peerDependencies": {
     "@pandacss/dev": ">=0.40.0"
+  },
+  "lint-staged": {
+    "**/*.{js,cjs,mjs,ts,astro}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

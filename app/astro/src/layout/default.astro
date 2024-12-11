@@ -8,7 +8,7 @@ import { siteMetadata, menu } from "@/data";
 
 import "@/index.css";
 
-interface Props extends Omit<SarkaraLayoutProps, "siteMetadata"> {}
+type Props = Omit<SarkaraLayoutProps, "siteMetadata">;
 const { ...props } = Astro.props;
 ---
 

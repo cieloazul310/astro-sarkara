@@ -1,3 +1,4 @@
+/* eslint-disable-next-line import/no-unresolved */
 import { type CollectionEntry } from "astro:content";
 import type { MicrocmsBlogs } from "../types";
 
@@ -9,7 +10,7 @@ export function pubDateToYYMM(publishedAt: string) {
 }
 
 function isMicrocmsBlogs(
-  obj: any,
+  obj: unknown,
   type: "microcms" | "tutorial",
 ): obj is Pick<MicrocmsBlogs, "id" | "publishedAt"> {
   return type === "microcms";

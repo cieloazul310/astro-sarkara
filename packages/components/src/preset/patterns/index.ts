@@ -25,7 +25,7 @@ export const paper = definePattern({
         _dark: "colorPalette.600/10",
         _hover: hover ? "colorPalette.600/16" : undefined,
       },
-      _selected: {
+      _pressed: {
         bg: { base: "colorPalette.600/16", _dark: "colorPalette.600/16" },
         color: { base: "colorPalette.800", _dark: "colorPalette.300" },
         pointerEvents: "none",

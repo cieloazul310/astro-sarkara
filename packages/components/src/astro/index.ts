@@ -1,4 +1,3 @@
-// @ts-nocheck
 export { default as Alert, type Props as AlertProps } from "./alert.astro";
 export { default as ArticleList } from "./article-list.astro";
 export {

@@ -4,7 +4,7 @@ const config = defineSarkaraConfig({
   palette: { primary: "teal", secondary: "yellow" },
   include: [
     "./src/**/*.{js,ts,astro,mdx}",
-    "../../node_modules/@cieloazul310/**/*.{js,ts,astro,mdx}",
+    "../../packages/**/src/**/*.{js,ts,astro}",
   ],
   theme: {
     extend: {
