@@ -65,9 +65,10 @@ const articleClasses = defineSlotRecipe({
     },
     h4: {
       ...common,
-      fontSize: "md",
-      my: "sm",
-      overflowWrap: "break-word",
+      textStyle: "headings",
+      fontSize: ["md", "lg", "xl"],
+      mt: "md",
+      mb: "sm",
     },
     h5: {
       ...common,
