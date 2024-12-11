@@ -1,5 +1,15 @@
 # @cieloazul310/astro-sarkara-layout
 
+## 5.0.1
+
+### Patch Changes
+
+- 8d8547b: Components: fix invalid a11y property
+- Updated dependencies [8d8547b]
+  - @cieloazul310/panda-preset-sarkara-base@2.1.1
+  - @cieloazul310/astro-sarkara-components@5.0.1
+  - @cieloazul310/astro-sarkara-utils@2.1.1
+
 ## 5.0.0
 
 ### Minor Changes
