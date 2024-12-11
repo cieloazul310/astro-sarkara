@@ -49,14 +49,19 @@
     "@pandacss/dev": "^0.48.0",
     "@repo/eslint-config": "^1.1.0",
     "@repo/typescript-config": "^1.1.0",
-    "@types/eslint": "^8.56.10",
     "astro": "^5.0.2",
-    "eslint": "^8.57.0"
+    "eslint": "^9.16.0"
   },
   "peerDependencies": {
     "@cieloazul310/astro-sarkara-components": "^5.0.0",
     "@cieloazul310/astro-sarkara-utils": "^2.1.0",
     "@cieloazul310/panda-preset-sarkara-base": "^2.1.0",
     "astro": "^4.0.0 || ^5.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,cjs,mjs,ts,astro}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

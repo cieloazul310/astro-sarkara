@@ -1,4 +1,4 @@
-/* eslint import/prefer-default-export: off */
+/* eslint-disable-next-line import/no-unresolved */
 import { z, defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 
