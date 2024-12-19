@@ -17,7 +17,7 @@
     "@astrojs/check": "^0.9.4",
     "@cieloazul310/astro-sarkara": "^2.1.1",
     "@iconify-json/mdi": "^1.2.1",
-    "astro": "^5.0.2",
+    "astro": "^5.0.8",
     "astro-icon": "^1.1.4",
     "rehype": "^13.0.2",
     "rehype-class-names": "^2.0.0"

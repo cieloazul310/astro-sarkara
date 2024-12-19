@@ -49,7 +49,7 @@
     "@pandacss/dev": "^0.48.0",
     "@repo/eslint-config": "^1.1.1",
     "@repo/typescript-config": "^1.1.1",
-    "astro": "^5.0.2",
+    "astro": "^5.0.8",
     "eslint": "^9.16.0"
   },
   "peerDependencies": {
