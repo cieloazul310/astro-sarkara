@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.2.0-next.0
+
+### Minor Changes
+
+- cc8b104: Update dependencies
+
 ## 1.1.1
 
 ### Patch Changes
