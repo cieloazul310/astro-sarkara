@@ -1,24 +1,16 @@
 ---
 import { css } from "styled-system/css";
-import { hstack, gradientBox, container } from "styled-system/patterns";
+import { hstack, container } from "styled-system/patterns";
 
 export interface Props {
   title?: string;
+  className?: string;
 }
 
-const { title } = Astro.props;
+const { title, className } = Astro.props;
 ---
 
-<header
-  class={gradientBox({
-    p: [4, 8],
-    height: "480px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "white",
-  })}
->
+<header class={className}>
   <div
     class={container({
       maxWidth: "contentMaxWidth",

@@ -5,7 +5,6 @@ import {
   withBaseUrl,
   type Menu,
 } from "@cieloazul310/astro-sarkara-utils";
-import { container, vstack } from "styled-system/patterns";
 import { css, sva, type RecipeVariantProps } from "styled-system/css";
 
 import Seo, { type Props as SeoProps } from "./seo.astro";
@@ -32,13 +31,55 @@ const defaultMenu = defineMenu([
 ]);
 
 const layoutStyle = sva({
-  slots: ["sidebar", "fab"],
+  slots: ["header", "jumbotron", "grid", "main", "sidebar", "fab"],
   base: {
+    header: {
+      position: "sticky",
+      top: 0,
+      height: "headerHeight",
+      px: 4,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: ["center", "start"],
+      zIndex: "header",
+      color: "white",
+      bgGradient: "to-r",
+      gradientFrom: { base: "primary.600", _dark: "primary.800" },
+      gradientTo: { base: "secondary.100", _dark: "bg" },
+    },
+    jumbotron: {
+      p: [4, 8],
+      height: "480px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "white",
+      bgGradient: "to-r",
+      gradientFrom: { base: "primary.600", _dark: "primary.800" },
+      gradientTo: { base: "secondary.100", _dark: "bg" },
+    },
+    grid: {
+      display: "grid",
+      maxWidth: "contentMaxWidth",
+      px: 2,
+      py: 4,
+      mx: "auto",
+    },
+    main: {
+      display: "grid",
+      gridTemplateColumns: "minmax(0, 1fr)",
+      gap: "md",
+      px: [0, 2],
+      maxWidth: "full",
+    },
     sidebar: {
       width: "sidebarWidth",
-      flexShrink: 0,
       px: 2,
       pb: 8,
+      display: "grid",
+      gridTemplateColumns: "minmax(0, 1fr)",
+      gridAutoRows: "max-content",
+      gap: "md",
     },
     fab: {
       position: "fixed",
@@ -50,17 +91,37 @@ const layoutStyle = sva({
   variants: {
     variant: {
       default: {
-        sidebar: { display: { base: "none", md: "block" } },
+        grid: {
+          gridTemplateColumns: {
+            base: "minmax(0, 1fr)",
+            md: `minmax(0, 1fr) minmax(0, token(sizes.sidebarWidth))`,
+          },
+        },
+        sidebar: { display: { base: "none", md: "grid" } },
         fab: { display: { base: "block", md: "none" } },
       },
       fullWidth: {
+        grid: {
+          gridTemplateColumns: "minmax(0, 1fr)",
+        },
         sidebar: { display: "none" },
         fab: { display: "block" },
+      },
+    },
+    sidebarSticky: {
+      true: {
+        sidebar: {
+          position: "sticky",
+          top: "calc(token(sizes.headerHeight) + token(spacing.4))",
+          maxHeight: "calc(100vh - token(sizes.headerHeight))",
+          overflowY: "auto",
+        },
       },
     },
   },
   defaultVariants: {
     variant: "default",
+    sidebarSticky: true,
   },
 });
 
@@ -84,13 +145,11 @@ const {
   twitterCardType = "summary",
 } = Astro.props;
 
-const { sidebar, fab } = layoutStyle({ variant });
-const sidebarStickyStyle = css({
-  position: "sticky",
-  top: "calc(token(sizes.headerHeight) + token(spacing.4))",
-  maxHeight: "calc(100vh - token(sizes.headerHeight))",
-  overflowY: "auto",
+const { header, grid, jumbotron, main, sidebar, fab } = layoutStyle({
+  variant,
+  sidebarSticky: !disableSidebarSticky,
 });
+
 const contentTitle =
   title && title !== siteMetadata.title
     ? `${title} - ${siteMetadata.title}`
@@ -131,34 +190,18 @@ const favicon = {
   <body>
     <slot name="top-of-body" />
     <slot name="header">
-      <Header siteTitle={siteMetadata.title} />
+      <Header className={header} siteTitle={siteMetadata.title} />
     </slot>
     <main>
       <article>
         <slot name="jumbotron">
-          <Jumbotron title={title || siteMetadata.title}>
+          <Jumbotron className={jumbotron} title={title || siteMetadata.title}>
             <slot name="jumbotron-header" slot="jumbotron-header" />
             <slot name="jumbotron-footer" slot="jumbotron-footer" />
           </Jumbotron>
         </slot>
-        <div
-          class={container({
-            maxWidth: "contentMaxWidth",
-            display: "flex",
-            px: 2,
-            py: 4,
-          })}
-        >
-          <div
-            class={vstack({
-              flexGrow: 1,
-              gap: "md",
-              px: [0, 2],
-              alignItems: "stretch",
-              maxWidth: "100%",
-              minWidth: 0,
-            })}
-          >
+        <div class={grid}>
+          <div class={main}>
             <slot name="top-of-main" />
             <slot />
             <div class={css({ hideFrom: "md" })}>
@@ -169,26 +212,14 @@ const favicon = {
             </PaperLink>
             <slot name="bottom-of-main" />
           </div>
-          <div
-            class:list={[
-              sidebar,
-              { [sidebarStickyStyle]: !disableSidebarSticky },
-            ]}
-          >
-            <div
-              class={vstack({
-                gap: "md",
-                alignItems: "stretch",
-              })}
-            >
-              <slot name="sidebar">
-                <slot name="sidebar-top" />
-                {Astro.slots.has("sidebar-top") && <Divider />}
-                <MenuList menu={menu} />
-                {Astro.slots.has("sidebar-bottom") && <Divider />}
-                <slot name="sidebar-bottom" />
-              </slot>
-            </div>
+          <div class={sidebar}>
+            <slot name="sidebar">
+              <slot name="sidebar-top" />
+              {Astro.slots.has("sidebar-top") && <Divider />}
+              <MenuList menu={menu} />
+              {Astro.slots.has("sidebar-bottom") && <Divider />}
+              <slot name="sidebar-bottom" />
+            </slot>
           </div>
         </div>
       </article>

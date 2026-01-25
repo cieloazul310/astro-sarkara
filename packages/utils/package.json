@@ -35,7 +35,7 @@
   "devDependencies": {
     "@repo/eslint-config": "^1.1.1",
     "@repo/typescript-config": "^1.1.1",
-    "eslint": "^9.16.0"
+    "eslint": "^9.39.2"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts,astro}": [

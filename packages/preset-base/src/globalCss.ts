@@ -1,5 +1,9 @@
 import { defineGlobalStyles } from "@pandacss/dev";
 
+const html = {
+  fontSmoothing: "auto",
+};
+
 const body = {
   backgroundColor: "bg",
   color: "fg",
@@ -17,6 +21,7 @@ export default defineGlobalStyles({
   ":root": {
     "--global-font-body": "token(fonts.body)",
   },
+  html,
   body,
   ".astro-code": astroCode,
 });

@@ -31,14 +31,21 @@ const {
 ---
 
 <li
-  class={css({
-    pos: "relative",
-    listStyleType: "none",
-    rounded: "xl",
-    borderWidth: "2px",
-    borderColor: { base: "neutral.100", _dark: "neutral.800" },
-    bg: { _hover: "primary.600/8" },
-  })}
+  class:list={[
+    css({
+      pos: "relative",
+      listStyleType: "none",
+      rounded: "xl",
+      borderWidth: "2px",
+      borderColor: {
+        base: "neutral.100",
+        _dark: "neutral.800",
+        _hover: { base: "primary.600/40", _dark: "primary.800/40" },
+      },
+      bg: { _hover: "primary.600/8" },
+    }),
+    "group",
+  ]}
 >
   <article class={flex()}>
     <div class={flex({ flexShrink: 0 })}>
@@ -130,7 +137,13 @@ const {
           {headerText}
         </slot>
       </header>
-      <Link className={linkOverlay()} href={href} disablePrefix={disablePrefix}>
+      <Link
+        className={linkOverlay({
+          _groupHover: { textDecoration: "underline" },
+        })}
+        href={href}
+        disablePrefix={disablePrefix}
+      >
         <slot name="title">
           <h1
             class={css({ fontSize: ["md", "lg", "xl"], textStyle: "headings" })}
