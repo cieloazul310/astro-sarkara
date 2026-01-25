@@ -63,6 +63,7 @@ const withMarginStyle = css({ my: "lg" });
       border: disableBorder ? "none" : "yes",
     }),
     { [withMarginStyle]: !disableMargin },
+    "group",
     className,
   ]}
   role="button"
@@ -75,7 +76,11 @@ const withMarginStyle = css({ my: "lg" });
   </div>
   <div class={flex({ flexGrow: 1, flexDirection: "column" })}>
     <a
-      class={linkOverlay({ textStyle: "headings", fontSize: ["md", "lg"] })}
+      class={linkOverlay({
+        textStyle: "headings",
+        fontSize: ["md", "lg"],
+        _groupHover: { textDecoration: "underline" },
+      })}
       {...attrs}
       {...link}
     >

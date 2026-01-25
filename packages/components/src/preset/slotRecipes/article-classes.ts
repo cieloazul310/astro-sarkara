@@ -79,7 +79,8 @@ const articleClasses = defineSlotRecipe({
     },
     p: {
       ...common,
-      fontSize: "md",
+      fontSize: { base: "md", md: "lg" },
+      lineHeight: "1.7",
       my: "sm",
       overflowWrap: "break-word",
     },
@@ -110,6 +111,7 @@ const articleClasses = defineSlotRecipe({
       my: "md",
       listStyleType: "disc",
       paddingInlineStart: 4,
+      fontSize: { base: "md", md: "lg" },
       "li > &": {
         my: "sm",
       },
@@ -119,6 +121,7 @@ const articleClasses = defineSlotRecipe({
       my: "md",
       listStyleType: "decimal",
       paddingInlineStart: 4,
+      fontSize: { base: "md", md: "lg" },
       "li > &": {
         my: "sm",
       },
@@ -146,7 +149,7 @@ const articleClasses = defineSlotRecipe({
       borderWidth: "1px",
       borderColor: { base: "primary.50", _dark: "primary.950" },
       my: "lg",
-      fontSize: ["sm", "md"],
+      fontSize: ["sm", "md", "lg"],
     },
     thead: {
       ...paper,

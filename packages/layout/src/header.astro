@@ -1,27 +1,16 @@
 ---
 import { ColorModeButton, Link } from "@cieloazul310/astro-sarkara-components";
 import { css } from "styled-system/css";
-import { gradientBox } from "styled-system/patterns";
 
 export interface Props {
+  className?: string;
   siteTitle: string;
 }
 
-const { siteTitle } = Astro.props;
+const { siteTitle, className } = Astro.props;
 ---
 
-<header
-  class={gradientBox({
-    position: "sticky",
-    top: 0,
-    height: "headerHeight",
-    px: 4,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: ["center", "start"],
-    zIndex: "header",
-  })}
->
+<header class={className}>
   <slot>
     <Link
       href="/"

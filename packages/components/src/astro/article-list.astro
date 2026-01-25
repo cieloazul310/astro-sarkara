@@ -1,7 +1,13 @@
 ---
-import { vstack } from "styled-system/patterns";
+import { css } from "styled-system/css";
 ---
 
-<ul class={vstack({ gap: "sm", alignItems: "stretch" })}>
+<ul
+  class={css({
+    display: "grid",
+    gridTemplateColumns: "mimmax(0, 1fr)",
+    gap: "sm",
+  })}
+>
   <slot />
 </ul>

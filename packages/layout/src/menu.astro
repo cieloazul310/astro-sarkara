@@ -1,7 +1,7 @@
 ---
 import { PaperLink } from "@cieloazul310/astro-sarkara-components";
 import { isMenuItem, type Menu } from "@cieloazul310/astro-sarkara-utils";
-import { vstack } from "styled-system/patterns";
+import { css } from "styled-system/css";
 
 export interface Props {
   menu: Menu;
@@ -10,9 +10,10 @@ const { menu } = Astro.props;
 ---
 
 <nav
-  class={vstack({
+  class={css({
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1fr)",
     gap: "sm",
-    alignItems: "stretch",
   })}
 >
   {
@@ -24,9 +25,10 @@ const { menu } = Astro.props;
       }
       return (
         <section
-          class={vstack({
+          class={css({
+            display: "grid",
+            gridTemplateColumns: "minmax(0, 1fr)",
             gap: "xs",
-            alignItems: "stretch",
           })}
         >
           {menuContent.items.map(({ title, href }) => (

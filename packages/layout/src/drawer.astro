@@ -6,7 +6,7 @@ import {
   ColorModeButton,
 } from "@cieloazul310/astro-sarkara-components";
 import { css, cx } from "styled-system/css";
-import { flex, vstack, hstack } from "styled-system/patterns";
+import { flex, hstack } from "styled-system/patterns";
 
 export interface Props {
   siteTitle?: string;
@@ -73,7 +73,13 @@ const { siteTitle } = Astro.props;
       </Link>
     </header>
     <div class={css({ flexGrow: 1, overflowY: "auto", px: 4 })}>
-      <div class={vstack({ gap: "md", alignItems: "stretch" })}>
+      <div
+        class={css({
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr)",
+          gap: "md",
+        })}
+      >
         <slot name="drawer-top" />
         {Astro.slots.has("drawer-top") && <Divider />}
         <slot />
