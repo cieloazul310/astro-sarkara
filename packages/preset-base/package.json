@@ -45,13 +45,13 @@
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.48.0",
+    "@pandacss/dev": "^1.8.1",
     "@repo/eslint-config": "^1.1.1",
     "@repo/typescript-config": "^1.1.1",
-    "eslint": "^9.16.0"
+    "eslint": "^9.39.2"
   },
   "peerDependencies": {
-    "@pandacss/dev": ">=0.40.0"
+    "@pandacss/dev": "^1.0.0"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts,astro}": [
