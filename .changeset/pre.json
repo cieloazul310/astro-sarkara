@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "astro-app": "1.1.1",
+    "@cieloazul310/astro-sarkara-components": "5.0.1",
+    "@cieloazul310/astro-sarkara": "2.1.1",
+    "@repo/eslint-config": "1.1.1",
+    "@cieloazul310/astro-sarkara-layout": "5.0.1",
+    "@cieloazul310/panda-preset-sarkara-base": "2.1.1",
+    "@repo/typescript-config": "1.1.1",
+    "@cieloazul310/astro-sarkara-utils": "2.1.1"
+  },
+  "changesets": []
+}
