@@ -11,5 +11,7 @@
     "@repo/typescript-config": "1.1.1",
     "@cieloazul310/astro-sarkara-utils": "2.1.1"
   },
-  "changesets": []
+  "changesets": [
+    "thick-pumas-raise"
+  ]
 }

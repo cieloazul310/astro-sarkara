@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/panda-preset-sarkara-base",
   "description": "Panda CSS base preset for astro-sarkara packages.",
-  "version": "2.1.1",
+  "version": "2.2.0-next.0",
   "license": "ISC",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^1.8.1",
-    "@repo/eslint-config": "^1.1.1",
-    "@repo/typescript-config": "^1.1.1",
+    "@repo/eslint-config": "^1.2.0-next.0",
+    "@repo/typescript-config": "^1.2.0-next.0",
     "eslint": "^9.39.2"
   },
   "peerDependencies": {
