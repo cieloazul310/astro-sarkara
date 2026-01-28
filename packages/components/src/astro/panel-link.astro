@@ -11,12 +11,16 @@ const panelLink = cva({
     justifyContent: "start",
     alignItems: "center",
     gap: "md",
-    borderColor: { base: "colorPalette.500", _dark: "colorPalette.800" },
+    borderColor: {
+      base: "colorPalette.600/20",
+      _dark: "colorPalette.800/20",
+      _hover: { base: "colorPalette.600/40", _dark: "colorPalette.700/40" },
+    },
   },
   variants: {
     border: {
       yes: {
-        borderWidth: "1px",
+        borderWidth: "2px",
       },
       none: {
         borderWidth: 0,
