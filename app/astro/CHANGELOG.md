@@ -1,5 +1,13 @@
 # astro-app
 
+## 1.2.0-next.1
+
+### Patch Changes
+
+- c2f0d4c: style update
+- Updated dependencies [c2f0d4c]
+  - @cieloazul310/astro-sarkara@2.2.0-next.1
+
 ## 1.2.0-next.0
 
 ### Minor Changes
