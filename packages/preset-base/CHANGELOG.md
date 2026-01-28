@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 2.2.0-next.1
+
+### Patch Changes
+
+- c2f0d4c: style update
+
 ## 2.2.0-next.0
 
 ### Minor Changes
