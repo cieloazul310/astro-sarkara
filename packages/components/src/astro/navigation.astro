@@ -30,9 +30,15 @@ const navigation = sva({
       justifyContent: "flex-start",
       gap: "sm",
       width: ["100%", "50%"],
+      borderWidth: "2px",
+      borderColor: {
+        base: "transparent",
+        _hover: "colorPalette.600/40",
+      },
     },
     title: {
       textStyle: "headings",
+      _groupHover: { textDecoration: "underline" },
     },
   },
   variants: {
@@ -98,7 +104,7 @@ const classes = navigation({ direction });
     left ? (
       <a
         href={useLink(left.href, { disablePrefix }).href}
-        class={cx(classes.button, paper({ hover: true }))}
+        class={cx(classes.button, paper({ hover: true }), "group")}
         role="button"
       >
         <Icon class={iconStyle} name="mdi:arrow-left" />
@@ -118,6 +124,7 @@ const classes = navigation({ direction });
         class={cx(
           classes.button,
           paper({ hover: true, flexDirection: "row-reverse" }),
+          "group",
         )}
         role="button"
       >

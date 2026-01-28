@@ -7,7 +7,7 @@ export default defineTextStyles({
       fontWeight: "bold",
       wordBreak: "auto-phrase",
       overflowWrap: "anywhere",
-      textWrap: "pretty",
+      textWrap: "auto",
     },
   },
 });
