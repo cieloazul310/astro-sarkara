@@ -1,5 +1,6 @@
 /* eslint-disable-next-line import/no-unresolved */
-import { z, defineCollection } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
 const tutorialCollection = defineCollection({
@@ -11,8 +12,7 @@ const tutorialCollection = defineCollection({
       featuredImg: image()
         .optional()
         .catch((ctx) => {
-          /* eslint-disable-next-line @typescript-eslint/no-unused-expressions */
-          ctx.error;
+          console.warn(ctx.issues);
           return undefined;
         }),
       featuredImgAlt: z.string().optional(),

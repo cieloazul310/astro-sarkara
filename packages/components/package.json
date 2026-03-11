@@ -53,14 +53,14 @@
     "clean": "git clean -fx .turbo/ styled-system/"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/ts-plugin": "^1.10.6",
+    "@astrojs/check": "^0.9.7",
+    "@astrojs/ts-plugin": "^1.10.7",
     "@cieloazul310/astro-sarkara-utils": "^2.2.0-next.1",
     "@iconify-json/mdi": "^1.2.3",
-    "@pandacss/dev": "^1.8.1",
+    "@pandacss/dev": "^1.9.0",
     "@repo/eslint-config": "^1.2.0-next.1",
     "@repo/typescript-config": "^1.2.0-next.1",
-    "astro": "^5.16.15",
+    "astro": "^6.0.2",
     "astro-icon": "^1.1.5",
     "eslint": "^9.39.2"
   },
@@ -68,7 +68,7 @@
     "@cieloazul310/astro-sarkara-utils": "^2.2.0-next.1",
     "@cieloazul310/panda-preset-sarkara-base": "^2.2.0-next.1",
     "@iconify-json/mdi": "^1.0.0",
-    "astro": "^5.0.0",
+    "astro": "^5.0.0 || ^6.0.0",
     "astro-icon": "^1.0.0"
   },
   "lint-staged": {
