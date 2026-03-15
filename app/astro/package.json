@@ -14,18 +14,18 @@
     "eslint": "eslint src --fix"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.7",
     "@cieloazul310/astro-sarkara": "^2.2.0-next.1",
     "@iconify-json/mdi": "^1.2.3",
-    "astro": "^5.16.15",
+    "astro": "^6.0.2",
     "astro-icon": "^1.1.5",
     "rehype": "^13.0.2",
     "rehype-class-names": "^2.0.0"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/partytown": "^2.1.4",
-    "@pandacss/dev": "^1.8.1",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/partytown": "^2.1.5",
+    "@pandacss/dev": "^1.9.0",
     "@repo/eslint-config": "^1.2.0-next.1",
     "eslint": "^9.39.2"
   },

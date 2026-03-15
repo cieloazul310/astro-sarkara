@@ -1,5 +1,6 @@
 import { cwd } from "process";
 import { resolve } from "path";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import turboConfig from "eslint-config-turbo/flat";
@@ -13,8 +14,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 const project = resolve(cwd(), "./tsconfig.json");
 
-/** @type {import("eslint").Linter.Config[]} */
-export default [
+export default defineConfig([
   pluginJs.configs.recommended,
   ...turboConfig,
   importPlugin.flatConfigs.recommended,
@@ -52,4 +52,4 @@ export default [
     },
   },
   eslintConfigPrettier,
-];
+]);
