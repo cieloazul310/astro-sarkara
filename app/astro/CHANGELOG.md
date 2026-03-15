@@ -1,5 +1,13 @@
 # astro-app
 
+## 1.2.0-next.2
+
+### Patch Changes
+
+- 109b073: update astro to v6
+- Updated dependencies [109b073]
+  - @cieloazul310/astro-sarkara@2.2.0-next.2
+
 ## 1.2.0-next.1
 
 ### Patch Changes
