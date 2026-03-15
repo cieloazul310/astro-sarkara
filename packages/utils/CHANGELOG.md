@@ -1,5 +1,11 @@
 # @cieloazul310/astro-sarkara-utils
 
+## 2.2.0-next.2
+
+### Patch Changes
+
+- 109b073: update astro to v6
+
 ## 2.2.0-next.1
 
 ### Patch Changes
