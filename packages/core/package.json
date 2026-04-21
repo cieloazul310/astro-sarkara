@@ -58,7 +58,7 @@
   },
   "peerDependencies": {
     "@pandacss/dev": "^1.0.0",
-    "astro": "^5.0.0 || ^6.0.0"
+    "astro": "^6.1.6"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts,astro}": [
