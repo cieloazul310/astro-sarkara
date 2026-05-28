@@ -32,7 +32,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "tsup": "^8.5.1",
-    "turbo": "^2.8.15",
+    "turbo": "^2.9.16",
     "typescript": "^5.9.3"
   },
   "packageManager": "npm@11.11.0"
