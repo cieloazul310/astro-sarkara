@@ -1,5 +1,22 @@
 # astro-app
 
+## 1.2.0
+
+### Minor Changes
+
+- cc8b104: Update dependencies
+
+### Patch Changes
+
+- 36c619c: update to astro v7
+- c2f0d4c: style update
+- 109b073: update astro to v6
+- Updated dependencies [36c619c]
+- Updated dependencies [cc8b104]
+- Updated dependencies [c2f0d4c]
+- Updated dependencies [109b073]
+  - @cieloazul310/astro-sarkara@2.2.0
+
 ## 1.2.0-next.3
 
 ### Patch Changes
