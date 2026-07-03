@@ -1,6 +1,6 @@
 import { defineTextStyles } from "@pandacss/dev";
 
-export default defineTextStyles({
+export const textStyles = defineTextStyles({
   headings: {
     description: "Text style for heading.",
     value: {
