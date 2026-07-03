@@ -9,13 +9,8 @@ const tutorialCollection = defineCollection({
     z.object({
       title: z.string(),
       index: z.number(),
-      featuredImg: image()
-        .optional()
-        .catch((ctx) => {
-          console.warn(ctx.issues);
-          return undefined;
-        }),
-      featuredImgAlt: z.string().optional(),
+      featuredImg: image().nullish(),
+      featuredImgAlt: z.string().nullish(),
     }),
 });
 
