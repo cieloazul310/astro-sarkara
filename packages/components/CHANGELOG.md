@@ -1,5 +1,14 @@
 # @cieloazul310/astro-sarkara-components
 
+## 6.0.0-next.3
+
+### Patch Changes
+
+- 36c619c: update to astro v7
+- Updated dependencies [36c619c]
+  - @cieloazul310/panda-preset-sarkara-base@2.2.0-next.3
+  - @cieloazul310/astro-sarkara-utils@2.2.0-next.3
+
 ## 6.0.0-next.2
 
 ### Patch Changes

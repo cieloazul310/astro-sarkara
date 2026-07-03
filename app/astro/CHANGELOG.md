@@ -1,5 +1,13 @@
 # astro-app
 
+## 1.2.0-next.3
+
+### Patch Changes
+
+- 36c619c: update to astro v7
+- Updated dependencies [36c619c]
+  - @cieloazul310/astro-sarkara@2.2.0-next.3
+
 ## 1.2.0-next.2
 
 ### Patch Changes
