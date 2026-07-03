@@ -9,8 +9,8 @@ const tutorialCollection = defineCollection({
     z.object({
       title: z.string(),
       index: z.number(),
-      featuredImg: image().nullish(),
-      featuredImgAlt: z.string().nullish(),
+      featuredImg: image().optional(),
+      featuredImgAlt: z.string().optional(),
     }),
 });
 
