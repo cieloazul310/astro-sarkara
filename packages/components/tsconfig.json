@@ -6,10 +6,9 @@
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "styled-system/*": ["./styled-system/*"]
     }
   },
-  "include": ["src", "eslint.config.mjs", "panda.config.ts", "tsup.config.ts"]
+  "include": ["src", "eslint.config.mjs", "panda.config.ts", "tsdown.config.ts"]
 }

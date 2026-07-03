@@ -1,6 +1,6 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
-export default defineSemanticTokens({
+export const semanticTokens = defineSemanticTokens({
   colors: {
     bg: { value: { base: "white", _dark: "{colors.neutral.900}" } },
     fg: {

@@ -42,21 +42,20 @@
     "check": "astro check"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.7",
-    "@astrojs/ts-plugin": "^1.10.7",
+    "@astrojs/ts-plugin": "^1.10.10",
     "@cieloazul310/astro-sarkara-components": "^6.0.0-next.2",
     "@cieloazul310/astro-sarkara-utils": "^2.2.0-next.2",
-    "@pandacss/dev": "^1.9.0",
+    "@pandacss/dev": "^1.11.4",
     "@repo/eslint-config": "^1.2.0-next.2",
     "@repo/typescript-config": "^1.2.0-next.2",
-    "astro": "^6.0.2",
-    "eslint": "^9.39.2"
+    "astro": "^7.0.6",
+    "eslint": "^10.6.0"
   },
   "peerDependencies": {
     "@cieloazul310/astro-sarkara-components": "^6.0.0-next.2",
     "@cieloazul310/astro-sarkara-utils": "^2.2.0-next.2",
     "@cieloazul310/panda-preset-sarkara-base": "^2.2.0-next.2",
-    "astro": "^5.0.0 || ^6.0.0"
+    "astro": "^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts,astro}": [

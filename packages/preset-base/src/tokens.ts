@@ -1,6 +1,6 @@
 import { defineTokens } from "@pandacss/dev";
 
-export default defineTokens({
+export const tokens = defineTokens({
   sizes: {
     headerHeight: { value: "56px" },
     contentMaxWidth: { value: "1280px" },

@@ -17,7 +17,7 @@ const astroCode = {
   rounded: "xl",
 };
 
-export default defineGlobalStyles({
+export const globalCss = defineGlobalStyles({
   ":root": {
     "--global-font-body": "token(fonts.body)",
   },

@@ -6,9 +6,9 @@ import pluginJs from "@eslint/js";
 import turboConfig from "eslint-config-turbo/flat";
 import tseslint from "typescript-eslint";
 import importPlugin from "eslint-plugin-import";
-import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+// import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import eslintPluginAstro from "eslint-plugin-astro";
-import astroParser from "astro-eslint-parser";
+import * as astroParser from "astro-eslint-parser";
 import typescriptEslintParser from "@typescript-eslint/parser";
 import eslintConfigPrettier from "eslint-config-prettier";
 
@@ -19,12 +19,15 @@ export default defineConfig([
   ...turboConfig,
   importPlugin.flatConfigs.recommended,
   ...tseslint.configs.recommended,
+  /*
   {
     plugins: {
       "jsx-a11y": jsxA11yPlugin,
     },
   },
   ...eslintPluginAstro.configs["jsx-a11y-recommended"],
+  */
+  ...eslintPluginAstro.configs.recommended,
   {
     languageOptions: {
       ecmaVersion: 2024,

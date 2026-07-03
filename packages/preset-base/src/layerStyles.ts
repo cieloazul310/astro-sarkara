@@ -1,6 +1,6 @@
 import { defineLayerStyles } from "@pandacss/dev";
 
-const layerStyles = defineLayerStyles({
+export const layerStyles = defineLayerStyles({
   paper: {
     description: "Sarkara basic paper style with translucent background color.",
     value: {
@@ -11,5 +11,3 @@ const layerStyles = defineLayerStyles({
     },
   },
 });
-
-export default layerStyles;

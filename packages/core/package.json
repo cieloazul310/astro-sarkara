@@ -12,9 +12,9 @@
       "import": "./src/index.ts"
     },
     "./preset": {
-      "types": "./dist/preset.d.ts",
+      "types": "./dist/preset.d.mts",
       "require": "./dist/preset.cjs",
-      "import": "./dist/preset.js"
+      "import": "./dist/preset.mjs"
     }
   },
   "files": [
@@ -39,9 +39,9 @@
     "directory": "packages/core"
   },
   "scripts": {
-    "tsup": "tsup",
-    "dev": "npm run tsup -- --watch",
-    "build": "npm run clean && npm run tsup",
+    "tsdown": "tsdown",
+    "dev": "npm run tsdown -- --watch",
+    "build": "npm run clean && npm run tsdown",
     "clean": "git clean -fx .turbo/ dist/"
   },
   "dependencies": {
@@ -51,14 +51,14 @@
     "@cieloazul310/panda-preset-sarkara-base": "^2.2.0-next.2"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.9.0",
+    "@pandacss/dev": "^1.11.4",
     "@repo/eslint-config": "^1.2.0-next.2",
     "@repo/typescript-config": "^1.2.0-next.2",
-    "eslint": "^9.39.2"
+    "eslint": "^10.6.0"
   },
   "peerDependencies": {
     "@pandacss/dev": "^1.0.0",
-    "astro": "^5.0.0 || ^6.0.0"
+    "astro": "^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts,astro}": [
