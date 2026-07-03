@@ -1,5 +1,17 @@
 # @cieloazul310/astro-sarkara-utils
 
+## 2.2.0
+
+### Minor Changes
+
+- cc8b104: Update dependencies
+
+### Patch Changes
+
+- 36c619c: update to astro v7
+- c2f0d4c: style update
+- 109b073: update astro to v6
+
 ## 2.2.0-next.3
 
 ### Patch Changes
