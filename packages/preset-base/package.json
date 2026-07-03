@@ -3,19 +3,19 @@
   "description": "Panda CSS base preset for astro-sarkara packages.",
   "version": "2.2.0-next.2",
   "license": "ISC",
-  "main": "./dist/index.js",
+  "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
       },
       "import": {
         "types": "./dist/index.d.mts",
         "import": "./dist/index.mjs"
       },
-      "default": "./dist/index.js"
+      "default": "./dist/index.mjs"
     }
   },
   "files": [
@@ -39,16 +39,16 @@
     "directory": "packages/preset-base"
   },
   "scripts": {
-    "tsup": "tsup",
-    "build": "npm run clean && npm run tsup",
-    "dev": "npm run tsup -- --watch",
+    "tsdown": "tsdown",
+    "build": "npm run clean && npm run tsdown",
+    "dev": "npm run tsdown -- --watch",
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.9.0",
+    "@pandacss/dev": "^1.11.4",
     "@repo/eslint-config": "^1.2.0-next.2",
     "@repo/typescript-config": "^1.2.0-next.2",
-    "eslint": "^9.39.2"
+    "eslint": "^10.6.0"
   },
   "peerDependencies": {
     "@pandacss/dev": "^1.0.0"

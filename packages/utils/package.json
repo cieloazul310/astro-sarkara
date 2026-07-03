@@ -4,8 +4,8 @@
   "version": "2.2.0-next.2",
   "license": "ISC",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -27,15 +27,15 @@
     "directory": "packages/utils"
   },
   "scripts": {
-    "tsup": "tsup",
-    "build": "npm run clean && npm run tsup",
-    "dev": "npm run tsup -- --watch",
+    "tsdown": "tsdown",
+    "build": "npm run clean && npm run tsdown",
+    "dev": "npm run tsdown -- --watch",
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
     "@repo/eslint-config": "^1.2.0-next.2",
     "@repo/typescript-config": "^1.2.0-next.2",
-    "eslint": "^9.39.2"
+    "eslint": "^10.6.0"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts,astro}": [

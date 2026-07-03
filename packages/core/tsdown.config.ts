@@ -1,4 +1,4 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   entry: ["src/preset.ts", "src/article-classes.ts"],
@@ -11,7 +11,14 @@ export default defineConfig({
     "@cieloazul310/astro-sarkara-utils",
     "styled-system",
   ],
-  format: ["cjs", "esm"],
+  format: {
+    esm: {
+      target: ["esnext"],
+    },
+    cjs: {
+      target: ["node22"],
+    },
+  },
   dts: true,
   outDir: "dist",
 });

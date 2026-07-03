@@ -1,7 +1,7 @@
+import { defineConfig } from "eslint/config";
 import config from "@repo/eslint-config";
 
-/** @type {import("eslint").Linter.Config[]} */
-export default [
+export default defineConfig([
   ...config,
   /*
   {
@@ -15,4 +15,4 @@ export default [
     },
   },
   */
-];
+]);
