@@ -1,8 +1,8 @@
 import { defineConfig } from "@pandacss/dev";
-import sarkaraPresetBase from "@cieloazul310/panda-preset-sarkara-base";
-import patterns from "./src/preset/patterns";
-import recipes from "./src/preset/recipes";
-import slotRecipes from "./src/preset/slotRecipes";
+import { sarkaraPresetBase } from "@cieloazul310/panda-preset-sarkara-base";
+import { patterns } from "./src/preset/patterns";
+import { recipes } from "./src/preset/recipes";
+import { slotRecipes } from "./src/preset/slot-recipes";
 
 export default defineConfig({
   presets: [
