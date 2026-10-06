@@ -1,5 +1,11 @@
 # @cieloazul310/panda-preset-sarkara-base
 
+## 2.3.0
+
+### Minor Changes
+
+- ffdfa37: Panda CSS v2に対応
+
 ## 2.2.0
 
 ### Minor Changes

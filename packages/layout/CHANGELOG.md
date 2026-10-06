@@ -1,5 +1,18 @@
 # @cieloazul310/astro-sarkara-layout
 
+## 6.1.0
+
+### Minor Changes
+
+- ffdfa37: Panda CSS v2に対応
+
+### Patch Changes
+
+- Updated dependencies [ffdfa37]
+  - @cieloazul310/astro-sarkara-components@6.1.0
+  - @cieloazul310/astro-sarkara-utils@2.3.0
+  - @cieloazul310/panda-preset-sarkara-base@2.3.0
+
 ## 6.0.0
 
 ### Minor Changes
