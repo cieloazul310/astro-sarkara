@@ -1,10 +1,12 @@
 import { defineConfig } from "@pandacss/dev";
 import sarkaraPresetBase from "@cieloazul310/panda-preset-sarkara-base";
+/* eslint-disable-next-line import-x/no-unresolved */
 import sarkaraComponentsPreset from "@cieloazul310/astro-sarkara-components/preset";
 
 export default defineConfig({
   presets: [
-    "@pandacss/dev/presets",
+    "@pandacss/preset-base",
+    "@pandacss/preset-panda",
     sarkaraPresetBase,
     sarkaraComponentsPreset,
   ],

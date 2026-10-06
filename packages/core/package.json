@@ -51,13 +51,17 @@
     "@cieloazul310/panda-preset-sarkara-base": "^2.2.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.11.4",
+    "@pandacss/dev": "^2.1.1",
+    "@pandacss/preset-base": "^2.1.1",
+    "@pandacss/preset-panda": "^2.1.1",
     "@repo/eslint-config": "^1.2.0",
     "@repo/typescript-config": "^1.2.0",
-    "eslint": "^10.6.0"
+    "eslint": "^10.12.0"
   },
   "peerDependencies": {
-    "@pandacss/dev": "^1.0.0",
+    "@pandacss/dev": "^1.0.0 || ^2.0.0",
+    "@pandacss/preset-base": "^1.0.0 || ^2.0.0",
+    "@pandacss/preset-panda": "^1.0.0 || ^2.0.0",
     "astro": "^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "lint-staged": {

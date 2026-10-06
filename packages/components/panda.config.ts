@@ -5,7 +5,11 @@ import recipes from "./src/preset/recipes";
 import slotRecipes from "./src/preset/slotRecipes";
 
 export default defineConfig({
-  presets: ["@pandacss/dev/presets", sarkaraPresetBase],
+  presets: [
+    "@pandacss/preset-base",
+    "@pandacss/preset-panda",
+    sarkaraPresetBase,
+  ],
 
   // Whether to use css reset
   preflight: true,
