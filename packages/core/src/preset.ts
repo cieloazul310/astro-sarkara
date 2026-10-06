@@ -5,17 +5,28 @@ import {
   type Config,
 } from "@pandacss/dev";
 import sarkaraPresetBase from "@cieloazul310/panda-preset-sarkara-base";
+/* eslint-disable-next-line import-x/no-unresolved */
 import sarkaraComponentsPreset from "@cieloazul310/astro-sarkara-components/preset";
-import { definePalette, type SarkaraPaletteOptions } from "./definePalette";
+import {
+  definePalette,
+  type SarkaraPaletteOptions,
+  type PandaPalette,
+} from "./definePalette";
 
+/**
+ * @deprecated
+ */
 export type CreateSarkaraPresetOptions = Omit<Preset, "name"> & {
   palette: SarkaraPaletteOptions;
 };
 
 export function createSarkaraPreset({
-  palette,
-  ...preset
-}: CreateSarkaraPresetOptions) {
+  primaryColor = "blue",
+  secondaryColor = "yellow",
+}: {
+  primaryColor: PandaPalette;
+  secondaryColor: PandaPalette;
+}) {
   return definePreset({
     name: "sarkara-preset",
     presets: [sarkaraPresetBase, sarkaraComponentsPreset],
@@ -23,15 +34,20 @@ export function createSarkaraPreset({
       extend: {
         semanticTokens: {
           colors: {
-            ...definePalette(palette),
+            ...definePalette({
+              primary: primaryColor,
+              secondary: secondaryColor,
+            }),
           },
         },
       },
     },
-    ...preset,
   });
 }
 
+/**
+ * @deprecated
+ */
 export function defineSarkaraConfig({
   palette,
   ...options
@@ -40,7 +56,8 @@ export function defineSarkaraConfig({
     ...options,
     preflight: true,
     presets: [
-      "@pandacss/dev/presets",
+      "@pandacss/preset-base",
+      "@pandacss/preset-panda",
       sarkaraPresetBase,
       sarkaraComponentsPreset,
       ...(options?.presets ?? []),

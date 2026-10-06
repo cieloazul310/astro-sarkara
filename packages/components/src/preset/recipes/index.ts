@@ -133,4 +133,9 @@ export const navigationHgroup = defineRecipe({
   },
 });
 
-export default { heading, buttonBase, paginationButton, navigationHgroup };
+export const recipes = {
+  heading,
+  buttonBase,
+  paginationButton,
+  navigationHgroup,
+};

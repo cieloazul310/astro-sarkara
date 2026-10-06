@@ -30,16 +30,15 @@
     "tsdown": "tsdown",
     "build": "npm run clean && npm run tsdown",
     "dev": "npm run tsdown -- --watch",
+    "lint": "oxlint",
     "clean": "git clean -fx .turbo/ dist/"
   },
   "devDependencies": {
-    "@repo/eslint-config": "^1.2.0",
-    "@repo/typescript-config": "^1.2.0",
-    "eslint": "^10.6.0"
+    "@repo/typescript-config": "^1.2.0"
   },
   "lint-staged": {
-    "**/*.{js,cjs,mjs,ts,astro}": [
-      "eslint --fix",
+    "**/*.{js,cjs,mjs,ts}": [
+      "oxlint --fix",
       "prettier --write"
     ]
   }

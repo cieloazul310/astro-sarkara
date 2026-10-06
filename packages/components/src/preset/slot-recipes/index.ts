@@ -1,5 +1,5 @@
 import { defineSlotRecipe } from "@pandacss/dev";
-import articleClasses from "./article-classes";
+import { articleClasses } from "./article-classes";
 
 export const button = defineSlotRecipe({
   className: "button",
@@ -108,4 +108,4 @@ export const navigation = defineSlotRecipe({
   },
 });
 
-export default { button, iconButton, navigation, articleClasses };
+export const slotRecipes = { button, iconButton, navigation, articleClasses };

@@ -17,7 +17,7 @@ const paper: SystemStyleObject = {
   wordBreak: "break-all",
 };
 
-const articleClasses = defineSlotRecipe({
+export const articleClasses = defineSlotRecipe({
   className: "sarkara-article",
   slots: [
     "h1",
@@ -182,5 +182,3 @@ const articleClasses = defineSlotRecipe({
     },
   },
 });
-
-export default articleClasses;

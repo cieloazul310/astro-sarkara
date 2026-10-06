@@ -1,7 +1,13 @@
-import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
+import { defineConfig } from "@pandacss/dev";
+import { createSarkaraPreset } from "@cieloazul310/astro-sarkara/preset";
 
-const config = defineSarkaraConfig({
-  palette: { primary: "teal", secondary: "yellow" },
+export default defineConfig({
+  preflight: true,
+  presets: [
+    "@pandacss/preset-base",
+    "@pandacss/preset-panda",
+    createSarkaraPreset({ primaryColor: "teal", secondaryColor: "yellow" }),
+  ],
   include: [
     "./src/**/*.{js,ts,astro,mdx}",
     "../../packages/**/src/**/*.{js,ts,astro}",
@@ -11,7 +17,5 @@ const config = defineSarkaraConfig({
       // customize theme
     },
   },
-  outdir: "styled-system",
+  outDir: "styled-system",
 });
-
-export default config;

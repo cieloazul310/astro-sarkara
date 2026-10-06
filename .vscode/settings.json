@@ -1,0 +1,4 @@
+{
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.validate": ["astro"]
+}
