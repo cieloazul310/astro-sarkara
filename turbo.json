@@ -10,6 +10,7 @@
       "dependsOn": ["^dev"],
       "outputs": ["node_modules", "dist"]
     },
+    "lint": {},
     "clean": {}
   }
 }

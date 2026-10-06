@@ -1,5 +1,5 @@
 ---
-/* eslint-disable-next-line import/no-unresolved */
+/* eslint-disable-next-line import-x/no-unresolved */
 import { Image, type LocalImageProps } from "astro:assets";
 import type { HTMLAttributes } from "astro/types";
 import { css } from "styled-system/css";
@@ -68,54 +68,48 @@ const {
           rounded: "xl",
         })}
       >
-        {
-          astroImage && (
-            <Image
-              class={css({
-                objectFit: "fill",
-                rounded: "xl",
-                zIndex: 0,
-                _dark: {
-                  filter: "brightness(0.8)",
-                },
-              })}
-              src={astroImage}
-              width={240}
-              densities={[1, 2]}
-              alt={imageAlt ?? title ?? imagePlaceholder}
-            />
-          )
-        }
-        {
-          !astroImage && image && (
-            <img
-              class={css({
-                objectFit: "fill",
-                rounded: "xl",
-                zIndex: 0,
-                _dark: {
-                  filter: "brightness(0.8)",
-                },
-              })}
-              src={image}
-              alt={imageAlt}
-            />
-          )
-        }
-        {
-          !astroImage && !image && (
-            <span
-              class={css({
-                fontWeight: "extrabold",
-                fontSize: ["sm", "md"],
-                color: { base: "primary.600", _dark: "primary.200" },
-                opacity: 0.4,
-              })}
-            >
-              {imagePlaceholder}
-            </span>
-          )
-        }
+        {astroImage && (
+          <Image
+            class={css({
+              objectFit: "fill",
+              rounded: "xl",
+              zIndex: 0,
+              _dark: {
+                filter: "brightness(0.8)",
+              },
+            })}
+            src={astroImage}
+            width={240}
+            densities={[1, 2]}
+            alt={imageAlt ?? title ?? imagePlaceholder}
+          />
+        )}
+        {!astroImage && image && (
+          <img
+            class={css({
+              objectFit: "fill",
+              rounded: "xl",
+              zIndex: 0,
+              _dark: {
+                filter: "brightness(0.8)",
+              },
+            })}
+            src={image}
+            alt={imageAlt}
+          />
+        )}
+        {!astroImage && !image && (
+          <span
+            class={css({
+              fontWeight: "extrabold",
+              fontSize: ["sm", "md"],
+              color: { base: "primary.600", _dark: "primary.200" },
+              opacity: 0.4,
+            })}
+          >
+            {imagePlaceholder}
+          </span>
+        )}
       </div>
     </div>
     <div
@@ -133,9 +127,7 @@ const {
           gap: 2,
         })}
       >
-        <slot name="headerText">
-          {headerText}
-        </slot>
+        <slot name="headerText">{headerText}</slot>
       </header>
       <Link
         className={linkOverlay({
@@ -153,9 +145,7 @@ const {
         </slot>
       </Link>
       <footer class={css({ fontSize: ["sm", "md"] })}>
-        <slot name="footerText">
-          {footerText}
-        </slot>
+        <slot name="footerText">{footerText}</slot>
       </footer>
     </div>
   </article>

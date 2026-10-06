@@ -11,7 +11,7 @@
     "astro": "astro",
     "panda": "panda",
     "check": "astro check",
-    "eslint": "eslint src --fix"
+    "lint": "oxlint && eslint \"src/**/*.astro\""
   },
   "dependencies": {
     "@cieloazul310/astro-sarkara": "^2.2.0",
@@ -31,7 +31,11 @@
     "eslint": "^10.12.0"
   },
   "lint-staged": {
-    "**/*.{js,cjs,mjs,ts,astro}": [
+    "**/*.{js,cjs,mjs,ts}": [
+      "oxlint --fix",
+      "prettier --write"
+    ],
+    "**/*.astro": [
       "eslint --fix",
       "prettier --write"
     ]
