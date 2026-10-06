@@ -34,7 +34,7 @@ npm create astro@latest
 ### 2. Install Panda CSS and configure
 
 ```sh
-npm install -D @pandacss/dev
+npm install -D @pandacss/dev @pandacss/vite
 npx panda init
 ```
 
@@ -46,13 +46,6 @@ npx panda init
 }
 ```
 
-```js
-// postcss.config.cjs
-module.exports = {
-  plugins: [require("@pandacss/dev/postcss")()],
-};
-```
-
 <https://panda-css.com/docs/installation/astro>
 
 ### 3. Add astro-sarkara and configure
@@ -61,31 +54,54 @@ module.exports = {
 npm install @cieloazul310/astro-sarkara
 ```
 
-#### Panda Config
+#### Panda config
 
-```ts:panda.config.ts
+```ts
 // panda.config.ts
-import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
+import { defineConfig } from "@pandacss/dev";
+import { createSarkaraPreset } from "@cieloazul310/astro-sarkara/preset";
 
-export default defineSarkaraConfig({
-  palette: { primary: "teal", secondary: "yellow" },
-  include: [
-    "./src/**/*.{js,jsx,ts,tsx,astro,mdx}", 
-    "./node_modules/@cieloazul310/**/*.{js,ts,astro}"
+export default defineConfig({
+  preflight: true,
+  presets: [
+    "@pandacss/preset-base",
+    "@pandacss/preset-panda",
+    createSarkaraPreset({ primaryColor: "indigo", secondaryColor: "amber" }),
   ],
-  
-  // ...pandaConfig,
+  include: [
+    "./src/**/*.{js,ts,astro,mdx}",
+    "./node_modules/@cieloazul310/**/*.{js,ts,astro}",
+  ],
+  theme: {
+    extend: {
+      // customize theme
+    },
+  },
+  outDir: "styled-system",
 });
 ```
 
 <https://panda-css.com/docs/references/config>
 
-#### TypeScript Config
+#### Astro config
+
+```ts
+// astro.config.ts
+import { defineConfig } from "astro/config";
+import pandacss from "@pandacss/vite";
+
+export default defineConfig({
+  vite: {
+    plugins: [pandacss()],
+  },
+});
+```
+
+#### TypeScript config
 
 ```json
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "styled-system/*": ["./styled-system/*"]
     }
@@ -155,31 +171,27 @@ const siteMetadata = defineSiteMetadata({
 ### 1. Using `defineSarkaraConfig`
 
 ```ts:panda.config.ts
-// import { defineConfig } from "@pandacss/dev";
+import { defineConfig } from "@pandacss/dev";
 import {
-  defineSarkaraConfig,
-  // createSarkaraPreset,
+  createSarkaraPreset,
 } from "@cieloazul310/astro-sarkara/preset";
 
-export default defineSarkaraConfig({
-  palette: { primary: "teal", secondary: "yellow" },
-  include: ["./src/**/*.{js,jsx,ts,tsx,astro,mdx}"],
-  
-  // ...pandaConfig,
-});
-
-/* equivalent to
 export default defineConfig({
+  preflight: true,
+
   presets: [
-    "@pandacss/dev/presets",
-    createSarkaraPreset({ palette: { primary: "teal", secondary: "yellow" } }),
+    "@pandacss/preset-base",
+    "@pandacss/preset-panda",
+    createSarkaraPreset({ primaryColor: "teal", secondaryColor: "yellow" }),
   ],
 
-  include: ["./src/**/*.{js,ts,astro}", "./node_modules/**/*.{js,ts,astro}"],
+  include: [
+    "./src/**/*.{js,ts,astro}", 
+    "./node_modules/**/*.{js,ts,astro}"
+  ],
 
   outdir: "styled-system",
 });
-*/
 ```
 
 <https://panda-css.com/docs/references/config#presets>
@@ -197,6 +209,52 @@ danger: red
   secondary.600 => yellow.600
   danger.800 => red.800
 ```
+
+## Upgrade to Panda CSS v2
+
+### 1. Upgrade `@cieloazul310/astro-sarkara` >= v2.3
+
+```sh
+npm install @cieloazul310/astro-sarkara@latest
+```
+
+### 2. Install `@pandacss/vite`
+
+```sh
+npm install @pandacss/vite --save-dev
+```
+
+### 3. Remove `postcss.config.cjs`
+
+### 4. Panda config
+
+```diff
+// panda.config.ts
++ import { defineConfig } from "@pandacss/dev";
+- import { defineSarkaraConfig } from "@cieloazul310/astro-sarkara/preset";
++ import { createSarkaraPreset } from "@cieloazul310/astro-sarkara/preset";
+
+export default defineConfig({
+  preflight: true,
+  presets: [
++    "@pandacss/preset-base",
++    "@pandacss/preset-panda",
++    createSarkaraPreset({ primaryColor: "indigo", secondaryColor: "amber" }),
+  ],
+  include: [
+    "./src/**/*.{js,ts,astro,mdx}",
+    "./node_modules/@cieloazul310/**/*.{js,ts,astro}",
+  ],
+  theme: {
+    extend: {
+      // customize theme
+    },
+  },
+  outDir: "styled-system",
+});
+```
+
+### 5. Astro config
 
 ## Upgrade to v2 (Breaking Changes)
 
@@ -216,7 +274,7 @@ npm install astro-icon @iconify-json/mdi
 Upgrade to Astro Icon v1  
 <https://www.astroicon.dev/guides/upgrade/v1/>
 
-### 2. Panda Config
+### 2. Panda config
 
 ```diff
 // panda.config.ts
@@ -236,13 +294,17 @@ export default defineSarkaraConfig({
 ```diff
 // astro.config.ts
 import { defineConfig } from "astro/config";
-+import icon from "astro-icon";
+import icon from "astro-icon";
++ import pandacss from "@pandacss/vite";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-+   icon(),
+   icon(),
   ],
++  vite: {
++    plugins: [pandacss()],
++  },
 });
 ```
 
@@ -254,7 +316,6 @@ Upgrade to Astro Icon v1
 ```diff
 {
   "compilerOptions": {
-+   "baseUrl": ".",
 +   "paths": {
 +     "styled-system/*": ["./styled-system/*"]
     }
@@ -305,13 +366,15 @@ export default articleClasses();
 ```
 
 ```shell
-npm install @astrojs/mdx rehype-class-names
+npm install @astrojs/mdx @astrojs/markdown-remark rehype-class-names
 ```
 
 ```diff
 // astro.config.ts
 import { defineConfig } from "astro/config";
 + import mdx from "@astrojs/mdx";
++ import { unified } from "@astrojs/markdown-remark";
+import pandacss from "@pandacss/vite";
 + import rehypeClassNames from "rehype-class-names";
 + import mdxClasses from "./src/mdx-classes";
 
@@ -320,8 +383,13 @@ export default defineConfig({
 +   mdx(),
   ],
 + markdown: {
-+   rehypePlugins: [[rehypeClassNames, mdxClasses]],
++    processor: unified({
++     rehypePlugins: [[rehypeClassNames, mdxClasses]],
++   }),
 + },
+  vite: {
+    plugins: [pandacss()],
+  },
 });
 ```
 
