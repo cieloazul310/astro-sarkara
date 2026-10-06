@@ -1,7 +1,7 @@
 {
   "name": "@cieloazul310/astro-sarkara",
   "description": "Core package of astro-sarkara, including Astro components and layout built with Panda CSS.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "license": "ISC",
   "type": "module",
   "main": "./src/index.ts",
@@ -46,10 +46,10 @@
     "clean": "git clean -fx .turbo/ dist/"
   },
   "dependencies": {
-    "@cieloazul310/astro-sarkara-components": "^6.0.0",
-    "@cieloazul310/astro-sarkara-layout": "^6.0.0",
-    "@cieloazul310/astro-sarkara-utils": "^2.2.0",
-    "@cieloazul310/panda-preset-sarkara-base": "^2.2.0"
+    "@cieloazul310/astro-sarkara-components": "^6.1.0",
+    "@cieloazul310/astro-sarkara-layout": "^6.1.0",
+    "@cieloazul310/astro-sarkara-utils": "^2.3.0",
+    "@cieloazul310/panda-preset-sarkara-base": "^2.3.0"
   },
   "devDependencies": {
     "@pandacss/dev": "^2.1.1",

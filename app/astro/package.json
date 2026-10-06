@@ -14,7 +14,7 @@
     "lint": "oxlint && eslint \"src/**/*.astro\""
   },
   "dependencies": {
-    "@cieloazul310/astro-sarkara": "^2.2.0",
+    "@cieloazul310/astro-sarkara": "^2.3.0",
     "@iconify-json/mdi": "^1.2.3",
     "astro": "^7.3.5",
     "astro-icon": "^1.2.0",
