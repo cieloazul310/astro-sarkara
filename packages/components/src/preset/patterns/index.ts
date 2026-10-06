@@ -45,4 +45,4 @@ export const paper = definePattern({
   },
 });
 
-export default { gradientBox, paper };
+export const patterns = { gradientBox, paper };

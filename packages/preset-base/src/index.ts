@@ -1,12 +1,12 @@
 import { definePreset } from "@pandacss/dev";
-import { globalCss } from "./globalCss";
-import { layerStyles } from "./layerStyles";
-import { semanticTokens } from "./semanticTokens";
-import { textStyles } from "./textStyles";
+import { globalCss } from "./global-css";
+import { layerStyles } from "./layer-styles";
+import { semanticTokens } from "./semantic-tokens";
+import { textStyles } from "./text-styles";
 import { tokens } from "./tokens";
 import { utilities } from "./utilities";
 
-const sarkaraPresetBase = definePreset({
+export const sarkaraPresetBase = definePreset({
   name: "sarkara-preset-base",
   globalCss,
   conditions: {

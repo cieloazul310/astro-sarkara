@@ -1,9 +1,9 @@
 import { definePreset } from "@pandacss/dev";
-import patterns from "./patterns";
-import recipes from "./recipes";
-import slotRecipes from "./slotRecipes";
+import { patterns } from "./patterns";
+import { recipes } from "./recipes";
+import { slotRecipes } from "./slot-recipes";
 
-const sarkaraComponentsPreset = definePreset({
+export const sarkaraComponentsPreset = definePreset({
   name: "sarkara-components",
   patterns,
   theme: {
