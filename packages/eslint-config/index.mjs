@@ -3,7 +3,6 @@ import { resolve } from "path";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import turboConfig from "eslint-config-turbo/flat";
 import tseslint from "typescript-eslint";
 import { importX } from "eslint-plugin-import-x";
 // import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
@@ -17,7 +16,6 @@ const project = resolve(cwd(), "./tsconfig.json");
 
 export default defineConfig([
   pluginJs.configs.recommended,
-  ...turboConfig,
   ...tseslint.configs.recommended,
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,

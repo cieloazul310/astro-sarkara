@@ -37,6 +37,7 @@
     "panda": "panda",
     "build": "npm run panda -- --clean",
     "dev": "npm run panda -- --watch",
+    "lint": "oxlint && eslint \"src/**/*.astro\"",
     "clean": "git clean -fx .turbo/ styled-system/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "astro check"
@@ -60,7 +61,11 @@
     "astro": "^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "lint-staged": {
-    "**/*.{js,cjs,mjs,ts,astro}": [
+    "**/*.{js,cjs,mjs,ts}": [
+      "oxlint --fix",
+      "prettier --write"
+    ],
+    "**/*.astro": [
       "eslint --fix",
       "prettier --write"
     ]

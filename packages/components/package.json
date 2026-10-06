@@ -49,6 +49,7 @@
     "dev:preset": "npm run tsdown -- --watch",
     "build": "npm run codegen && npm run build:preset",
     "build:preset": "npm run tsdown -- --clean",
+    "lint": "oxlint && eslint \"src/**/*.astro\"",
     "check": "astro check",
     "clean": "git clean -fx .turbo/ styled-system/"
   },
@@ -73,7 +74,11 @@
     "astro-icon": "^1.0.0"
   },
   "lint-staged": {
-    "**/*.{js,cjs,mjs,ts,astro}": [
+    "**/*.{js,cjs,mjs,ts}": [
+      "oxlint --fix",
+      "prettier --write"
+    ],
+    "**/*.astro": [
       "eslint --fix",
       "prettier --write"
     ]

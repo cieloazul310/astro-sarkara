@@ -1,5 +1,5 @@
 ---
-/* eslint-disable-next-line import/no-unresolved */
+/* eslint-disable-next-line import-x/no-unresolved */
 import { getCollection } from "astro:content";
 import type { GetStaticPathsOptions, InferGetStaticPropsType } from "astro";
 import {
@@ -32,20 +32,18 @@ const { page } = Astro.props;
     {page.currentPage !== 1 && `(${page.currentPage}/${page.lastPage})`}
   </Fragment>
   <ArticleList>
-    {
-      page.data.map((post) => (
-        <ArticleListItem
-          href={slugify("tutorial", post)}
-          title={post.data.title}
-          astroImage={post.data.featuredImg}
-          image={post.data.featuredImg?.src}
-          imageAlt={post.data.featuredImgAlt}
-          imagePlaceholder="Tutorial"
-        >
-          <span slot="headerText">Section {post.data.index}</span>
-        </ArticleListItem>
-      ))
-    }
+    {page.data.map((post) => (
+      <ArticleListItem
+        href={slugify("tutorial", post)}
+        title={post.data.title}
+        astroImage={post.data.featuredImg}
+        image={post.data.featuredImg?.src}
+        imageAlt={post.data.featuredImgAlt}
+        imagePlaceholder="Tutorial"
+      >
+        <span slot="headerText">Section {post.data.index}</span>
+      </ArticleListItem>
+    ))}
   </ArticleList>
   <Pagination page={page} basePath="/tutorial" />
   <Analytics slot="top-of-head" />

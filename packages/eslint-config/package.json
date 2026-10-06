@@ -3,13 +3,15 @@
   "version": "1.2.0",
   "private": true,
   "main": "index.mjs",
+  "scripts": {
+    "lint": "oxlint"
+  },
   "license": "MIT",
   "dependencies": {
     "@eslint/js": "^10.0.1",
     "@typescript-eslint/parser": "^8.71.1",
     "astro-eslint-parser": "^3.2.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-config-turbo": "^2.11.7",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-import-x": "^4.17.1",
