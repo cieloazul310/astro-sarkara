@@ -62,7 +62,7 @@
     "@pandacss/preset-panda": "^2.1.1",
     "@repo/eslint-config": "^1.2.0",
     "@repo/typescript-config": "^1.2.0",
-    "astro": "^7.3.5",
+    "astro": "^7.4.7",
     "astro-icon": "^1.2.0",
     "eslint": "^10.12.0"
   },
