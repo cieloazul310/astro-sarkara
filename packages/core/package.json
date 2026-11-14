@@ -61,7 +61,7 @@
     "@pandacss/dev": "^1.0.0 || ^2.0.0",
     "@pandacss/preset-base": "^1.0.0 || ^2.0.0",
     "@pandacss/preset-panda": "^1.0.0 || ^2.0.0",
-    "astro": "^5.0.0 || ^6.0.0 || ^7.0.0"
+    "astro": "^7.4.7"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs,ts}": [
